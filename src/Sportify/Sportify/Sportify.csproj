@@ -54,9 +54,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Model\" />
-	  <Folder Include="Controller\" />
-	  <Folder Include="View\" />
+	  <MauiXaml Update="View\HomeFormula1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Standings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\TrackList.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

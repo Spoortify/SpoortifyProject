@@ -4,11 +4,18 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Sportify"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    xmlns:View="clr-namespace:Sportify.View">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate View:HomeFormula1}"
         Route="MainPage" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:TrackList}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:Standings}" />
 
 </Shell>

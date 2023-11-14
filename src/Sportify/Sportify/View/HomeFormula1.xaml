@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.HomeFormula1"
+             Title="HomeFormula1"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             BackgroundColor="#5B5A5A"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <Controller:HomeFormula1Controller/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout VerticalOptions="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Frame HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
+                <VerticalStackLayout>
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/747/747274.png" Aspect="Fill"/>
+                    <Label Text="Driver Standings" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding StandingsCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Column="1" HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
+                <VerticalStackLayout>
+                    <Image Source="https://static.thenounproject.com/png/4977234-200.png" Aspect="Fill"/>
+                    <Label Text="Constructor Standings" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Column="2" HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
+                <VerticalStackLayout>
+                    <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Checkered_flags.svg/2048px-Checkered_flags.svg.png" Aspect="Fill"/>
+                    <Label Text="Race Results" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Row="1" HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
+                <VerticalStackLayout>
+                    <Image Source="https://static.thenounproject.com/png/4146681-200.png" Aspect="Fill"/>
+                    <Label Text="Drivers List" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Column="1" Grid.Row="1" HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
+                <VerticalStackLayout>
+                    <Image Source="https://static.thenounproject.com/png/3538999-200.png" Aspect="Fill"/>
+                    <Label Text="Constructors List" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Column="2" Grid.Row="1" HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
+                <VerticalStackLayout>
+                    <Image Source="https://static.thenounproject.com/png/4761657-200.png" Aspect="Fill"/>
+                    <Label Text="Track List" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TrackListCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

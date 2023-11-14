@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.TrackList"
+             Title="TrackList"
+             Shell.NavBarIsVisible="False"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             xmlns:Model="clr-namespace:Sportify.Model">
+    <ContentPage.BindingContext>
+        <Controller:TrackListController/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center">
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding TrackList.Response}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="Model:TrackResponse">
+                            <Frame>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Image}" Aspect="Fill" Grid.RowSpan="3"
+                                       WidthRequest="200" HeightRequest="100"/>
+                                    <Label Text="{Binding Name}" Grid.Column="1" />
+                                    <Label Text="{Binding Competition.Location.Country}" Grid.Column="2"/>
+                                    <Label Text="{Binding Competition.Location.City}" Grid.Column="3"/>
+                                    <Label Text="{Binding Laps, StringFormat='{0} Laps'}" Grid.Row="1" Grid.Column="2"/>
+                                    <Label Text="{Binding FirstGrandPrix,StringFormat='First Grand Prix: {0}'}" Grid.Row="1" Grid.Column="3"/>
+                                    <Label Text="{Binding LapRecord.Time,StringFormat='Lap Record: {0}'}" Grid.Row="2" Grid.Column="1"/>
+                                    <Label Text="{Binding LapRecord.Driver}" Grid.Row="2" Grid.Column="2"/>
+                                    <Label Text="{Binding LapRecord.Year, StringFormat='Year: {0}'}" Grid.Row="2" Grid.Column="3"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
