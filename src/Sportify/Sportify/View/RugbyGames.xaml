@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.RugbyGames"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="RugbyGames">
+    <VerticalStackLayout>
+        <DatePicker MinimumDate="01/01/2008"
+            Date="{Binding Source={x:Static sys:DateTime.Now}, StringFormat=dd/M/yyyy}"/>
+    </VerticalStackLayout>
+</ContentPage>

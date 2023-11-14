@@ -54,9 +54,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Model\" />
-	  <Folder Include="Controller\" />
-	  <Folder Include="View\" />
+	  <MauiXaml Update="View\HomeRugby.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\RugbyGames.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace test_api_football
+namespace Sportify.Model
 {
     public class Away
     {
@@ -110,10 +110,10 @@ namespace test_api_football
     public class Score
     {
         [JsonPropertyName("home")]
-        public int home { get; set; }
+        public int? home { get; set; }
 
         [JsonPropertyName("away")]
-        public int away { get; set; }
+        public int? away { get; set; }
     }
 
     public class Status
@@ -204,11 +204,11 @@ namespace test_api_football
 
     public class RugbyGamePrincipalInformation
     {
-        public string homeSquadImage { get; set; }
-        public string homeSquadName { get; set; }
-        public int homeSquadScore { get; set; }
-        public string awaySquadImage { get; set; }
-        public string awaySquadName { get; set; }
-        public int awaySquadScore { get; set; }
+        public string? homeSquadImage { get; set; }
+        public string? homeSquadName { get; set; }
+        public int? homeSquadScore { get; set; }
+        public string? awaySquadImage { get; set; }
+        public string? awaySquadName { get; set; }
+        public int? awaySquadScore { get; set; }
     }
 }
