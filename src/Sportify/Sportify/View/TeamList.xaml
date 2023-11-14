@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.TeamList"
+             Title="TeamList"
+             Shell.NavBarIsVisible="False"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             xmlns:Model="clr-namespace:Sportify.Model">
+    <ContentPage.BindingContext>
+        <Controller:TeamListController/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center">
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding TeamList.Response}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="Model:TeamResponse">
+                            <Frame>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Logo}" Grid.RowSpan="4"/>
+                                    <Label Text="{Binding Name}" Grid.Column="1"/>
+                                    <Label Text="{Binding Base}" Grid.Column="2"/>
+                                    <Label Text="{Binding FirstTeamEntry, StringFormat='First Entry: {0}'}" Grid.Column="3"/>
+                                    <Label Text="{Binding WorldChampionships,StringFormat='{0} World Championship'}" Grid.Row="1"
+                                           Grid.Column="1"/>
+                                    <Label Text="{Binding HighestRaceFinish.Position,StringFormat='Highest Finish: {0}'}" Grid.Row="1"
+                                           Grid.Column="2"/>
+                                    <Label Text="{Binding PolePositions, StringFormat='Pole Positions: {0}'}" Grid.Row="1" Grid.Column="3"/>
+                                    <Label Text="{Binding President,StringFormat='President: {0}'}" Grid.Row="2" 
+                                           Grid.Column="1"/>
+                                    <Label Text="{Binding TechnicalManager,StringFormat='Technical Manager: {0}'}" Grid.Row="2"
+                                           Grid.Column="2"/>
+                                    <Label Text="{Binding TechnicalManager, StringFormat='Technical Director: {0}'}" Grid.Row="2"
+                                           Grid.Column="3"/>
+                                    <Label Text="{Binding Engine, StringFormat='Engine: {0}'}" Grid.Row="3" Grid.Column="1"/>
+                                    <Label Text="{Binding Chassis, StringFormat='Chassis: {0}'}" Grid.Row="3" Grid.Column="2"/>
+                                    <Label Text="{Binding Tyres, StringFormat='Tyres: {0}'}" Grid.Row="3" Grid.Column="3"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

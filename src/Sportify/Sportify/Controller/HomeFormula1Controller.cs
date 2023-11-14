@@ -29,5 +29,22 @@ namespace Sportify.Controller
                 {"TrackList", trackList}
             });
         }
+
+        [RelayCommand]
+        public async Task Constructor()
+        {
+            await Shell.Current.GoToAsync(nameof(ConstructorStandings), true);
+        }
+
+        [RelayCommand]
+        public async Task TeamList()
+        {
+            var response = await App.ClientF1.GetAsync("/teams");
+            var teamList = await response.Content.ReadFromJsonAsync<Teams>();
+            await Shell.Current.GoToAsync(nameof(TeamList), true, new Dictionary<string, object>
+            {
+                {"TeamList", teamList }
+            });
+        }
     }
 }

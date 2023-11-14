@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.ConstructorStandings"
+             Title="ConstructorStandings"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             xmlns:Model="clr-namespace:Sportify.Model"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <Controller:ConstructorStandingController/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center" Margin="20">
+            <HorizontalStackLayout>
+                <Label Text="Season:" Margin="0,15,0,0" HorizontalOptions="Center"/>
+                <Picker ItemsSource="{Binding Seasons}" Margin="20,0,0,0" WidthRequest="100" SelectedItem="{Binding Season}"
+                        HorizontalOptions="Center"/>
+                <Button Text="Confirm" Command="{Binding GetStandingsCommand}" HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="POSITION" TextColor="Black" HorizontalOptions="Center"/>
+                <Label Text="" Grid.Column="1" HorizontalOptions="Center"/>
+                <Label Text="TEAM" Grid.Column="2" TextColor="Black" HorizontalOptions="Center"/>
+                <Label Text="POINTS" Grid.Column="3" TextColor="Black" HorizontalOptions="Center"/>
+            </Grid>
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding Constructor.Response}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="Model:ConstructorResponse">
+                            <Frame BackgroundColor="#5B5A5A">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Position}"/>
+                                    <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Team.Name}" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Points}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

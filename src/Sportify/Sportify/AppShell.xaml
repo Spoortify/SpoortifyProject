@@ -17,5 +17,11 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate View:Standings}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:ConstructorStandings}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:TeamList}" />
 
 </Shell>

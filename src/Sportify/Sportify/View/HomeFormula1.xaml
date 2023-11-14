@@ -34,6 +34,9 @@
                     <Image Source="https://static.thenounproject.com/png/4977234-200.png" Aspect="Fill"/>
                     <Label Text="Constructor Standings" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ConstructorCommand}"/>
+                </Frame.GestureRecognizers>
             </Frame>
             <Frame Grid.Column="2" HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
                 <VerticalStackLayout>
@@ -52,6 +55,9 @@
                     <Image Source="https://static.thenounproject.com/png/3538999-200.png" Aspect="Fill"/>
                     <Label Text="Constructors List" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TeamListCommand}"/>
+                </Frame.GestureRecognizers>
             </Frame>
             <Frame Grid.Column="2" Grid.Row="1" HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="Orange">
                 <VerticalStackLayout>
