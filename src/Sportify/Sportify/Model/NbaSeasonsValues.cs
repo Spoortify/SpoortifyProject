@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sportify.Model
 {
-    internal class NbaSeasonsValues
+    public class NbaSeasonsValues
     {
+
     }
 }

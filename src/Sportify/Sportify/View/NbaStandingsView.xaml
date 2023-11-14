@@ -7,9 +7,14 @@
              x:DataType="controller:NbaStandingsController"
              Title="NbaStandingsView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <CollectionView ItemsSource="{Binding SeasonStatsList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:NbaSeasonStandings">
+                    <Frame>
+                        <Label Text="{Binding }"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
