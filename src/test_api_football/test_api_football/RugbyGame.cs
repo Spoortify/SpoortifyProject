@@ -5,115 +5,115 @@ namespace test_api_football
     public class Away
     {
         [JsonPropertyName("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("logo")]
-        public string logo { get; set; }
+        public string Logo { get; set; }
     }
 
     public class Home
     {
         [JsonPropertyName("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("logo")]
-        public string logo { get; set; }
+        public string Logo { get; set; }
     }
 
     public class League
     {
         [JsonPropertyName("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("type")]
-        public string type { get; set; }
+        public string Type { get; set; }
 
         [JsonPropertyName("logo")]
-        public string logo { get; set; }
+        public string Logo { get; set; }
 
         [JsonPropertyName("season")]
-        public int season { get; set; }
+        public int Season { get; set; }
     }
 
     public class Parameters
     {
         [JsonPropertyName("date")]
-        public string date { get; set; }
+        public string Date { get; set; }
     }
 
     public class Response
     {
         [JsonPropertyName("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("date")]
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
         [JsonPropertyName("time")]
-        public string time { get; set; }
+        public string Time { get; set; }
 
         [JsonPropertyName("timestamp")]
-        public int timestamp { get; set; }
+        public int Timestamp { get; set; }
 
         [JsonPropertyName("timezone")]
-        public string timezone { get; set; }
+        public string Timezone { get; set; }
 
         //[JsonPropertyName("week")]
         //public int week { get; set; }
 
         [JsonPropertyName("status")]
-        public Status status { get; set; }
+        public Status Status { get; set; }
 
         [JsonPropertyName("Country")]
         public Country Country { get; set; }
 
         [JsonPropertyName("league")]
-        public League league { get; set; }
+        public League League { get; set; }
 
         [JsonPropertyName("teams")]
-        public Teams teams { get; set; }
+        public Teams Teams { get; set; }
 
         [JsonPropertyName("scores")]
-        public Score score { get; set; }
+        public Score Score { get; set; }
 
         [JsonPropertyName("periods")]
-        public Periods periods { get; set; }
+        public Periods Periods { get; set; }
     }
 
     public class RugbyGame
     {
         [JsonPropertyName("get")]
-        public string get { get; set; }
+        public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters parameters { get; set; }
+        public Parameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
-        public List<object> errors { get; set; }
+        public List<object> Errors { get; set; }
 
         [JsonPropertyName("results")]
-        public int results { get; set; }
+        public int Results { get; set; }
 
         [JsonPropertyName("response")]
-        public List<Response> responses { get; set; }
+        public List<Response> Responses { get; set; }
     }
 
     public class Score
     {
         [JsonPropertyName("home")]
-        public int home { get; set; }
+        public int? Home { get; set; }
 
         [JsonPropertyName("away")]
-        public int away { get; set; }
+        public int? Away { get; set; }
     }
 
     public class Status
@@ -131,84 +131,84 @@ namespace test_api_football
     public class Teams
     {
         [JsonPropertyName("home")]
-        public Home home { get; set; }
+        public Home Home { get; set; }
 
         [JsonPropertyName("away")]
-        public Away away { get; set; }
+        public Away Away { get; set; }
     }
 
     public class Country
     {
         [JsonPropertyName("id")]
-        public int? id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("code")]
-        public string? code { get; set; }
+        public string? Code { get; set; }
         [JsonPropertyName("flag")]
-        public string? flag { get; set; }
+        public string? Flag { get; set; }
     }
 
     public class Periods
     {
         [JsonPropertyName("first")]
-        public First? first { get; set; }
+        public First? First { get; set; }
 
         [JsonPropertyName("second")]
-        public Second? second { get; set; }
+        public Second? Second { get; set; }
 
         [JsonPropertyName("overtime")]
-        public Overtime? overtime { get; set; }
+        public Overtime? Overtime { get; set; }
 
         [JsonPropertyName("second_overtime")]
-        public Second_Overtime? second_overtime { get; set; }
+        public Second_Overtime? Second_overtime { get; set; }
     }
 
     public class First
     {
         [JsonPropertyName("home")]
-        public int? homePoints { get; set; }
+        public int? HomePoints { get; set; }
 
         [JsonPropertyName("away")]
-        public int? awayPoints { get; set; }
+        public int? AwayPoints { get; set; }
     }
 
     public class Second
     {
         [JsonPropertyName("home")]
-        public int? homePoints { get; set; }
+        public int? HomePoints { get; set; }
 
         [JsonPropertyName("away")]
-        public int? awayPoints { get; set; }
+        public int? AwayPoints { get; set; }
     }
 
     public class Overtime
     {
         [JsonPropertyName("home")]
-        public int? homePoints { get; set; }
+        public int? HomePoints { get; set; }
 
         [JsonPropertyName("away")]
-        public int? awayPoints { get; set; }
+        public int? AwayPoints { get; set; }
     }
 
     public class Second_Overtime
     {
         [JsonPropertyName("home")]
-        public int? homePoints { get; set; }
+        public int? HomePoints { get; set; }
 
         [JsonPropertyName("away")]
-        public int? awayPoints { get; set; }
+        public int? AwayPoints { get; set; }
     }
 
     public class RugbyGamePrincipalInformation
     {
-        public string homeSquadImage { get; set; }
-        public string homeSquadName { get; set; }
-        public int homeSquadScore { get; set; }
-        public string awaySquadImage { get; set; }
-        public string awaySquadName { get; set; }
-        public int awaySquadScore { get; set; }
+        public string? HomeSquadImage { get; set; }
+        public string? HomeSquadName { get; set; }
+        public int? HomeSquadScore { get; set; }
+        public string? AwaySquadImage { get; set; }
+        public string? AwaySquadName { get; set; }
+        public int? AwaySquadScore { get; set; }
     }
 }

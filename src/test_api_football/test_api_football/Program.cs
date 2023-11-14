@@ -10,7 +10,8 @@ namespace test_api_football
         private static readonly Api_Key api_key = GetApi_Key();
         private static readonly string x_rapidapi_key = api_key.APIKeyValue;
         private static readonly string x_rapid_host = "v3.football.api-sports.io";
-        private static List<RugbyGamePrincipalInformation> rugbyGame = new();
+        //private static List<RugbyGamePrincipalInformation> rugbyGame = new();
+        private static List<Response> rugbyGame = new();
 
         static Api_Key GetApi_Key()
         {
@@ -31,19 +32,30 @@ namespace test_api_football
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var games = JsonSerializer.Deserialize<RugbyGame>(content);
-                foreach (var game in games.responses)
+
+                rugbyGame = games.Responses;
+                //foreach (var game in games.Responses)
+                //{
+                //    rugbyGame.Add(new()
+                //    {
+                //        HomeSquadImage = game.Teams.Home.Logo,
+                //        HomeSquadName = game.Teams.Home.Name,
+                //        HomeSquadScore = game.Score.Home,
+                //        AwaySquadImage = game.Teams.Away.Logo,
+                //        AwaySquadName = game.Teams.Away.Name,
+                //        AwaySquadScore = game.Score.Away
+                //    });
+                //}
+                //rugbyGame.ForEach(f => Console.WriteLine(f.AwaySquadName));
+
+                rugbyGame.ForEach(r => Console.WriteLine(r.Teams.Away.Name));
+                List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+                Parallel.ForEach(numbers, number =>
                 {
-                    rugbyGame.Add(new()
-                    {
-                        homeSquadImage = game.teams.home.logo,
-                        homeSquadName = game.teams.home.name,
-                        homeSquadScore = game.score.home,
-                        awaySquadImage = game.teams.away.logo,
-                        awaySquadName = game.teams.away.name,
-                        awaySquadScore = game.score.away
-                    });
-                }
-                rugbyGame.ForEach(f => Console.WriteLine(f.awaySquadName));
+                    // Operazione da eseguire su ogni numero
+                    Console.WriteLine(number);
+                });
             }
             else
             {

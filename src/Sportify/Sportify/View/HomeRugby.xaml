@@ -7,6 +7,7 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:HomeRugbyController"
              Title="HomeRugby">
+        
     <ContentPage.BindingContext>
         <controller:HomeRugbyController/>
     </ContentPage.BindingContext>
@@ -16,10 +17,17 @@
             <DatePicker MinimumDate="01/01/2008" 
                         Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}" 
                         DateSelected="OnDateSelected"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="500"
+                               HeightRequest="500"
+                               Color="Red" />
             <ScrollView>
                 <CollectionView ItemsSource="{Binding RugbyGame}">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:RugbyGamePrincipalInformation">
+                        <DataTemplate x:DataType="model:Response">
                             <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -27,18 +35,19 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
+                                        <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <VerticalStackLayout>
-                                        <Image Source="{Binding homeSquadImage}" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50"/>
-                                        <Label Text="{Binding homeSquadName}" TextColor="White" HorizontalOptions="Center"/>
+                                        <Image Source="{Binding Teams.Home.Logo}" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50"/>
+                                        <Label Text="{Binding Teams.Home.Name}" TextColor="White" HorizontalOptions="Center"/>
                                     </VerticalStackLayout>
-                                    <Label Text="{Binding homeSquadScore}" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding awaySquadScore}" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
-                                    <VerticalStackLayout Grid.Column="3">
-                                        <Image Source="{Binding awaySquadImage}" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50"/>
-                                        <Label Text="{Binding awaySquadName}" TextColor="White" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Score.Home}" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
+                                    <Label Text="-" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Score.Away}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
+                                    <VerticalStackLayout Grid.Column="4">
+                                        <Image Source="{Binding Teams.Away.Logo}" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50"/>
+                                        <Label Text="{Binding Teams.Away.Name}" TextColor="White" HorizontalOptions="Center"/>
                                     </VerticalStackLayout>
-                                    
                                 </Grid>
                             </Frame>
                         </DataTemplate>

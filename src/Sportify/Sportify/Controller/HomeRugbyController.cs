@@ -17,10 +17,12 @@ namespace Sportify.Controller
         private static readonly string x_rapidapi_key = api_key.APIKeyValue;
         private static readonly string x_rapid_host = "v3.football.api-sports.io";
         private static bool isFirstRequest = true;
-        private static bool isBusy = false;
 
         [ObservableProperty]
-        public static ObservableCollection<RugbyGamePrincipalInformation> rugbyGame = new();
+        public static bool isBusy = false;
+
+        [ObservableProperty]
+        public static ObservableCollection<Response> rugbyGame = new();
 
         private static DateTime selectedDate = DateTime.Now;
         public DateTime SelectedDate
@@ -46,26 +48,23 @@ namespace Sportify.Controller
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var games = JsonSerializer.Deserialize<RugbyGame>(content);
-                foreach (var game in games.responses)
+                await Task.Run(() =>
                 {
-                    rugbyGame.Add(new()
+                    Parallel.ForEach(games.Responses, async game =>
                     {
-                        homeSquadImage = game.teams.home.logo,
-                        homeSquadName = game.teams.home.name,
-                        homeSquadScore = game.score.home,
-                        awaySquadImage = game.teams.away.logo,
-                        awaySquadName = game.teams.away.name,
-                        awaySquadScore = game.score.away
+                        await MainThread.InvokeOnMainThreadAsync(() =>
+                        {
+                            rugbyGame.Add(game);
+                        });
                     });
-                }
+                });
                 isFirstRequest = false;
-                isBusy = false;
             }
             else
             {
-                isBusy = false;
                 Console.WriteLine("Error: {0}", response.StatusCode);
             }
+            isBusy = false;
         }
 
         static Api_Key GetApi_Key()
