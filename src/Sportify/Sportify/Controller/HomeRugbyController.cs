@@ -30,13 +30,17 @@ namespace Sportify.Controller
         {
             if (isBusy) return;
             isBusy = true;
-            rugbyGame.Clear();
-            string formattedDate = _selectedDate.ToString("yyyy-MM-dd");
-            var response = await App.rugbyClient.GetAsync($"/games/?date={formattedDate}");
-            if (response.IsSuccessStatusCode)
+            try
             {
+                rugbyGame.Clear();
+                string formattedDate = _selectedDate.ToString("yyyy-MM-dd");
+                var response = await App.rugbyClient.GetAsync($"/games/?date={formattedDate}");
+
+                if (!response.IsSuccessStatusCode) return;
+
                 var content = await response.Content.ReadAsStreamAsync();
                 var games = await JsonSerializer.DeserializeAsync<RugbyGame>(content);
+
                 await Task.Run(() =>
                 {
                     Parallel.ForEach(games.Responses, async game =>
@@ -48,15 +52,18 @@ namespace Sportify.Controller
                     });
                 });
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Error: {0}", response.StatusCode);
+                await App.Current.MainPage.DisplayAlert("Error", ex.Source + ": " + ex.Message, "OK");
             }
-            isBusy = false;
+            finally
+            {
+                isBusy = false;
+            }
         }
 
         [RelayCommand]
-        private async Task GoToRugbyGameDetails(RugbyGameResponse rugbyGame)
+        private static async Task GoToRugbyGameDetails(RugbyGameResponse rugbyGame)
         {
             if (rugbyGame == null)
                 return;

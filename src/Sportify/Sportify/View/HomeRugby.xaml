@@ -9,28 +9,33 @@
              Title="HomeRugby">
       
     <ScrollView>
-        <VerticalStackLayout>
+        <StackLayout Orientation="Vertical">
+            
             <DatePicker MinimumDate="01/01/2008"
                         Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
-                        DateSelected="OnDateSelected"/>
-            
+                        DateSelected="OnDateSelected" Margin="0,0,0,10"/>
+
             <!--TODO: da sistemare activity indicator non funziona-->
             <ActivityIndicator IsRunning="{Binding IsBusy}"
                                IsVisible="{Binding IsBusy}"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               WidthRequest="500"
-                               HeightRequest="500"
+                               WidthRequest="50"
+                               HeightRequest="50"
                                Color="Red" />
-            <Button
-                Text="Leagues"
-                Command="{Binding GoToLeaguesCommand}"/>
+            
+            <Button Text="Leagues"
+                    Command="{Binding GoToLeaguesCommand}"
+                    BackgroundColor="#3498db"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Margin="0,10,0,10"/>
 
             <ScrollView>
-                <CollectionView ItemsSource="{Binding RugbyGame}">
+                <CollectionView ItemsSource="{Binding RugbyGame}" Margin="0,10,0,10">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:RugbyGameResponse">
-                            <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
+                            <Frame BackgroundColor="#34495e" CornerRadius="10" HeightRequest="150" Margin="0,0,0,10">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeRugbyController}}, Path=GoToRugbyGameDetailsCommand}"
@@ -38,14 +43,14 @@
                                 </Frame.GestureRecognizers>
                                 <Grid
                                     ColumnDefinitions="*, *, *, *, *">
-                                    <VerticalStackLayout>
+                                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                         <Image Source="{Binding Teams.Home.Logo}" Style="{StaticResource BaseImage}"/>
-                                        <Label Text="{Binding Teams.Home.Name}"/>
+                                        <Label Text="{Binding Teams.Home.Name}" Style="{StaticResource BaseLabel}"/>
                                     </VerticalStackLayout>
                                     <Label Text="{Binding Score.Home}" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
                                     <Label Text="-" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
                                     <Label Text="{Binding Score.Away}" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
-                                    <VerticalStackLayout Grid.Column="4">
+                                    <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
                                         <Image Source="{Binding Teams.Away.Logo}" Style="{StaticResource BaseImage}"/>
                                         <Label Text="{Binding Teams.Away.Name}" Style="{StaticResource BaseLabel}"/>
                                     </VerticalStackLayout>
@@ -58,6 +63,6 @@
                     </CollectionView.EmptyView>
                 </CollectionView>
             </ScrollView>
-        </VerticalStackLayout>
+        </StackLayout>
     </ScrollView> 
 </ContentPage>
