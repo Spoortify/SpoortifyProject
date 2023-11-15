@@ -4,6 +4,7 @@ using Sportify.Model;
 using Sportify.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -13,22 +14,34 @@ namespace Sportify.Controller
 {
     public partial class RugbyLeaguesController : ObservableObject
     {
-        private static DateTime _selectedDate = DateTime.Now;
-        public DateTime SelectedDate
+        [ObservableProperty]
+        List<string> seasons = new() { "2008", "2009", "2010", "2011", "2012", "2013", "2014", 
+            "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" };
+
+        [ObservableProperty]
+        private static string _selectedSeason = DateTime.Now.Year.ToString();
+
+        public string SelectedSeasonLeagues
         {
-            get => _selectedDate;
-            set => SetProperty(ref _selectedDate, value);
+            get => _selectedSeason;
+            set
+            {
+                if (SetProperty(ref _selectedSeason, value))
+                {
+                    _ = GetLeagues();
+                }
+            }
         }
 
         [ObservableProperty]
         private static bool isBusy = false;
 
         [ObservableProperty]
-        public static List<RugbyLeagueResponse> rugbyLeagues = new();
+        public static ObservableCollection<RugbyLeagueResponse> rugbyLeagues;
 
         public RugbyLeaguesController(RugbyLeague rugbyLeague)
         {
-            rugbyLeagues = rugbyLeague.Response;
+            rugbyLeagues = new(rugbyLeague.Response);
         }
 
         public static async Task GetLeagues()
@@ -36,13 +49,22 @@ namespace Sportify.Controller
             if (isBusy) return;
             isBusy = true;
             rugbyLeagues.Clear();
-            var response = await App.rugbyClient.GetAsync($"/leagues/?season={_selectedDate.Year}");
+            var response = await App.rugbyClient.GetAsync($"/leagues/?season={_selectedSeason}");
             if (!response.IsSuccessStatusCode)
                 return;
 
             var content = await response.Content.ReadAsStreamAsync();
             var rugbyLeague = await JsonSerializer.DeserializeAsync<RugbyLeague>(content);
-            rugbyLeagues = rugbyLeague.Response;
+            await Task.Run(() =>
+            {
+                Parallel.ForEach(rugbyLeague.Response, async league =>
+                {
+                    await MainThread.InvokeOnMainThreadAsync(() =>
+                    {
+                        rugbyLeagues.Add(league);
+                    });
+                });
+            });
             isBusy = false;
         }
 
@@ -53,7 +75,7 @@ namespace Sportify.Controller
                 return;
             if (isBusy) return;
             isBusy = true;
-            var response = await App.rugbyClient.GetAsync($"/standings/?league={rugbyLeague.Id}&season={SelectedDate.Year}");
+            var response = await App.rugbyClient.GetAsync($"/standings/?league={rugbyLeague.Id}&season={_selectedSeason}");
             if (!response.IsSuccessStatusCode)
                 return;
             var content = await response.Content.ReadAsStreamAsync();

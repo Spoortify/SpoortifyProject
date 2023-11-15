@@ -10,8 +10,8 @@
       
     <ScrollView>
         <VerticalStackLayout>
-            <DatePicker MinimumDate="01/01/2008" 
-                        Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}" 
+            <DatePicker MinimumDate="01/01/2008"
+                        Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
                         DateSelected="OnDateSelected"/>
             
             <!--TODO: da sistemare activity indicator non funziona-->
@@ -39,20 +39,23 @@
                                 <Grid
                                     ColumnDefinitions="*, *, *, *, *">
                                     <VerticalStackLayout>
-                                        <Image Source="{Binding Teams.Home.Logo}" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50"/>
-                                        <Label Text="{Binding Teams.Home.Name}" TextColor="White" HorizontalOptions="Center"/>
+                                        <Image Source="{Binding Teams.Home.Logo}" Style="{StaticResource BaseImage}"/>
+                                        <Label Text="{Binding Teams.Home.Name}"/>
                                     </VerticalStackLayout>
-                                    <Label Text="{Binding Score.Home}" Grid.Column="1" TextColor="White" HorizontalOptions="Center"/>
-                                    <Label Text="-" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding Score.Away}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Score.Home}" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="-" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Score.Away}" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
                                     <VerticalStackLayout Grid.Column="4">
-                                        <Image Source="{Binding Teams.Away.Logo}" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50"/>
-                                        <Label Text="{Binding Teams.Away.Name}" TextColor="White" HorizontalOptions="Center"/>
+                                        <Image Source="{Binding Teams.Away.Logo}" Style="{StaticResource BaseImage}"/>
+                                        <Label Text="{Binding Teams.Away.Name}" Style="{StaticResource BaseLabel}"/>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <Label Text="No games today" Style="{StaticResource BaseLabel}"/>
+                    </CollectionView.EmptyView>
                 </CollectionView>
             </ScrollView>
         </VerticalStackLayout>
