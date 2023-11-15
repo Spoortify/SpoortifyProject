@@ -29,7 +29,7 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding Logo}" Grid.RowSpan="4"/>
+                                    <Image Source="{Binding Logo}" Grid.RowSpan="4" Margin="30"/>
                                     <Label Text="{Binding Name}" Grid.Column="1"/>
                                     <Label Text="{Binding Base}" Grid.Column="2"/>
                                     <Label Text="{Binding FirstTeamEntry, StringFormat='First Entry: {0}'}" Grid.Column="3"/>

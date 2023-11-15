@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.CurrentSeason"
+             Title="CurrentSeason"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             Shell.NavBarIsVisible="False"
+             xmlns:Model="clr-namespace:Sportify.Model">
+    <ContentPage.BindingContext>
+        <Controller:CurrentSeasonController/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*" Margin="10,30,10,0">
+                <Button Text="Driver Standings" Command="{Binding DriverStandingsCommand}"/>
+                <Button Text="Constructor Standings" Grid.Column="1" Command="{Binding ConstructorStandingsCommand}"/>
+                <Button Text="Race Results" Grid.Column="2" Command="{Binding RaceResultsCommand}"/>
+            </Grid>
+            <CollectionView ItemsSource="{Binding Formula1.Response}" IsVisible="{Binding DriverVisible}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:Response">
+                        <Frame BackgroundColor="#5B5A5A">
+                            <Grid ColumnDefinitions="*,*,*,*,*,*">
+                                <Label Text="{Binding Position}" TextColor="White" HorizontalOptions="Center"/>
+                                <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Driver.Number}" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Driver.Name}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Points}" Grid.Column="4" TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Behind,StringFormat='-{0}'}" Grid.Column="5" TextColor="White" HorizontalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Constructor.Response}" IsVisible="{Binding ConstructorVisible}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:ConstructorResponse">
+                        <Frame BackgroundColor="#5B5A5A">
+                            <Grid ColumnDefinitions="*,*,*,*">
+                                <Label Text="{Binding Position}"/>
+                                <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Team.Name}" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Points}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Results}" IsVisible="{Binding ResultsVisible}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:ResultsResponse">
+                        <Frame BackgroundColor="#5B5A5A">
+                            <Grid ColumnDefinitions="*,*,*,*">
+                                <Image Source="{Binding Circuit.Image}"/>
+                                <Label Text="{Binding Competition.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Date.Date}" Grid.Column="2"/>
+                                <Label Text="{Binding Laps.Total, StringFormat='{0} Laps'}" Grid.Column="3"/>
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:CurrentSeasonController}}, 
+                                    Path=RaceDetailsCommand}" CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

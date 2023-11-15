@@ -46,5 +46,17 @@ namespace Sportify.Controller
                 {"TeamList", teamList }
             });
         }
+
+        [RelayCommand]
+        public async Task CurrentSeason()
+        {
+            await Shell.Current.GoToAsync(nameof(CurrentSeason), true);
+        }
+
+        [RelayCommand]
+        public async Task RaceDetails()
+        {
+            await Shell.Current.GoToAsync(nameof(RaceDetails), true);
+        }
     }
 }
