@@ -1,45 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Sportify.Model;
 using Sportify.View;
+using System.Collections.ObjectModel;
+using System.Text.Json;
 
 namespace Sportify.Controller
 {
-    public partial class BaseballController
+    public partial class ControllerSeasons
     {
         public static BaseballGame myDeserializedClass;
         public ObservableCollection<Response> Game { get; set; } = new ObservableCollection<Response>();
 
-        public BaseballController()
+        public ControllerSeasons()
         {
-            
+
         }
 
         public async void CreateList()
         {
-            #region old
-            //Game.Add(new Response
-            //{
-            //    Country = list.Country,
-            //    Id = list.Id,
-            //    Date = list.Date,
-            //    League = list.League,
-            //    Scores = list.Scores,
-            //    Status = list.Status,
-            //    Teams = list.Teams,
-            //    Time = list.Time,
-            //    Timestamp = list.Timestamp,
-            //    Timezone = list.Timezone,
-            //    Week = list.Week,
-            //});
-            #endregion
             await Task.Run(() =>
             {
                 Parallel.ForEach(myDeserializedClass.Response, async game =>

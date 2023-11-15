@@ -4,33 +4,16 @@
              x:Class="Sportify.View.ViewTypes"
              Title="ViewTypes"
              xmlns:Model="clr-namespace:Sportify.Model"
-             xmlns:Controller="clr-namespace:Sportify.Controller"
-             x:DataType="Controller:BaseballController">
-
-    <CollectionView ItemsSource="{Binding Game}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="Model:Response">
-                <Frame BackgroundColor="#5B5A5A">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:BaseballController}}, Path = OpenDetailsCommand}"/>
-                    </Frame.GestureRecognizers>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding Country.Name}" TextColor="White" HorizontalOptions="Center"/>
-                        <Image Source="{Binding Date}" Grid.Column="1" HorizontalOptions="Center"/>
-                        <Image Source="{Binding League.Logo}" Grid.Column="2" HeightRequest="30" WidthRequest="30"/>
-                        <Label Text="{Binding Id}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
-                        <Label Text="{Binding Date}" Grid.Column="4" TextColor="White" HorizontalOptions="Center"/>
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+             xmlns:Controller="clr-namespace:Sportify.Controller">
+    <ContentPage.BindingContext>
+        <Controller:ControllerType/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label Text="{Binding Game.Teams.Home.Name}"/>
+        <Label Text="{Binding Game.Teams.Away.Name}"/>
+        <!--<Label Text="{Binding Game.Scores.Away.Logo}"/>
+        <Label Text="{Binding Game.Scores.Home.Logo}"/>-->
+        <Label Text="{Binding Game.Scores.Away.Total}"/>
+        <Label Text="{Binding Game.Scores.Home.Total}"/>
+    </VerticalStackLayout>
 </ContentPage>
