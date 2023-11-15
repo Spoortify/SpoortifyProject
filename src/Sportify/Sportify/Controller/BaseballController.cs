@@ -6,11 +6,13 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Sportify.Model;
+using Sportify.View;
 
 namespace Sportify.Controller
 {
-    internal class BaseballController
+    public partial class BaseballController
     {
         public static BaseballGame myDeserializedClass;
         public ObservableCollection<Response> Game { get; set; } = new ObservableCollection<Response>();
@@ -56,6 +58,12 @@ namespace Sportify.Controller
             CreateList();
         }
 
+        [RelayCommand]
+        public async void OpenDetails(Response response)
+        {
+            var nuovaPagina = new ViewTypes();
+            App.Current.MainPage.Navigation.PushAsync(nuovaPagina);
+        }
         public static async Task GetBaseballApi()
         {
             var client = new HttpClient();

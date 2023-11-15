@@ -1,4 +1,5 @@
 ﻿using Sportify.Controller;
+using Sportify.Model;
 
 namespace Sportify
 {

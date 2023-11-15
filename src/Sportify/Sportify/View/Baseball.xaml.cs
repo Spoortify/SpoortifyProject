@@ -1,7 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Text.Json;
-namespace Sportify.View;
 using Sportify.Model;
+namespace Sportify.View;
 
 public partial class Baseball : ContentPage
 {
