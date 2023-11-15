@@ -11,7 +11,7 @@ namespace test_api_football
         private static readonly string x_rapidapi_key = api_key.APIKeyValue;
         private static readonly string x_rapid_host = "v3.football.api-sports.io";
         //private static List<RugbyGamePrincipalInformation> rugbyGame = new();
-        private static List<Response> rugbyGame = new();
+        private static List<RugbyLeagueResponse> rugbyLeague = new();
 
         static Api_Key GetApi_Key()
         {
@@ -23,17 +23,18 @@ namespace test_api_football
 
         static async Task Main(string[] args)
         {
-            client.BaseAddress = new Uri("https://v1.rugby.api-sports.io/");
+            client.BaseAddress = new Uri(" https://v1.rugby.api-sports.io/");
             client.DefaultRequestHeaders.Add("x-rapidapi-key", x_rapidapi_key);
             client.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapid_host);
 
-            var response = await client.GetAsync("/games/?date=2023-11-12");
+            var response = await client.GetAsync("/standings/?league=2&season=2022");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var games = JsonSerializer.Deserialize<RugbyGame>(content);
+                await Console.Out.WriteLineAsync(content);
+                //var leagues = JsonSerializer.Deserialize<RugbyLeague>(content);
 
-                rugbyGame = games.Responses;
+                //rugbyGame = games.Responses;
                 //foreach (var game in games.Responses)
                 //{
                 //    rugbyGame.Add(new()
@@ -48,14 +49,14 @@ namespace test_api_football
                 //}
                 //rugbyGame.ForEach(f => Console.WriteLine(f.AwaySquadName));
 
-                rugbyGame.ForEach(r => Console.WriteLine(r.Teams.Away.Name));
-                List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                //rugbyGame.ForEach(r => Console.WriteLine(r.Teams.Away.Name));
+                //List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-                Parallel.ForEach(numbers, number =>
-                {
-                    // Operazione da eseguire su ogni numero
-                    Console.WriteLine(number);
-                });
+                //Parallel.ForEach(numbers, number =>
+                //{
+                //    // Operazione da eseguire su ogni numero
+                //    Console.WriteLine(number);
+                //});
             }
             else
             {

@@ -26,7 +26,7 @@ namespace test_api_football
         public string Logo { get; set; }
     }
 
-    public class League
+    public class RugbyGameLeague
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -44,13 +44,13 @@ namespace test_api_football
         public int Season { get; set; }
     }
 
-    public class Parameters
+    public class RugbyGameParameters
     {
         [JsonPropertyName("date")]
         public string Date { get; set; }
     }
 
-    public class Response
+    public class RugbyGameResponse
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -74,10 +74,10 @@ namespace test_api_football
         public Status Status { get; set; }
 
         [JsonPropertyName("Country")]
-        public Country Country { get; set; }
+        public RugbyGameCountry Country { get; set; }
 
         [JsonPropertyName("league")]
-        public League League { get; set; }
+        public RugbyGameLeague League { get; set; }
 
         [JsonPropertyName("teams")]
         public Teams Teams { get; set; }
@@ -95,7 +95,7 @@ namespace test_api_football
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public RugbyGameParameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
@@ -104,7 +104,7 @@ namespace test_api_football
         public int Results { get; set; }
 
         [JsonPropertyName("response")]
-        public List<Response> Responses { get; set; }
+        public List<RugbyGameResponse> Responses { get; set; }
     }
 
     public class Score
@@ -137,7 +137,7 @@ namespace test_api_football
         public Away Away { get; set; }
     }
 
-    public class Country
+    public class RugbyGameCountry
     {
         [JsonPropertyName("id")]
         public int? Id { get; set; }
@@ -200,15 +200,5 @@ namespace test_api_football
 
         [JsonPropertyName("away")]
         public int? AwayPoints { get; set; }
-    }
-
-    public class RugbyGamePrincipalInformation
-    {
-        public string? HomeSquadImage { get; set; }
-        public string? HomeSquadName { get; set; }
-        public int? HomeSquadScore { get; set; }
-        public string? AwaySquadImage { get; set; }
-        public string? AwaySquadName { get; set; }
-        public int? AwaySquadScore { get; set; }
     }
 }

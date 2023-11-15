@@ -7,16 +7,14 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:HomeRugbyController"
              Title="HomeRugby">
-        
-    <ContentPage.BindingContext>
-        <controller:HomeRugbyController/>
-    </ContentPage.BindingContext>
-
+      
     <ScrollView>
         <VerticalStackLayout>
             <DatePicker MinimumDate="01/01/2008" 
                         Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}" 
                         DateSelected="OnDateSelected"/>
+            
+            <!--TODO: da sistemare activity indicator non funziona-->
             <ActivityIndicator IsRunning="{Binding IsBusy}"
                                IsVisible="{Binding IsBusy}"
                                VerticalOptions="Center"
@@ -24,19 +22,22 @@
                                WidthRequest="500"
                                HeightRequest="500"
                                Color="Red" />
+            <Button
+                Text="Leagues"
+                Command="{Binding GoToLeaguesCommand}"/>
+
             <ScrollView>
                 <CollectionView ItemsSource="{Binding RugbyGame}">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Response">
+                        <DataTemplate x:DataType="model:RugbyGameResponse">
                             <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeRugbyController}}, Path=GoToRugbyGameDetailsCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid
+                                    ColumnDefinitions="*, *, *, *, *">
                                     <VerticalStackLayout>
                                         <Image Source="{Binding Teams.Home.Logo}" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50"/>
                                         <Label Text="{Binding Teams.Home.Name}" TextColor="White" HorizontalOptions="Center"/>

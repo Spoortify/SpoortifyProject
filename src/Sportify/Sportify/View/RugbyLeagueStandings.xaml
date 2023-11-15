@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.RugbyLeagueStandings"
+             xmlns:model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             x:DataType="controller:RugbyLeagueStandingsController"
+             Title="RugbyLeagueStandings">
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding RugbyLeagueStandings}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:RugbyLeagueStandingsResponse">
+                    <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
+                        <Grid ColumnDefinitions="*, *, *">
+                            <Label Text="{Binding Position}" HorizontalOptions="Center"/>
+                            <!--TODO: aggiungere altre informazioni-->
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>

@@ -1,13 +1,16 @@
+using Microsoft.Maui.Controls;
 using Sportify.Controller;
 
 namespace Sportify.View;
 
 public partial class HomeRugby : ContentPage
 {
-	public HomeRugby()
-	{
-		InitializeComponent();
-	}
+    public HomeRugby()
+    {
+        InitializeComponent();
+        HomeRugbyController controller = new HomeRugbyController();
+        BindingContext = controller; 
+    }
 
     protected override void OnAppearing()
     {
