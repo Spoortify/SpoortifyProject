@@ -17,6 +17,7 @@ public partial class ChooseCall : ContentPage
 				App.Current.MainPage.Navigation.PushAsync(new ViewGamesResponse());
 				break;
 			case 2:
+				App.Current.MainPage.Navigation.PushAsync(new ViewSeasons());
 				break;
 			case 3:
 				break;

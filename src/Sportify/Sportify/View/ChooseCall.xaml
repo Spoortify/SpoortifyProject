@@ -5,9 +5,9 @@
              Title="ChooseCall">
     <VerticalStackLayout>
         <Button Text="1" Clicked="Button_Clicked"/>
-        <Button Text="2"/>
-        <Button Text="3"/>
-        <Button Text="4"/>
-        <Button Text="5"/>
+        <Button Text="2" Clicked="Button_Clicked"/>
+        <Button Text="3" Clicked="Button_Clicked"/>
+        <Button Text="4" Clicked="Button_Clicked"/>
+        <Button Text="5" Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

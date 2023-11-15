@@ -63,6 +63,9 @@
 	  <MauiXaml Update="View\ViewGamesResponse.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\ViewSeasons.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ViewTypes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
