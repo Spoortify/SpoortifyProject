@@ -35,14 +35,6 @@ namespace Sportify.Controller
         }
 
         [RelayCommand]
-        public async void OpenDetails(Response response)
-        {
-            var nuovaPagina = new ViewTypes();
-            var diz = new Dictionary<string, object> { { "Game", response } };
-            await Shell.Current.GoToAsync("ViewTypes", true, diz);
-        }
-
-        [RelayCommand]
         public async void SeasonDetails(Response response)
         {
             await App.Current.MainPage.Navigation.PushAsync(new SeasonsDetails(response));

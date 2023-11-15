@@ -60,6 +60,9 @@
 	  <MauiXaml Update="View\ChooseCall.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\SeasonsDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ViewGamesResponse.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
