@@ -29,5 +29,8 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate View:RaceDetails}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:RaceResults}" />
 
 </Shell>

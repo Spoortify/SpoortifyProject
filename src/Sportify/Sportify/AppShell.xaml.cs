@@ -13,6 +13,7 @@ namespace Sportify
             Routing.RegisterRoute(nameof(TeamList), typeof(TeamList));
             Routing.RegisterRoute(nameof(CurrentSeason), typeof(CurrentSeason));
             Routing.RegisterRoute(nameof(RaceDetails), typeof(RaceDetails));
+            Routing.RegisterRoute(nameof(RaceResults), typeof(RaceResults));
         }
     }
 }

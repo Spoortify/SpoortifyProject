@@ -17,7 +17,7 @@
                 <Label Text="Season:" Margin="0,15,0,0" HorizontalOptions="Center"/>
                 <Picker ItemsSource="{Binding Seasons}" Margin="20,0,0,0" WidthRequest="100" SelectedItem="{Binding Season}"
                         HorizontalOptions="Center"/>
-                <Button Text="SEE STANDINGS" Command="{Binding GetStandingsCommand}" HorizontalOptions="Center"
+                <Button Text="CONFIRMS" Command="{Binding GetStandingsCommand}" HorizontalOptions="Center"
                         Margin="30,0,0,0" BackgroundColor="Red" TextColor="White" FontAttributes="Bold"/>
             </HorizontalStackLayout>
             <Frame BackgroundColor="Black" CornerRadius="0">

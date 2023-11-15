@@ -49,14 +49,15 @@
                 <Label Text="Race Results" HorizontalOptions="Center" />
             </VerticalStackLayout>
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding RaceDetailsCommand}"/>
+                <TapGestureRecognizer Command="{Binding RaceResultsCommand}"/>
             </Frame.GestureRecognizers>
         </Frame>
         <Frame MaximumHeightRequest="200" MaximumWidthRequest="200" Grid.Row="2" Margin="20" BackgroundColor="Red"
                HorizontalOptions="Center" VerticalOptions="CenterAndExpand" BorderColor="Black">
             <VerticalStackLayout  HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="200"
                                  MaximumWidthRequest="200" Padding="0">
-                <Image Source="https://static.thenounproject.com/png/4146681-200.png" Aspect="Fill" MaximumHeightRequest="150"
+                <Image Source="https://cdn-icons-png.flaticon.com/512/8067/8067984.png"
+                       Aspect="Fill" MaximumHeightRequest="150"
                                  MaximumWidthRequest="150"/>
                 <Label Text="Current Season" HorizontalOptions="Center"/>
             </VerticalStackLayout>

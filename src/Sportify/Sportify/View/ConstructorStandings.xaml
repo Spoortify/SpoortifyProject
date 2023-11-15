@@ -10,41 +10,38 @@
         <Controller:ConstructorStandingController/>
     </ContentPage.BindingContext>
     <ScrollView>
-        <VerticalStackLayout HorizontalOptions="Center" Margin="20">
+        <VerticalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
             <HorizontalStackLayout>
+                <Image Source="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png" MaximumHeightRequest="50"
+                       />
                 <Label Text="Season:" Margin="0,15,0,0" HorizontalOptions="Center"/>
                 <Picker ItemsSource="{Binding Seasons}" Margin="20,0,0,0" WidthRequest="100" SelectedItem="{Binding Season}"
                         HorizontalOptions="Center"/>
-                <Button Text="Confirm" Command="{Binding GetStandingsCommand}" HorizontalOptions="Center"/>
+                <Button Text="CONFIRM" Command="{Binding GetStandingsCommand}" HorizontalOptions="Center"
+                        Margin="30,0,0,0" BackgroundColor="Red" TextColor="White" FontAttributes="Bold"/>
             </HorizontalStackLayout>
-            <Grid Margin="20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Label Text="POSITION" TextColor="Black" HorizontalOptions="Center"/>
-                <Label Text="" Grid.Column="1" HorizontalOptions="Center"/>
-                <Label Text="TEAM" Grid.Column="2" TextColor="Black" HorizontalOptions="Center"/>
-                <Label Text="POINTS" Grid.Column="3" TextColor="Black" HorizontalOptions="Center"/>
-            </Grid>
+            <Frame BackgroundColor="Black" CornerRadius="0">
+                <Grid Margin="20" ColumnDefinitions="*,*,*,*">
+                    <Label Text="POSITION" TextColor="Red" HorizontalOptions="Center"/>
+                    <Label Text="TEAM" Grid.Column="1" TextColor="Red" HorizontalOptions="Center"
+                       Grid.ColumnSpan="2"/>
+                    <Label Text="POINTS" Grid.Column="3" TextColor="Red" HorizontalOptions="Center"/>
+                </Grid>
+            </Frame>
             <ScrollView>
                 <CollectionView ItemsSource="{Binding Constructor.Response}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="Model:ConstructorResponse">
-                            <Frame BackgroundColor="#5B5A5A">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding Position}"/>
-                                    <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding Team.Name}" Grid.Column="2" TextColor="White" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding Points}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
+                            <Frame BackgroundColor="White" CornerRadius="0">
+                                <Grid ColumnDefinitions="*,*,*,*">
+                                    <Label Text="{Binding Position}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center"
+                                           HeightRequest="100" VerticalOptions="Center"
+                                           WidthRequest="100"/>
+                                    <Label Text="{Binding Team.Name}" Grid.Column="2" TextColor="Black" HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                    <Label Text="{Binding Points}" Grid.Column="3" TextColor="Black" HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
                                 </Grid>
                             </Frame>
                         </DataTemplate>

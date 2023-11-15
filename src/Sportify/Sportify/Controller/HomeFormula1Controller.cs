@@ -54,9 +54,9 @@ namespace Sportify.Controller
         }
 
         [RelayCommand]
-        public async Task RaceDetails()
+        public async Task RaceResults()
         {
-            await Shell.Current.GoToAsync(nameof(RaceDetails), true);
+            await Shell.Current.GoToAsync(nameof(RaceResults), true);
         }
     }
 }
