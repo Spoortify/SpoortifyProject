@@ -68,7 +68,7 @@ namespace Sportify.Model
         public string Season { get; set; }
     }
 
-    public class Response
+    public class NBAResponse
     {
         [JsonPropertyName("league")]
         public string League { get; set; }
@@ -119,7 +119,7 @@ namespace Sportify.Model
         public int Results { get; set; }
 
         [JsonPropertyName("response")]
-        public List<Response> Response { get; set; }
+        public List<NBAResponse> Response { get; set; }
     }
 
     public class Team
