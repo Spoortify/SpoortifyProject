@@ -11,17 +11,14 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
-            <!--<Button
-            Text="Leagues"
-            Command="{Binding GoToLeaguesCommand}"/>-->
             <ScrollView>
                 <CollectionView ItemsSource="{Binding Game}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer 
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeRugbyController}}, Path=SeasonDetailsCommand}"
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type Controller:ControllerSeasons}}, Path=SeasonDetailsCommand}"
                                         CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid

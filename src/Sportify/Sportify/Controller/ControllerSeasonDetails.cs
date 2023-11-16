@@ -7,13 +7,15 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Sportify.Model;
+using Sportify.View;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Sportify.Controller
 {
-    class ControllerSeasonDetails
+    public partial class ControllerSeasonDetails : ObservableObject
     {
-        public static Seasons myDeserializedClass;
-        public ObservableCollection<int> Game { get; set; } = new ObservableCollection<int>();
+        public static Leagues myDeserializedClass;
+        public ObservableCollection<LeaguesResponse> Game { get; set; } = new ObservableCollection<LeaguesResponse>();
         public int season;
 
         public ControllerSeasonDetails(int s)
@@ -35,9 +37,15 @@ namespace Sportify.Controller
             CreateList();
         }
 
+        [RelayCommand]
+        public async void TeamsDetails(LeaguesResponse r)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new ViewTeams(season, r.Id));
+        }
+
         public string LinkQuery()
         {
-            return "/legues?season=" + season;
+            return "/leagues?season=" + season;
         }
 
         public async Task GetBaseballApi()
@@ -48,7 +56,7 @@ namespace Sportify.Controller
             client.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
             var response = await client.GetAsync(LinkQuery());
             var stringa = await response.Content.ReadAsStringAsync();
-            myDeserializedClass = JsonSerializer.Deserialize<Seasons>(stringa);
+            myDeserializedClass = JsonSerializer.Deserialize<Leagues>(stringa);
         }
     }
 }

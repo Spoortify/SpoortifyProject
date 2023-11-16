@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sportify.Model
 {
     // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
-    public class LeaguesCountry
+    public class TeamsCountry
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -23,13 +23,16 @@ namespace Sportify.Model
         public string Flag { get; set; }
     }
 
-    public class LeaguesParameters
+    public class TeamsParameters
     {
+        [JsonPropertyName("league")]
+        public string League { get; set; }
+
         [JsonPropertyName("season")]
         public string Season { get; set; }
     }
 
-    public class LeaguesResponse
+    public class TeamsResponse
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -37,20 +40,17 @@ namespace Sportify.Model
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
-
         [JsonPropertyName("logo")]
         public string Logo { get; set; }
 
+        [JsonPropertyName("national")]
+        public bool National { get; set; }
+
         [JsonPropertyName("country")]
         public Country Country { get; set; }
-
-        [JsonPropertyName("seasons")]
-        public List<Season> Seasons { get; set; }
     }
 
-    public class Leagues
+    public class Team
     {
         [JsonPropertyName("get")]
         public string Get { get; set; }
@@ -65,21 +65,6 @@ namespace Sportify.Model
         public int Results { get; set; }
 
         [JsonPropertyName("response")]
-        public List<LeaguesResponse> Response { get; set; }
-    }
-
-    public class Season
-    {
-        [JsonPropertyName("season")]
-        public int season { get; set; }
-
-        [JsonPropertyName("current")]
-        public bool Current { get; set; }
-
-        [JsonPropertyName("start")]
-        public string Start { get; set; }
-
-        [JsonPropertyName("end")]
-        public string End { get; set; }
+        public List<TeamsResponse> Response { get; set; }
     }
 }
