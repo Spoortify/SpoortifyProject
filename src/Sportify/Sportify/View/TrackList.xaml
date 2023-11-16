@@ -15,19 +15,8 @@
                 <CollectionView ItemsSource="{Binding TrackList.Response}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="Model:TrackResponse">
-                            <Frame>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="0">
+                                <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*,*">
                                     <Image Source="{Binding Image}" Aspect="Fill" Grid.RowSpan="3"
                                        WidthRequest="200" HeightRequest="100"/>
                                     <Label Text="{Binding Name}" Grid.Column="1" />

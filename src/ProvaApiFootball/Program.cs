@@ -11,7 +11,7 @@ namespace ProvaApiFootball
             client.BaseAddress = new Uri("https://v1.formula-1.api-sports.io");
             client.DefaultRequestHeaders.Add("x-rapidapi-key", "5a00e1120640f33486efef17ad7818e6");
             client.DefaultRequestHeaders.Add("x-rapidapi-host", "v1.formula-1.api-sports.io");
-            var response = await client.GetAsync("/races?season=2023");
+            var response = await client.GetAsync("/rankings/races?race=1065");
             var lista = await response.Content.ReadAsStringAsync();
             Console.WriteLine(lista);
             //Formula1 lista = await response.Content.ReadFromJsonAsync<Formula1>();

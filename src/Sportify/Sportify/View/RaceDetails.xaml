@@ -11,29 +11,32 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
-            <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
-                <Label Text="POSITION" HorizontalOptions="Center"/>
-                <Label Text="TEAM" Grid.Column="1" HorizontalOptions="Center"/>
-                <Label Text="NUMBER" Grid.Column="2" HorizontalOptions="Center"/>
-                <Label Text="DRIVER" Grid.Column="3" HorizontalOptions="Center"/>
-                <Label Text="TIME" Grid.Column="4" HorizontalOptions="Center"/>
-                <Label Text="LAPS COMPLETED" Grid.Column="5" HorizontalOptions="Center"/>
-                <Label Text="STARTING POSITION" Grid.Column="6" HorizontalOptions="Center"/>
-                <Label Text="PIT STOP" Grid.Column="7" HorizontalOptions="Center"/>
-            </Grid>
+            <Frame BackgroundColor="Black" CornerRadius="0">
+                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
+                    <Label Text="POSITION" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                    <Label Text="TEAM" Grid.Column="1" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                    <Label Text="NUMBER" Grid.Column="2" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                    <Label Text="DRIVER" Grid.Column="3" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                    <Label Text="TIME" Grid.Column="4" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                    <Label Text="LAPS COMPLETED" Grid.Column="5" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                    <Label Text="STARTING POSITION" Grid.Column="6" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                    <Label Text="PIT STOP" Grid.Column="7" HorizontalOptions="Center" TextColor="Red" VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
             <CollectionView ItemsSource="{Binding RaceDetails.Response}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Model:DetailResponse">
-                        <Frame BackgroundColor="#5B5A5A">
+                        <Frame BackgroundColor="White" CornerRadius="0">
                             <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
-                                <Label Text="{Binding Position}" HorizontalOptions="Center"/>
-                                <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Driver.Number}" Grid.Column="2" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Driver.Name}" Grid.Column="3" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Time}" Grid.Column="4" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Laps}" Grid.Column="5" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Grid}" Grid.Column="6" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Pits}" Grid.Column="7" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Position}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"
+                                       MaximumHeightRequest="100" MaximumWidthRequest="100"/>
+                                <Label Text="{Binding Driver.Number}" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Driver.Name}" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Time}" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Laps}" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Grid}" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Pits}" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Grid>
                         </Frame>
                     </DataTemplate>

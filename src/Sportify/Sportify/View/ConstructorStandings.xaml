@@ -10,7 +10,7 @@
         <Controller:ConstructorStandingController/>
     </ContentPage.BindingContext>
     <ScrollView>
-        <VerticalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+        <VerticalStackLayout HorizontalOptions="Center" >
             <HorizontalStackLayout>
                 <Image Source="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png" MaximumHeightRequest="50"
                        />
@@ -21,11 +21,11 @@
                         Margin="30,0,0,0" BackgroundColor="Red" TextColor="White" FontAttributes="Bold"/>
             </HorizontalStackLayout>
             <Frame BackgroundColor="Black" CornerRadius="0">
-                <Grid Margin="20" ColumnDefinitions="*,*,*,*">
-                    <Label Text="POSITION" TextColor="Red" HorizontalOptions="Center"/>
-                    <Label Text="TEAM" Grid.Column="1" TextColor="Red" HorizontalOptions="Center"
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Label Text="POSITION" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="TEAM" Grid.Column="1" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"
                        Grid.ColumnSpan="2"/>
-                    <Label Text="POINTS" Grid.Column="3" TextColor="Red" HorizontalOptions="Center"/>
+                    <Label Text="POINTS" Grid.Column="3" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </Grid>
             </Frame>
             <ScrollView>

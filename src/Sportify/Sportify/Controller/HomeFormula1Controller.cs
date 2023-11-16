@@ -13,50 +13,65 @@ namespace Sportify.Controller
 {
     public partial class HomeFormula1Controller : ObservableObject
     {
+        [ObservableProperty]
+        bool running = false;
+
         [RelayCommand]
         public async Task Standings()
         {
+            Running = true;
             await Shell.Current.GoToAsync(nameof(Standings), true);
+            Running = false;
         }
 
         [RelayCommand]
         public async Task TrackList()
         {
+            Running = true;
             var response = await App.ClientF1.GetAsync("/circuits");
             var trackList = await response.Content.ReadFromJsonAsync<Tracks>();
             await Shell.Current.GoToAsync(nameof(TrackList), true, new Dictionary<string, object>
             {
                 {"TrackList", trackList}
             });
+            Running = false;
         }
 
         [RelayCommand]
         public async Task Constructor()
         {
+            Running = true;
             await Shell.Current.GoToAsync(nameof(ConstructorStandings), true);
+            Running = false;
         }
 
         [RelayCommand]
         public async Task TeamList()
         {
+            Running = true;
             var response = await App.ClientF1.GetAsync("/teams");
             var teamList = await response.Content.ReadFromJsonAsync<Teams>();
             await Shell.Current.GoToAsync(nameof(TeamList), true, new Dictionary<string, object>
             {
                 {"TeamList", teamList }
             });
+            Running = false;
         }
 
         [RelayCommand]
         public async Task CurrentSeason()
         {
+            Running = true;
             await Shell.Current.GoToAsync(nameof(CurrentSeason), true);
+            Running = false;
         }
 
         [RelayCommand]
         public async Task RaceResults()
         {
+            Running = true;
             await Shell.Current.GoToAsync(nameof(RaceResults), true);
+            Running = false;
         }
     }
 }

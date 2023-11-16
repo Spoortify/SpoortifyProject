@@ -43,7 +43,7 @@
                                        HorizontalOptions="Center"/>
                             </Grid>
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:CurrentSeasonController}}, 
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:RaceResultsController}}, 
                                     Path=RaceDetailsCommand}" CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
                         </Frame>

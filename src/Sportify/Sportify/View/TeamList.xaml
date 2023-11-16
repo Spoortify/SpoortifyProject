@@ -15,7 +15,7 @@
                 <CollectionView ItemsSource="{Binding TeamList.Response}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="Model:TeamResponse">
-                            <Frame>
+                            <Frame CornerRadius="0">
                                 <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*,*">
                                     <Image Source="{Binding Logo}" Grid.RowSpan="4" Margin="30"
                                            WidthRequest="100" HeightRequest="100"/>
