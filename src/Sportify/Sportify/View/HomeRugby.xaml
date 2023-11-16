@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.HomeRugby"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             x:DataType="controller:HomeRugbyController"
+             Title="HomeRugby">
+      
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+            
+            <DatePicker MinimumDate="01/01/2008"
+                        Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
+                        DateSelected="OnDateSelected" Margin="0,0,0,10"/>
+
+            <!--TODO: da sistemare activity indicator non funziona-->
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               Color="Red" />
+            
+            <Button Text="Leagues"
+                    Command="{Binding GoToLeaguesCommand}"
+                    BackgroundColor="#3498db"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Margin="0,10,0,10"/>
+
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding RugbyGame}" Margin="0,10,0,10">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:RugbyGameResponse">
+                            <Frame BackgroundColor="#34495e" CornerRadius="10" HeightRequest="150" Margin="0,0,0,10">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeRugbyController}}, Path=GoToRugbyGameDetailsCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid
+                                    ColumnDefinitions="*, *, *, *, *">
+                                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Image Source="{Binding Teams.Home.Logo}" Style="{StaticResource BaseImage}"/>
+                                        <Label Text="{Binding Teams.Home.Name}" Style="{StaticResource BaseLabel}"/>
+                                    </VerticalStackLayout>
+                                    <Label Text="{Binding Score.Home}" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="-" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Score.Away}" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
+                                    <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Image Source="{Binding Teams.Away.Logo}" Style="{StaticResource BaseImage}"/>
+                                        <Label Text="{Binding Teams.Away.Name}" Style="{StaticResource BaseLabel}"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <Label Text="No games today" Style="{StaticResource BaseLabel}"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
+    </ScrollView> 
+</ContentPage>
