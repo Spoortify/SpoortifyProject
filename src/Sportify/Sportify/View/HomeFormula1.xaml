@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.HomeFormula1"
+             Title="HomeFormula1"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="https://i.etsystatic.com/40978778/r/il/d43a71/4646322928/il_fullxfull.4646322928_7c0o.jpg">
+    <ContentPage.BindingContext>
+        <Controller:HomeFormula1Controller/>
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="100,*,*" ColumnDefinitions="*,*,*">
+        <Image Source="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png" HorizontalOptions="Center"
+               MaximumHeightRequest="100" Margin="30"/>
+
+        <Frame MaximumHeightRequest="200" MaximumWidthRequest="200" Margin="20" BackgroundColor="Red"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="1"
+               BorderColor="Black">
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="150"
+                                 MaximumWidthRequest="150" Padding="0">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/747/747274.png" Aspect="Fill" />
+                <Label Text="Driver Standings" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StandingsCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Frame MaximumHeightRequest="200" MaximumWidthRequest="200" Margin="20" Grid.Column="1" BackgroundColor="Red"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="1" BorderColor="Black">
+            <VerticalStackLayout  HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="200"
+                                 MaximumWidthRequest="200" Padding="0" >
+                <Image Source="https://static.thenounproject.com/png/4977234-200.png" Aspect="Fill"
+                           VerticalOptions="Center" HorizontalOptions="Center" MaximumHeightRequest="150"
+                                 MaximumWidthRequest="150"/>
+                <Label Text="Constructor Standings" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ConstructorCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame MaximumHeightRequest="200" MaximumWidthRequest="200" Grid.Column="2" Margin="20" BackgroundColor="Red"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="1" BorderColor="Black">
+            <VerticalStackLayout  HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="200"
+                                 MaximumWidthRequest="200" Padding="0">
+                <Image Source="https://static.thenounproject.com/png/75891-200.png" Aspect="Fill" MaximumHeightRequest="150"
+                                 MaximumWidthRequest="150"/>
+                <Label Text="Race Results" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RaceResultsCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame MaximumHeightRequest="200" MaximumWidthRequest="200" Grid.Row="2" Margin="20" BackgroundColor="Red"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" BorderColor="Black">
+            <VerticalStackLayout  HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="200"
+                                 MaximumWidthRequest="200" Padding="0">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/8067/8067984.png"
+                       Aspect="Fill" MaximumHeightRequest="150"
+                                 MaximumWidthRequest="150"/>
+                <Label Text="Current Season" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CurrentSeasonCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame MaximumHeightRequest="200" MaximumWidthRequest="200" Grid.Column="1" Margin="20" Grid.Row="2" BackgroundColor="Red"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" BorderColor="Black">
+            <VerticalStackLayout  HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="200"
+                                 MaximumWidthRequest="200" Padding="0">
+                <Image Source="https://static.thenounproject.com/png/3538999-200.png" Aspect="Fill" MaximumHeightRequest="150"
+                                 MaximumWidthRequest="150"/>
+                <Label Text="Constructors List" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TeamListCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame MaximumHeightRequest="200" MaximumWidthRequest="200" Grid.Column="2" Margin="20" Grid.Row="2" BackgroundColor="Red"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" BorderColor="Black">
+            <VerticalStackLayout  HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="200"
+                                 MaximumWidthRequest="200" Padding="0">
+                <Image Source="https://static.thenounproject.com/png/4761657-200.png" Aspect="Fill" MaximumHeightRequest="150"
+                                 MaximumWidthRequest="150"/>
+                <Label Text="Track List" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TrackListCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </Grid>
+</ContentPage>

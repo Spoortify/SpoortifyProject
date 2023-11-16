@@ -11,5 +11,26 @@
         Title="Home"
         ContentTemplate="{DataTemplate View:HomePage}"
         Route="MainPage" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:TrackList}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:Standings}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:ConstructorStandings}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:TeamList}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:CurrentSeason}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:RaceDetails}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:RaceResults}" />
 
 </Shell>
