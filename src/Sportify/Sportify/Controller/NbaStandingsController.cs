@@ -32,13 +32,40 @@ namespace Sportify.Controller
         string seasonString;
 
         [ObservableProperty]
-        int seasonInt;
+        int seasonInt = 2018;
 
         [ObservableProperty]
         NbaSeasonStandings seasonStatsList;
 
         [ObservableProperty]
         List<NBAResponse> leaguesStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> easternConferenceStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> westernConferenceStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> atlanticDivStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> centralDivStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> southeastDivStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> northwestDivStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> pacificDivStandingsList;
+
+        [ObservableProperty]
+        List<NBAResponse> southwestDivStandingsList;
+
+
+
         public NbaStandingsController()
         {
             client = new HttpClient();
@@ -51,6 +78,7 @@ namespace Sportify.Controller
         [RelayCommand]
         async Task RiempiLista()
         {
+            ConvertSeason();
             client.BaseAddress = new Uri("https://v2.nba.api-sports.io");
             client.DefaultRequestHeaders.Add("x-rapidapi-key", "4eb54507877398a66e1f0828f61ae689");
             client.DefaultRequestHeaders.Add("x-rapidapi-host", "api-nba-v1.p.rapidapi.com");
@@ -66,7 +94,6 @@ namespace Sportify.Controller
             DivisionVisible = false;
             LeaguesStandingsList = RiordinaClassificaTotale(SeasonStatsList);
         }
-
         public static List<NBAResponse> RiordinaClassificaTotale(NbaSeasonStandings classifica)
         {
             List<NBAResponse> list = new List<NBAResponse>();
@@ -74,23 +101,62 @@ namespace Sportify.Controller
             return list;
         }
 
-        public static List<NBAResponse> RiordinaClassificaConference(NbaSeasonStandings classifica)
+
+        [RelayCommand]
+        public async Task ConferenceStandings()
         {
-            List<NBAResponse> list1 = new List<NBAResponse>();
-            list1 = classifica.Response.OrderByDescending(t => t.Win.Total).ToList();
-            return list1;
+            LeagueVisible = false;
+            ConferenceVisible = true;
+            DivisionVisible = false;
+            RiordinaClassificaConference(SeasonStatsList);
+        }
+        public void RiordinaClassificaConference(NbaSeasonStandings classifica)
+        {
+            EasternConferenceStandingsList = classifica.Response.
+                Where(e => e.Conference.Name.Equals("east")).OrderByDescending(t => t.Win.Total).ToList();
+            WesternConferenceStandingsList = classifica.Response.
+                Where(w => w.Conference.Name.Equals("west")).OrderByDescending(t => t.Win.Total).ToList();
         }
 
-        public static List<NBAResponse> RiordinaClassificaDivision(NbaSeasonStandings classifica)
+
+        [RelayCommand]
+        public async Task DivisionStandings()
         {
-            List<NBAResponse> list = new List<NBAResponse>();
-            list = classifica.Response.OrderByDescending(t => t.Win.Total).ToList();
-            return list;
+            LeagueVisible = false;
+            ConferenceVisible = false;
+            DivisionVisible = true;
+            RiordinaClassificaDivision(SeasonStatsList);
+        }
+        public void RiordinaClassificaDivision(NbaSeasonStandings classifica)
+        {
+            AtlanticDivStandingsList = classifica.Response.
+                Where(a => a.Division.Name.Equals("atlantic")).OrderByDescending(t => t.Win.Total).ToList();
+            CentralDivStandingsList = classifica.Response.
+                Where(c => c.Division.Name.Equals("central")).OrderByDescending(t => t.Win.Total).ToList();
+            SoutheastDivStandingsList = classifica.Response.
+                Where(s => s.Division.Name.Equals("southeast")).OrderByDescending(t => t.Win.Total).ToList();
+            NorthwestDivStandingsList = classifica.Response.
+                Where(n => n.Division.Name.Equals("northwest")).OrderByDescending(t => t.Win.Total).ToList();
+            PacificDivStandingsList = classifica.Response.
+                Where(p => p.Division.Name.Equals("pacific")).OrderByDescending(t => t.Win.Total).ToList();
+            SouthwestDivStandingsList = classifica.Response.
+                Where(s => s.Division.Name.Equals("southwest")).OrderByDescending(t => t.Win.Total).ToList();
         }
 
-        public static void ConvertSeason()
+        public void ConvertSeason()
         {
+            //{ "2023-2024", "2022-2023", "2021-2022", "2020-2021", "2019-2020", "2018-2019" }
 
+            SeasonInt = SeasonString switch
+            {
+                "2023-2024" => 2023,
+                "2022-2023" => 2022,
+                "2021-2022" => 2021,
+                "2020-2021" => 2020,
+                "2019-2020" => 2019,
+                "2018-2019" => 2018,
+                _ => 2023
+            };
         }
     }
 }
