@@ -80,7 +80,7 @@ namespace Sportify.Model
         public RugbyGameLeague League { get; set; }
 
         [JsonPropertyName("teams")]
-        public Teams Teams { get; set; }
+        public RugbyGameTeams Teams { get; set; }
 
         [JsonPropertyName("scores")]
         public Score Score { get; set; }
@@ -128,7 +128,7 @@ namespace Sportify.Model
         public int? elapsed { get; set; }
     }
 
-    public class Teams
+    public class RugbyGameTeams
     {
         [JsonPropertyName("home")]
         public Home Home { get; set; }

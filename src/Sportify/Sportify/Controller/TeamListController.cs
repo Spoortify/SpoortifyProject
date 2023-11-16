@@ -12,6 +12,6 @@ namespace Sportify.Controller
     public partial class TeamListController : ObservableObject
     {
         [ObservableProperty]
-        Teams teamList;
+        Formula1Teams teamList;
     }
 }

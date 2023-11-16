@@ -50,7 +50,7 @@ namespace Sportify.Controller
         {
             Running = true;
             var response = await App.ClientF1.GetAsync("/teams");
-            var teamList = await response.Content.ReadFromJsonAsync<Teams>();
+            var teamList = await response.Content.ReadFromJsonAsync<Formula1Teams>();
             await Shell.Current.GoToAsync(nameof(TeamList), true, new Dictionary<string, object>
             {
                 {"TeamList", teamList }

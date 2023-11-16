@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Sportify.Model
 {
-    public class Parameters
+    public class RugbyLeagueStandingsModelParameters
     {
         [JsonPropertyName("league")]
         public string League { get; set; }
@@ -19,7 +19,7 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public RugbyLeagueStandingsModelParameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
@@ -43,7 +43,7 @@ namespace Sportify.Model
         public Group Group { get; set; }
 
         [JsonPropertyName("team")]
-        public Team Team { get; set; }
+        public RugbyLeagueStandingsModelTeam Team { get; set; }
 
         [JsonPropertyName("league")]
         public League League { get; set; }
@@ -73,7 +73,7 @@ namespace Sportify.Model
         public string Name { get; set; }
     }
 
-    public class Team
+    public class RugbyLeagueStandingsModelTeam
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }

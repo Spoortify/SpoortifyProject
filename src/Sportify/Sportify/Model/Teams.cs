@@ -62,7 +62,7 @@ namespace Sportify.Model
         [JsonPropertyName("tyres")]
         public string Tyres { get; set; }
     }
-    public class Teams
+    public class Formula1Teams
     {
         [JsonPropertyName("get")]
         public string Get { get; set; }

@@ -69,9 +69,6 @@
 	  <Compile Update="View\CurrentSeason.xaml.cs">
 	    <DependentUpon>CurrentSeason.xaml</DependentUpon>
 	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="View\ConstructorStandings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

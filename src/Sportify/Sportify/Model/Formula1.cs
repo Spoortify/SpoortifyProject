@@ -38,7 +38,7 @@ namespace Sportify.Model
         public Driver Driver { get; set; }
 
         [JsonPropertyName("team")]
-        public Team Team { get; set; }
+        public Formula1Team Team { get; set; }
 
         [JsonPropertyName("points")]
         public int? Points { get; set; }
@@ -69,7 +69,7 @@ namespace Sportify.Model
         [JsonPropertyName("response")]
         public List<Response> Response { get; set; }
     }
-    public class Team
+    public class Formula1Team
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
