@@ -2,11 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sportify.View.ViewStandings"
-             Title="ViewStandings">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+             Title="ViewStandings"
+             xmlns:Model="clr-namespace:Sportify.Model"
+            xmlns:Controller="clr-namespace:Sportify.Controller"
+            x:DataType="Controller:ControllerStandings">
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding  Game}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="Model:BaseballStandingsResponse">
+                    <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
+                        <Grid ColumnDefinitions="*, *, *, *, *, *, *">
+                            <Label Text="{Binding Position}" Style="{StaticResource BaseLabel}"/>
+                            <VerticalStackLayout Grid.Column="1">
+                                <Image Source="{Binding Team.Logo}" Style="{StaticResource BaseImage}"/>
+                                <Label Text="{Binding Team.Name}" Style="{StaticResource BaseLabel}"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="2">
+                                <Label Text="{Binding Points, StringFormat='Points: {0}'}" Style="{StaticResource BaseLabel}"/>
+                                <Label Text="{Binding Games.Played, StringFormat='Total games played: {0}'}" Style="{StaticResource BaseLabel}"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="3">
+                                <Label Text="{Binding Games.Win.Total, StringFormat='Win: {0}'}" Style="{StaticResource BaseLabel}"/>
+                                <Label Text="{Binding Games.Win.Percentage, StringFormat='Win percentage: {0}%'}" Style="{StaticResource BaseLabel}"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="4">
+                                <Label Text="{Binding Games.Lose.Total, StringFormat='Loose: {0} '}" Style="{StaticResource BaseLabel}"/>
+                                <Label Text="{Binding Games.Lose.Percentage, StringFormat='Loose percentage: {0}%'}" Style="{StaticResource BaseLabel}"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
 </ContentPage>
