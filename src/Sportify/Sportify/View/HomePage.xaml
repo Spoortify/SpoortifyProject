@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:Controller="clr-namespace:Sportify.Controller"
+             x:Class="Sportify.View.HomePage"
+             Title="HomePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#001d3c">
+    <ContentPage.BindingContext>
+        <Controller:HomePageController/>
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="Auto,*">
+        <Frame BackgroundColor="DarkBlue" CornerRadius="0" BorderColor="DarkBlue"/>
+        <HorizontalStackLayout BackgroundColor="DarkBlue" HorizontalOptions="Center">
+            <Label Text="CHOOSE SPORT" TextColor="White"
+                FontAttributes="Bold" FontSize="40" MaximumHeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center"
+               BackgroundColor="DarkBlue" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Button HorizontalOptions="Center" VerticalOptions="Center" Margin="10,0,0,0" 
+                    Text=">" FontAttributes="Bold" FontSize="20" Rotation="{Binding Rotation}" Command="{Binding ViewMenuCommand}"
+                    CornerRadius="100" BorderWidth="0" BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal"/>
+                            <VisualState Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#ff004099"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+        </HorizontalStackLayout>
+        <Image Source="logo.png" Aspect="Fill" MaximumWidthRequest="700" MaximumHeightRequest="800"
+               Grid.Row="1" Margin="0,0,0,30"/>
+        <Frame Grid.Row="1" MaximumWidthRequest="600" MaximumHeightRequest="300" VerticalOptions="Start"
+               Margin="0" HorizontalOptions="Center" CornerRadius="0" BackgroundColor="DarkBlue" BorderColor="DarkBlue"
+               Padding="0" IsVisible="{Binding IsVisible}">
+            <Grid Padding="0" RowDefinitions="50,50,50,50,50,50" ColumnDefinitions="300">
+                <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" BackgroundColor="DarkBlue" BorderColor="DarkBlue">
+                    <Label Text="Football" FontSize="20" TextColor="White"
+                       MaximumHeightRequest="50" Padding="0" HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"/>
+                                <VisualState Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#ff004099"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+                <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="1" BackgroundColor="DarkBlue"
+                       BorderColor="DarkBlue">
+                    <Label Text="Formula 1" FontSize="20" TextColor="White" HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"/>
+                                <VisualState Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#ff004099"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+                <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="2" BackgroundColor="DarkBlue"
+                       BorderColor="DarkBlue">
+                    <Label Text="NBA" FontSize="20" TextColor="White" HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"/>
+                                <VisualState Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#ff004099"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+                <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="3" BackgroundColor="DarkBlue"
+                       BorderColor="DarkBlue">
+                    <Label Text="Baseball" FontSize="20" TextColor="White" HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"/>
+                                <VisualState Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#ff004099"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+                <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="4" BackgroundColor="DarkBlue"
+                       BorderColor="DarkBlue">
+                    <Label Text="Rugby" FontSize="20" TextColor="White" HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"/>
+                                <VisualState Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#ff004099"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+                <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="5" BackgroundColor="DarkBlue"
+                       BorderColor="DarkBlue">
+                    <Label Text="Hockey" FontSize="20" TextColor="White" HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"/>
+                                <VisualState Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#ff004099"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>
