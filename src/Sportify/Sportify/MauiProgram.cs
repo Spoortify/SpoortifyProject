@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Sportify.View;
 
 namespace Sportify
 {
@@ -20,6 +21,7 @@ namespace Sportify
 #endif
 
             return builder.Build();
+
         }
     }
 }
