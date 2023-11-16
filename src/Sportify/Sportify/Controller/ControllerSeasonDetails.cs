@@ -40,7 +40,7 @@ namespace Sportify.Controller
         [RelayCommand]
         public async void TeamsDetails(LeaguesResponse r)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new ViewTeams(season, r.Id));
+            await App.Current.MainPage.Navigation.PushAsync(new ChooseModeStandings(season, r.Id));
         }
 
         public string LinkQuery()
