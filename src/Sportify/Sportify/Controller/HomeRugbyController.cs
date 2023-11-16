@@ -84,5 +84,11 @@ namespace Sportify.Controller
             isBusy = false;
             await App.Current.MainPage.Navigation.PushAsync(new RugbyLeagues(rugbyLeague));
         }
+
+        [RelayCommand]
+        private async Task GoToHome()
+        {
+            await App.Current.MainPage.Navigation.PopToRootAsync();
+        }
     }
 }

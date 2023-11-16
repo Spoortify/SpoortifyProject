@@ -23,11 +23,14 @@ namespace test_api_football
 
         static async Task Main(string[] args)
         {
-            client.BaseAddress = new Uri(" https://v1.rugby.api-sports.io/");
+            //client.BaseAddress = new Uri("https://v1.rugby.api-sports.io/");
+            client.BaseAddress = new Uri("https://v1.hockey.api-sports.io/");
+    
             client.DefaultRequestHeaders.Add("x-rapidapi-key", x_rapidapi_key);
             client.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapid_host);
 
-            var response = await client.GetAsync("/standings/?league=2&season=2022");
+            string formattedDate = DateTime.Now.ToString("yyyy-MM-dd");
+            var response = await client.GetAsync($"/games/?date={formattedDate}");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();

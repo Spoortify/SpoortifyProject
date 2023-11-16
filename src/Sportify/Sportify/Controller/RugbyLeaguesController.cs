@@ -14,12 +14,20 @@ namespace Sportify.Controller
 {
     public partial class RugbyLeaguesController : ObservableObject
     {
+        private RugbyLeagueStandingsModel rugbyLeagueStandings;
+
         [ObservableProperty]
         List<string> seasons = new() { "2008", "2009", "2010", "2011", "2012", "2013", "2014", 
             "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" };
 
         [ObservableProperty]
         private static string _selectedSeason = DateTime.Now.Year.ToString();
+
+        [ObservableProperty]
+        private static bool isBusy = false;
+
+        [ObservableProperty]
+        public static ObservableCollection<RugbyLeagueResponse> rugbyLeagues;
 
         public string SelectedSeasonLeagues
         {
@@ -33,15 +41,10 @@ namespace Sportify.Controller
             }
         }
 
-        [ObservableProperty]
-        private static bool isBusy = false;
-
-        [ObservableProperty]
-        public static ObservableCollection<RugbyLeagueResponse> rugbyLeagues;
-
         public RugbyLeaguesController(RugbyLeague rugbyLeague)
         {
             rugbyLeagues = new(rugbyLeague.Response);
+            rugbyLeagueStandings = new();
         }
 
         public static async Task GetLeagues()
@@ -79,9 +82,19 @@ namespace Sportify.Controller
             if (!response.IsSuccessStatusCode)
                 return;
             var content = await response.Content.ReadAsStreamAsync();
-            var rugbyLeagueStandings = await JsonSerializer.DeserializeAsync<RugbyLeagueStandingsModel>(content);
-            isBusy = false;
-            await App.Current.MainPage.Navigation.PushAsync(new RugbyLeagueStandings(rugbyLeagueStandings));
+            try
+            {
+                rugbyLeagueStandings = await JsonSerializer.DeserializeAsync<RugbyLeagueStandingsModel>(content);
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", ex.Source + ": " + ex.Message, "OK");
+            }
+            finally
+            {
+                isBusy = false;
+                await App.Current.MainPage.Navigation.PushAsync(new RugbyLeagueStandings(rugbyLeagueStandings));
+            }
         }
     }
 }
