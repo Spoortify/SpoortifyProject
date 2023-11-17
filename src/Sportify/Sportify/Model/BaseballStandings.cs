@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sportify.Model
 {
-    public class ClassificaParameters
+    public class BaseballStandingsParameters
     {
         [JsonPropertyName("league")]
         public string League { get; set; }
@@ -22,7 +22,7 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public BaseballStandingsParameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
@@ -43,22 +43,22 @@ namespace Sportify.Model
         public string Stage { get; set; }
 
         [JsonPropertyName("group")]
-        public Group Group { get; set; }
+        public BaseballStandingsGroup Group { get; set; }
 
         [JsonPropertyName("team")]
-        public ClassificaTeam Team { get; set; }
+        public BaseballStandingsTeam Team { get; set; }
 
         [JsonPropertyName("league")]
-        public ClassificaLeague League { get; set; }
+        public BaseballStandingsLeague League { get; set; }
 
         [JsonPropertyName("country")]
-        public ClassificaCountry Country { get; set; }
+        public BaseballStandingsCountry Country { get; set; }
 
         [JsonPropertyName("games")]
-        public Games Games { get; set; }
+        public BaseballStandingsGames Games { get; set; }
 
         [JsonPropertyName("points")]
-        public Points Points { get; set; }
+        public BaseballStandingsPoints Points { get; set; }
 
         [JsonPropertyName("form")]
         public string Form { get; set; }
@@ -67,13 +67,13 @@ namespace Sportify.Model
         public string Description { get; set; }
     }
 
-    public class Group
+    public class BaseballStandingsGroup
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
     }
 
-    public class ClassificaTeam
+    public class BaseballStandingsTeam
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -85,7 +85,7 @@ namespace Sportify.Model
         public string Logo { get; set; }
     }
 
-    public class ClassificaLeague
+    public class BaseballStandingsLeague
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -103,7 +103,7 @@ namespace Sportify.Model
         public int Season { get; set; }
     }
 
-    public class ClassificaCountry
+    public class BaseballStandingsCountry
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -118,19 +118,19 @@ namespace Sportify.Model
         public string Flag { get; set; }
     }
 
-    public class Games
+    public class BaseballStandingsGames
     {
         [JsonPropertyName("played")]
         public int Played { get; set; }
 
         [JsonPropertyName("win")]
-        public Win Win { get; set; }
+        public BaseballStandingsWin Win { get; set; }
 
         [JsonPropertyName("lose")]
-        public Lose Lose { get; set; }
+        public BaseballStandingsLose Lose { get; set; }
     }
 
-    public class Win
+    public class BaseballStandingsWin
     {
         [JsonPropertyName("total")]
         public int Total { get; set; }
@@ -139,7 +139,7 @@ namespace Sportify.Model
         public string Percentage { get; set; }
     }
 
-    public class Lose
+    public class BaseballStandingsLose
     {
         [JsonPropertyName("total")]
         public int Total { get; set; }
@@ -148,7 +148,7 @@ namespace Sportify.Model
         public string Percentage { get; set; }
     }
 
-    public class Points
+    public class BaseballStandingsPoints
     {
         [JsonPropertyName("for")]
         public int For { get; set; }

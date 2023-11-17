@@ -12,7 +12,7 @@ namespace Sportify.Controller
     public partial class ControllerType : ObservableObject
     {
         [ObservableProperty]
-        Response game;
+        BaseballGameResponse game;
 
         public ControllerType()
         {

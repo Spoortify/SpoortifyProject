@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sportify.Model
 {
     // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
-    public class LeaguesCountry
+    public class BaseballLeaguesCountry
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -23,13 +23,13 @@ namespace Sportify.Model
         public string Flag { get; set; }
     }
 
-    public class LeaguesParameters
+    public class BaseballLeaguesParameters
     {
         [JsonPropertyName("season")]
         public string Season { get; set; }
     }
 
-    public class LeaguesResponse
+    public class BaseballLeaguesResponse
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -44,13 +44,13 @@ namespace Sportify.Model
         public string Logo { get; set; }
 
         [JsonPropertyName("country")]
-        public Country Country { get; set; }
+        public BaseballLeaguesCountry Country { get; set; }
 
         [JsonPropertyName("seasons")]
-        public List<Season> Seasons { get; set; }
+        public List<BaseballSeason> Seasons { get; set; }
     }
 
-    public class Leagues
+    public class BaseballLeagues
     {
         [JsonPropertyName("get")]
         public string Get { get; set; }
@@ -65,10 +65,10 @@ namespace Sportify.Model
         public int Results { get; set; }
 
         [JsonPropertyName("response")]
-        public List<LeaguesResponse> Response { get; set; }
+        public List<BaseballLeaguesResponse> Response { get; set; }
     }
 
-    public class Season
+    public class BaseballSeason
     {
         [JsonPropertyName("season")]
         public int season { get; set; }

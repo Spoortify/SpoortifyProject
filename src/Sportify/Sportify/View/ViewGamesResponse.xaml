@@ -9,7 +9,7 @@
     
     <CollectionView ItemsSource="{Binding Game}">
         <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="Model:Response">
+            <DataTemplate x:DataType="Model:BaseballGameResponse">
                 <Frame BackgroundColor="#5B5A5A">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:BaseballController}}, Path = OpenDetailsCommand}"/>

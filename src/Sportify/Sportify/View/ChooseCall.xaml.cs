@@ -19,15 +19,6 @@ public partial class ChooseCall : ContentPage
 			case 2:
 				App.Current.MainPage.Navigation.PushAsync(new ViewSeasons());
 				break;
-			case 3:
-				
-				break;
-			case 4:
-				break;
-			case 5: 
-				break;
-			default: 
-				break;
 		}
 	}
 }

@@ -14,7 +14,7 @@ namespace Sportify.Controller
 {
     public partial class ControllerSeasons
     {
-        public static Seasons myDeserializedClass;
+        public static BaseballSeasons myDeserializedClass;
         public ObservableCollection<int> Game { get; set; } = new ObservableCollection<int>();
 
         public ControllerSeasons()
@@ -42,13 +42,9 @@ namespace Sportify.Controller
 
         public static async Task GetBaseballApi()
         {
-            var client = new HttpClient();
-            client.BaseAddress = new Uri("https://v1.baseball.api-sports.io");
-            client.DefaultRequestHeaders.Add("x-rapidapi-key", "7169e21806353dcad1a1592a2b7043bd");
-            client.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
-            var response = await client.GetAsync("/seasons");
+            var response = await App.baseballClient.GetAsync("/seasons");
             var stringa = await response.Content.ReadAsStringAsync();
-            myDeserializedClass = JsonSerializer.Deserialize<Seasons>(stringa);
+            myDeserializedClass = JsonSerializer.Deserialize<BaseballSeasons>(stringa);
         }
     }
 }

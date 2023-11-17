@@ -93,9 +93,6 @@
 	  <MauiXaml Update="View\TrackList.xaml">
 	  	<Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\Baseball.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="View\ChooseCall.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

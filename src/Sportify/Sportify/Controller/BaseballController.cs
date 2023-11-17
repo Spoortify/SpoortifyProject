@@ -15,7 +15,7 @@ namespace Sportify.Controller
     public partial class BaseballController
     {
         public static BaseballGame myDeserializedClass;
-        public ObservableCollection<Response> Game { get; set; } = new ObservableCollection<Response>();
+        public ObservableCollection<BaseballGameResponse> Game { get; set; } = new();
 
         public BaseballController()
         {
@@ -70,13 +70,8 @@ namespace Sportify.Controller
         {
             DateTime dataCorrente = DateTime.Now;
             string dataFormattata = dataCorrente.ToString("yyyy-MM-dd");
-            var client = new HttpClient();
-            client.BaseAddress = new Uri("https://v1.baseball.api-sports.io");
-            client.DefaultRequestHeaders.Add("x-rapidapi-key", "7169e21806353dcad1a1592a2b7043bd");
-            client.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
-            var response = await client.GetAsync($"/games?date={dataFormattata}");
+            var response = await App.baseballClient.GetAsync($"/games?date={dataFormattata}");
             var stringa = await response.Content.ReadAsStringAsync();
-            //Console.WriteLine(stringa);
             myDeserializedClass = JsonSerializer.Deserialize<BaseballGame>(stringa);
         }
     }

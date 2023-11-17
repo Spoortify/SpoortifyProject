@@ -9,7 +9,7 @@ namespace Sportify.Model
 {
     // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
 
-    public class Away
+    public class BaseballGameAway
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -27,13 +27,13 @@ namespace Sportify.Model
         public object Errors { get; set; }
 
         [JsonPropertyName("innings")]
-        public Innings Innings { get; set; }
+        public BaseballGameInnings Innings { get; set; }
 
         [JsonPropertyName("total")]
         public object Total { get; set; }
     }
 
-    public class Country
+    public class BaseballGameCountry
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -48,7 +48,7 @@ namespace Sportify.Model
         public string Flag { get; set; }
     }
 
-    public class Home
+    public class BaseballGameHome
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -66,13 +66,13 @@ namespace Sportify.Model
         public object Errors { get; set; }
 
         [JsonPropertyName("innings")]
-        public Innings Innings { get; set; }
+        public BaseballGameInnings Innings { get; set; }
 
         [JsonPropertyName("total")]
         public object Total { get; set; }
     }
 
-    public class Innings
+    public class BaseballGameInnings
     {
         [JsonPropertyName("1")]
         public object _1 { get; set; }
@@ -105,7 +105,7 @@ namespace Sportify.Model
         public object Extra { get; set; }
     }
 
-    public class League
+    public class BaseballGameLeague
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -123,13 +123,13 @@ namespace Sportify.Model
         public int Season { get; set; }
     }
 
-    public class Parameters
+    public class BaseballGameParameters
     {
         [JsonPropertyName("date")]
         public string Date { get; set; }
     }
 
-    public class Response
+    public class BaseballGameResponse
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -150,19 +150,19 @@ namespace Sportify.Model
         public object Week { get; set; }
 
         [JsonPropertyName("status")]
-        public Status Status { get; set; }
+        public BaseballGameStatus Status { get; set; }
 
         [JsonPropertyName("country")]
-        public Country Country { get; set; }
+        public BaseballGameCountry Country { get; set; }
 
         [JsonPropertyName("league")]
-        public League League { get; set; }
+        public BaseballGameLeague League { get; set; }
 
         [JsonPropertyName("teams")]
-        public Teams Teams { get; set; }
+        public BaseballGameTeams Teams { get; set; }
 
         [JsonPropertyName("scores")]
-        public Scores Scores { get; set; }
+        public BaseballGameScores Scores { get; set; }
     }
 
     public class BaseballGame
@@ -171,7 +171,7 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public BaseballGameParameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
@@ -180,19 +180,19 @@ namespace Sportify.Model
         public int Results { get; set; }
 
         [JsonPropertyName("response")]
-        public List<Response> Response { get; set; }
+        public List<BaseballGameResponse> Response { get; set; }
     }
 
-    public class Scores
+    public class BaseballGameScores
     {
         [JsonPropertyName("home")]
-        public Home Home { get; set; }
+        public BaseballGameHome Home { get; set; }
 
         [JsonPropertyName("away")]
-        public Away Away { get; set; }
+        public BaseballGameAway Away { get; set; }
     }
 
-    public class Status
+    public class BaseballGameStatus
     {
         [JsonPropertyName("long")]
         public string Long { get; set; }
@@ -201,13 +201,13 @@ namespace Sportify.Model
         public string Short { get; set; }
     }
 
-    public class Teams
+    public class BaseballGameTeams
     {
         [JsonPropertyName("home")]
-        public Home Home { get; set; }
+        public BaseballGameHome Home { get; set; }
 
         [JsonPropertyName("away")]
-        public Away Away { get; set; }
+        public BaseballGameAway Away { get; set; }
     }
 
 

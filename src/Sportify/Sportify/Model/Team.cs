@@ -47,7 +47,7 @@ namespace Sportify.Model
         public bool National { get; set; }
 
         [JsonPropertyName("country")]
-        public Country Country { get; set; }
+        public TeamsCountry Country { get; set; }
     }
 
     public class Team

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sportify.Model
 {
 
-    public class Seasons
+    public class BaseballSeasons
     {
         [JsonPropertyName("get")]
         public string Get { get; set; }

@@ -34,6 +34,9 @@ namespace Sportify.Controller
                 case "Rugby":
                     await Shell.Current.GoToAsync(nameof(HomeRugby), true);
                     break;
+                case "Baseball":
+                    await Shell.Current.GoToAsync(nameof(ChooseCall), true);
+                    break;
             }
         }
     }

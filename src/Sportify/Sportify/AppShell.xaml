@@ -38,12 +38,8 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate View:HomeFormula1}" />
-    xmlns:local="clr-namespace:Sportify.View"
-    Shell.FlyoutBehavior="Disabled">
-
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:ChooseCall}"
-        Route="ChooseCall"/>
+        ContentTemplate="{DataTemplate View:ChooseCall}"/>
 
 </Shell>
