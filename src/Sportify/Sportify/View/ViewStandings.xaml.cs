@@ -6,7 +6,7 @@ public partial class ViewStandings : ContentPage
 	public ViewStandings(int s, int l)
 	{
 		InitializeComponent();
-        var context = new ControllerChooseModeStendings(s, l);
+        var context = new ControllerStandings(s, l);
         BindingContext = context;
         context.Start();
     }

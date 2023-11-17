@@ -14,21 +14,21 @@
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:BaseballController}}, Path = OpenDetailsCommand}"/>
                     </Frame.GestureRecognizers>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding Country.Name}" TextColor="White" HorizontalOptions="Center"/>
-                        <Image Source="{Binding Date}" Grid.Column="1" HorizontalOptions="Center"/>
-                        <Image Source="{Binding League.Logo}" Grid.Column="2" HeightRequest="30" WidthRequest="30"/>
-                        <Label Text="{Binding Id}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
-                        <Label Text="{Binding Date}" Grid.Column="4" TextColor="White" HorizontalOptions="Center"/>
-
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Country.Name}" TextColor="White" HorizontalOptions="Center"/>
+                            <Image Source="{Binding Date}" Grid.Column="1" HorizontalOptions="Center"/>
+                            <Image Source="{Binding League.Logo}" Grid.Column="2" HeightRequest="30" WidthRequest="30"/>
+                            <Label Text="{Binding Id}" Grid.Column="3" TextColor="White" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Date, StringFormat='{0:dd-MM-yyyy   HH-mm}'}" Grid.Column="4" TextColor="White" HorizontalOptions="Center"/>
+                            
                         <!--<Label Text="{Binding Scores}" Grid.Column="5" TextColor="White" HorizontalOptions="Center"/>
                         <Label Text="{Binding Teams.Home.Name}" Grid.Column="6" TextColor="White" HorizontalOptions="Center"/>
                         <Label Text="{Binding Status.Short}" Grid.Column="7" TextColor="White" HorizontalOptions="Center"/>-->

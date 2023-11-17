@@ -27,6 +27,8 @@
                             </VerticalStackLayout>
                             <VerticalStackLayout Grid.Column="4">
                                 <Label Text="{Binding Games.Lose.Total, StringFormat='Loose: {0} '}" Style="{StaticResource BaseLabel}"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="5">
                                 <Label Text="{Binding Games.Lose.Percentage, StringFormat='Loose percentage: {0}%'}" Style="{StaticResource BaseLabel}"/>
                             </VerticalStackLayout>
                         </Grid>

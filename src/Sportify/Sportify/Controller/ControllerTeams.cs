@@ -45,7 +45,7 @@ namespace Sportify.Controller
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri("https://v1.baseball.api-sports.io");
-            client.DefaultRequestHeaders.Add("x-rapidapi-key", "50033e93a2d49d985f3daa64adae1a80");
+            client.DefaultRequestHeaders.Add("x-rapidapi-key", "7169e21806353dcad1a1592a2b7043bd");
             client.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
             var response = await client.GetAsync(LinkQuery());
             var stringa = await response.Content.ReadAsStringAsync();
