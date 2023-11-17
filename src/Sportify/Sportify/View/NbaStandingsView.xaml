@@ -6,15 +6,152 @@
              xmlns:model="clr-namespace:Sportify.Model"
              x:DataType="controller:NbaStandingsController"
              Title="NbaStandingsView">
-    <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding SeasonStatsList}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:NbaSeasonStandings">
-                    <Frame>
-                        <Label Text="{Binding }"/>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <controller:NbaStandingsController/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*,*">
+            <Picker ItemsSource="{Binding Seasons}" SelectedItem="{Binding SeasonString}"/>
+            <Button Text="find" Command="{Binding RiempiListaCommand}" Grid.Column="1"/>
+            <HorizontalStackLayout Grid.Row="1">
+                <Button Text="League" Command="{Binding LeagueStandingsCommand}"/>
+                <Button Text="Conference" Command="{Binding ConferenceStandingsCommand}"/>
+                <Button Text="Division" Command="{Binding DivisionStandingsCommand}"/>
+            </HorizontalStackLayout>
+            <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <CollectionView ItemsSource="{Binding LeaguesStandingsList}" IsVisible="{Binding LeagueVisible}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:NBAResponse">
+                            <Frame>
+                                <HorizontalStackLayout>
+                                    
+                                    <Label Text="{Binding Team.Name}" Margin="2"/>
+                                </HorizontalStackLayout>                                
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid ColumnDefinitions="*,*">
+                    <CollectionView Grid.Column="0" ItemsSource="{Binding WesternConferenceStandingsList}" 
+                                    IsVisible="{Binding ConferenceVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame>
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="2"/>
+                                    </HorizontalStackLayout>                                    
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="1" ItemsSource="{Binding EasternConferenceStandingsList}" 
+                                    IsVisible="{Binding ConferenceVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame>
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="2"/>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid ColumnDefinitions="*,*,*,*,*,*">
+                    <CollectionView Grid.Column="0" ItemsSource="{Binding AtlanticDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame Margin="2" HeightRequest="60">
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="1"/>
+                                    </HorizontalStackLayout>                                    
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="1" ItemsSource="{Binding CentralDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame Margin="2" HeightRequest="60">
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="1"/>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="2" ItemsSource="{Binding SoutheastDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame Margin="2" HeightRequest="60">
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="1"/>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="3" ItemsSource="{Binding NorthwestDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame Margin="2" HeightRequest="60">
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="1"/>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="4" ItemsSource="{Binding PacificDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame Margin="2" HeightRequest="60">
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="1"/>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="5" ItemsSource="{Binding SouthwestDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame Margin="2" HeightRequest="60">
+                                    <HorizontalStackLayout>
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="20" WidthRequest="20"
+                                               Margin="2"/>
+                                        <Label Text="{Binding Team.Name}" Margin="1"/>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>
