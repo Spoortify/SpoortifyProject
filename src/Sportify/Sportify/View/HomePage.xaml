@@ -32,7 +32,7 @@
                 </VisualStateManager.VisualStateGroups>
             </Button>
         </HorizontalStackLayout>
-        <Image Source="logo.png" Aspect="Fill" MaximumWidthRequest="700" MaximumHeightRequest="800"
+        <Image Source="logo.png" Aspect="Fill" MaximumWidthRequest="600" MaximumHeightRequest="800"
                Grid.Row="1" Margin="0,0,0,30"/>
         <Frame Grid.Row="1" MaximumWidthRequest="600" MaximumHeightRequest="300" VerticalOptions="Start"
                Margin="0" HorizontalOptions="Center" CornerRadius="0" BackgroundColor="DarkBlue" BorderColor="DarkBlue"
@@ -41,7 +41,11 @@
                 <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" BackgroundColor="DarkBlue" BorderColor="DarkBlue">
                     <Label Text="Football" FontSize="20" TextColor="White"
                        MaximumHeightRequest="50" Padding="0" HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroupList>
                             <VisualStateGroup Name="CommonStates">
@@ -58,7 +62,11 @@
                 <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="1" BackgroundColor="DarkBlue"
                        BorderColor="DarkBlue">
                     <Label Text="Formula 1" FontSize="20" TextColor="White" HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="Formula 1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroupList>
                             <VisualStateGroup Name="CommonStates">
@@ -75,7 +83,11 @@
                 <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="2" BackgroundColor="DarkBlue"
                        BorderColor="DarkBlue">
                     <Label Text="NBA" FontSize="20" TextColor="White" HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroupList>
                             <VisualStateGroup Name="CommonStates">
@@ -92,7 +104,11 @@
                 <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="3" BackgroundColor="DarkBlue"
                        BorderColor="DarkBlue">
                     <Label Text="Baseball" FontSize="20" TextColor="White" HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroupList>
                             <VisualStateGroup Name="CommonStates">
@@ -109,7 +125,11 @@
                 <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="4" BackgroundColor="DarkBlue"
                        BorderColor="DarkBlue">
                     <Label Text="Rugby" FontSize="20" TextColor="White" HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroupList>
                             <VisualStateGroup Name="CommonStates">
@@ -126,7 +146,11 @@
                 <Frame CornerRadius="0" Padding="0" MaximumHeightRequest="50" Grid.Row="5" BackgroundColor="DarkBlue"
                        BorderColor="DarkBlue">
                     <Label Text="Hockey" FontSize="20" TextColor="White" HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroupList>
                             <VisualStateGroup Name="CommonStates">

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Sportify.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,20 @@ namespace Sportify.Controller
         {
             Rotation = Rotation == 90 ? 270 : 90;
             IsVisible = !IsVisible;
+        }
+
+        [RelayCommand]
+        public async Task SportClicked(string sport)
+        {
+            switch (sport)
+            {
+                case "Formula 1":
+                    await Shell.Current.GoToAsync(nameof(HomeFormula1), true);
+                    break;
+                case "Rugby":
+                    await Shell.Current.GoToAsync(nameof(HomeRugby), true);
+                    break;
+            }
         }
     }
 }

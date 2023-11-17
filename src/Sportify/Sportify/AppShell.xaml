@@ -32,5 +32,8 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate View:RaceResults}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:HomeRugby}" />
 
 </Shell>
