@@ -2,7 +2,7 @@
 
 namespace Sportify.Model
 {
-    public class Away
+    public class RugbyGameAway
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -14,7 +14,7 @@ namespace Sportify.Model
         public string Logo { get; set; }
     }
 
-    public class Home
+    public class RugbyGameHome
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -71,7 +71,7 @@ namespace Sportify.Model
         //public int week { get; set; }
 
         [JsonPropertyName("status")]
-        public Status Status { get; set; }
+        public RugbyGameStatus Status { get; set; }
 
         [JsonPropertyName("Country")]
         public RugbyGameCountry Country { get; set; }
@@ -83,10 +83,10 @@ namespace Sportify.Model
         public RugbyGameTeams Teams { get; set; }
 
         [JsonPropertyName("scores")]
-        public Score Score { get; set; }
+        public RugbyGameScore Score { get; set; }
 
         [JsonPropertyName("periods")]
-        public Periods Periods { get; set; }
+        public RugbyGamePeriods Periods { get; set; }
     }
 
     public class RugbyGame
@@ -107,7 +107,7 @@ namespace Sportify.Model
         public List<RugbyGameResponse> Responses { get; set; }
     }
 
-    public class Score
+    public class RugbyGameScore
     {
         [JsonPropertyName("home")]
         public int? Home { get; set; }
@@ -116,7 +116,7 @@ namespace Sportify.Model
         public int? Away { get; set; }
     }
 
-    public class Status
+    public class RugbyGameStatus
     {
         [JsonPropertyName("long")]
         public string @long { get; set; }
@@ -131,10 +131,10 @@ namespace Sportify.Model
     public class RugbyGameTeams
     {
         [JsonPropertyName("home")]
-        public Home Home { get; set; }
+        public RugbyGameHome Home { get; set; }
 
         [JsonPropertyName("away")]
-        public Away Away { get; set; }
+        public RugbyGameAway Away { get; set; }
     }
 
     public class RugbyGameCountry
@@ -151,22 +151,22 @@ namespace Sportify.Model
         public string? Flag { get; set; }
     }
 
-    public class Periods
+    public class RugbyGamePeriods
     {
         [JsonPropertyName("first")]
-        public First? First { get; set; }
+        public RugbyGameFirst? First { get; set; }
 
         [JsonPropertyName("second")]
-        public Second? Second { get; set; }
+        public RugbyGameSecond? Second { get; set; }
 
         [JsonPropertyName("overtime")]
-        public Overtime? Overtime { get; set; }
+        public RugbyGameOvertime? Overtime { get; set; }
 
         [JsonPropertyName("second_overtime")]
-        public Second_Overtime? Second_overtime { get; set; }
+        public RugbyGameSecond_Overtime? Second_overtime { get; set; }
     }
 
-    public class First
+    public class RugbyGameFirst
     {
         [JsonPropertyName("home")]
         public int? HomePoints { get; set; }
@@ -175,7 +175,7 @@ namespace Sportify.Model
         public int? AwayPoints { get; set; }
     }
 
-    public class Second
+    public class RugbyGameSecond
     {
         [JsonPropertyName("home")]
         public int? HomePoints { get; set; }
@@ -184,7 +184,7 @@ namespace Sportify.Model
         public int? AwayPoints { get; set; }
     }
 
-    public class Overtime
+    public class RugbyGameOvertime
     {
         [JsonPropertyName("home")]
         public int? HomePoints { get; set; }
@@ -193,7 +193,7 @@ namespace Sportify.Model
         public int? AwayPoints { get; set; }
     }
 
-    public class Second_Overtime
+    public class RugbyGameSecond_Overtime
     {
         [JsonPropertyName("home")]
         public int? HomePoints { get; set; }

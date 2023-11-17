@@ -40,22 +40,22 @@ namespace Sportify.Model
         public string Stage { get; set; }
 
         [JsonPropertyName("group")]
-        public Group Group { get; set; }
+        public RugbyLeagueStandingsGroup Group { get; set; }
 
         [JsonPropertyName("team")]
         public RugbyLeagueStandingsModelTeam Team { get; set; }
 
         [JsonPropertyName("league")]
-        public League League { get; set; }
+        public RugbyLeagueStandingsLeague League { get; set; }
 
         [JsonPropertyName("country")]
-        public Country Country { get; set; }
+        public RugbyLeagueStandingsCountry Country { get; set; }
 
         [JsonPropertyName("games")]
-        public Games Games { get; set; }
+        public RugbyLeagueStandingsGames Games { get; set; }
 
         [JsonPropertyName("goals")]
-        public Goals Goals { get; set; }
+        public RugbyLeagueStandingsGoals Goals { get; set; }
 
         [JsonPropertyName("points")]
         public int Points { get; set; }
@@ -67,7 +67,7 @@ namespace Sportify.Model
         public string Description { get; set; }
     }
 
-    public class Group
+    public class RugbyLeagueStandingsGroup
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -85,7 +85,7 @@ namespace Sportify.Model
         public string Logo { get; set; }
     }
 
-    public class League
+    public class RugbyLeagueStandingsLeague
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -103,7 +103,7 @@ namespace Sportify.Model
         public int Season { get; set; }
     }
 
-    public class Country
+    public class RugbyLeagueStandingsCountry
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -118,22 +118,22 @@ namespace Sportify.Model
         public string Flag { get; set; }
     }
 
-    public class Games
+    public class RugbyLeagueStandingsGames
     {
         [JsonPropertyName("played")]
         public int Played { get; set; }
 
         [JsonPropertyName("win")]
-        public Win Win { get; set; }
+        public RugbyLeagueStandingsWin Win { get; set; }
 
         [JsonPropertyName("draw")]
-        public Draw Draw { get; set; }
+        public RugbyLeagueStandingsDraw Draw { get; set; }
 
         [JsonPropertyName("lose")]
-        public Lose Lose { get; set; }
+        public RugbyLeagueStandingsLose Lose { get; set; }
     }
 
-    public class Win
+    public class RugbyLeagueStandingsWin
     {
         [JsonPropertyName("total")]
         public int Total { get; set; }
@@ -142,7 +142,7 @@ namespace Sportify.Model
         public string Percentage { get; set; }
     }
 
-    public class Draw
+    public class RugbyLeagueStandingsDraw
     {
         [JsonPropertyName("total")]
         public int Total { get; set; }
@@ -151,7 +151,7 @@ namespace Sportify.Model
         public string Percentage { get; set; }
     }
 
-    public class Lose
+    public class RugbyLeagueStandingsLose
     {
         [JsonPropertyName("total")]
         public int Total { get; set; }
@@ -160,7 +160,7 @@ namespace Sportify.Model
         public string Percentage { get; set; }
     }
 
-    public class Goals
+    public class RugbyLeagueStandingsGoals
     {
         [JsonPropertyName("for")]
         public int For { get; set; }
