@@ -46,7 +46,7 @@ namespace Sportify.Model
         public RugbyLeagueCountry Country { get; set; }
 
         [JsonPropertyName("seasons")]
-        public List<Season> Seasons { get; set; }
+        public List<RugbyLeagueSeason> Seasons { get; set; }
     }
 
     public class RugbyLeague
@@ -67,7 +67,7 @@ namespace Sportify.Model
         public List<RugbyLeagueResponse> Response { get; set; }
     }
 
-    public class Season
+    public class RugbyLeagueSeason
     {
         [JsonPropertyName("season")]
         public int season { get; set; }
