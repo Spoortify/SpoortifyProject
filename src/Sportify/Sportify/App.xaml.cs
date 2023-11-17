@@ -13,6 +13,7 @@ namespace Sportify
     {
         public static HttpClient ClientF1 = new HttpClient();
         public static HttpClient rugbyClient = new();
+        public static HttpClient FootballClient = new HttpClient();
         private static readonly List<string> apiKeys = GetApi_Keys();
         //private static readonly string x_rapidapi_key = GetRandomApiKey();
         private static readonly string x_rapidapi_host_rugby = "v3.football.api-sports.io";
@@ -28,6 +29,9 @@ namespace Sportify
             rugbyClient.BaseAddress = new Uri("https://v1.rugby.api-sports.io/");
             rugbyClient.DefaultRequestHeaders.Add("x-rapidapi-key", GetRandomApiKey());
             rugbyClient.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapidapi_host_rugby);
+            FootballClient.BaseAddress = new Uri("https://v3.football.api-sports.io");
+            FootballClient.DefaultRequestHeaders.Add("x-rapidapi-key", "5a00e1120640f33486efef17ad7818e6");
+            FootballClient.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
         }
 
         private static List<string> GetApi_Keys()
@@ -43,6 +47,26 @@ namespace Sportify
             Random random = new Random();
             List<string> shuffledKeys = apiKeys.OrderBy(x => random.Next()).ToList();
             return shuffledKeys.FirstOrDefault();
+        }
+
+        public static string GetFootballLeagueId(string league)
+        {
+            int id = league switch
+            {
+                "SERIE A" => 135,
+                "PREMIER LEAGUE" => 39,
+                "LALIGA" => 140,
+                "BUNDESLIGA" => 78,
+                "LIGUE 1" => 61,
+                "EREDIVISIE" => 88,
+                "SUPER LIG" => 203,
+                "LIGA PORTUGAL" => 94,
+                "CHAMPIONS LEAGUE" => 2,
+                "EUROPA LEAGUE" => 3,
+                "CONFERENCE LEAGUE" => 848,
+                "EURO2024 QUALIFICATION" => 960
+            };
+            return id.ToString();
         }
     }
 }
