@@ -20,7 +20,7 @@ namespace Sportify.Controller
         public async Task Standings()
         {
             Running = true;
-            await Shell.Current.GoToAsync(nameof(Standings), true);
+            await Shell.Current.GoToAsync(nameof(View.Standings), true);
             Running = false;
         }
 
@@ -30,7 +30,7 @@ namespace Sportify.Controller
             Running = true;
             var response = await App.ClientF1.GetAsync("/circuits");
             var trackList = await response.Content.ReadFromJsonAsync<Tracks>();
-            await Shell.Current.GoToAsync(nameof(TrackList), true, new Dictionary<string, object>
+            await Shell.Current.GoToAsync(nameof(View.TrackList), true, new Dictionary<string, object>
             {
                 {"TrackList", trackList}
             });
@@ -51,7 +51,7 @@ namespace Sportify.Controller
             Running = true;
             var response = await App.ClientF1.GetAsync("/teams");
             var teamList = await response.Content.ReadFromJsonAsync<Formula1Teams>();
-            await Shell.Current.GoToAsync(nameof(TeamList), true, new Dictionary<string, object>
+            await Shell.Current.GoToAsync(nameof(View.TeamList), true, new Dictionary<string, object>
             {
                 {"TeamList", teamList }
             });
@@ -62,7 +62,7 @@ namespace Sportify.Controller
         public async Task CurrentSeason()
         {
             Running = true;
-            await Shell.Current.GoToAsync(nameof(CurrentSeason), true);
+            await Shell.Current.GoToAsync(nameof(View.CurrentSeason), true);
             Running = false;
         }
 
@@ -70,7 +70,7 @@ namespace Sportify.Controller
         public async Task RaceResults()
         {
             Running = true;
-            await Shell.Current.GoToAsync(nameof(RaceResults), true);
+            await Shell.Current.GoToAsync(nameof(View.RaceResults), true);
             Running = false;
         }
     }

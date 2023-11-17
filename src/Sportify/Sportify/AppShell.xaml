@@ -35,5 +35,8 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate View:HomeRugby}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:HomeFormula1}" />
 
 </Shell>

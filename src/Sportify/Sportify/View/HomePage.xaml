@@ -43,7 +43,7 @@
                        MaximumHeightRequest="50" Padding="0" HorizontalOptions="Center"
                            VerticalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="Football"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <VisualStateManager.VisualStateGroups>
@@ -85,7 +85,7 @@
                     <Label Text="NBA" FontSize="20" TextColor="White" HorizontalOptions="Center"
                            VerticalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="NBA"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <VisualStateManager.VisualStateGroups>
@@ -106,7 +106,7 @@
                     <Label Text="Baseball" FontSize="20" TextColor="White" HorizontalOptions="Center"
                            VerticalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="Baseball"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <VisualStateManager.VisualStateGroups>
@@ -127,7 +127,7 @@
                     <Label Text="Rugby" FontSize="20" TextColor="White" HorizontalOptions="Center"
                            VerticalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="Rugby"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <VisualStateManager.VisualStateGroups>
@@ -148,7 +148,7 @@
                     <Label Text="Hockey" FontSize="20" TextColor="White" HorizontalOptions="Center"
                            VerticalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer Command="{Binding SportClickedCommand}" CommandParameter="Hockey"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <VisualStateManager.VisualStateGroups>

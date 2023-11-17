@@ -35,7 +35,7 @@ namespace Sportify.Controller
             Details race = new Details();
             var response = await App.ClientF1.GetAsync($"/rankings/races?race={r.Id}");
             race = await response.Content.ReadFromJsonAsync<Details>();
-            await Shell.Current.GoToAsync(nameof(RaceDetails), true, new Dictionary<string, object>
+            await Shell.Current.GoToAsync(nameof(View.RaceDetails), true, new Dictionary<string, object>
             {
                 {"Race",  race}
             });
