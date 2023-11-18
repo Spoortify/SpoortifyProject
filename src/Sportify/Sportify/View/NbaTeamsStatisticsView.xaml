@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.NbaTeamsStatisticsView"
+            xmlns:controller="clr-namespace:Sportify.Controller"
+            xmlns:model="clr-namespace:Sportify.Model"
+            x:DataType="controller:NbaTeamsStatisticsController"
+             Title="NbaTeamsStatisticsView">
+    <VerticalStackLayout>
+        <Grid ColumnDefinitions="*,*,*" RowDefinitions="auto,auto,auto">
+            <CollectionView Grid.Column="1" ItemsSource="{Binding TeamSeasonStandings}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:NBAResponse">
+                        <Frame>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Team.Name}" FontSize="25"/>
+                                <HorizontalStackLayout>
+                                    <Label Text="{Binding Team.Nickname}"/>
+                                    <Label Text="{Binding Team.Code}" Margin="10,0,0,0"/>
+                                </HorizontalStackLayout>
+                                <Image Source="{Binding Team.Logo}" HorizontalOptions="Center" HeightRequest="29"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding TeamSeasonStatisticsResponse}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:NBATeamsResponse">
+                        <Frame>
+                            <Label Text="{Binding Points}" FontSize="40"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

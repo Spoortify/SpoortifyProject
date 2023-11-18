@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Sportify.Model;
+using Sportify.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -47,7 +48,7 @@ namespace Sportify.Controller
         List<NBAResponse> westernConferenceStandingsList;
 
         [ObservableProperty]
-        List<NBAResponse> atlanticDivStandingsList;
+        List<NBAResponse> atlanticDivStandingsList = new();
 
         [ObservableProperty]
         List<NBAResponse> centralDivStandingsList;
@@ -64,7 +65,7 @@ namespace Sportify.Controller
         [ObservableProperty]
         List<NBAResponse> southwestDivStandingsList;
 
-
+        private static bool isBusy = false;
 
         public NbaStandingsController()
         {
@@ -79,11 +80,8 @@ namespace Sportify.Controller
         async Task RiempiLista()
         {
             ConvertSeason();
-            client.BaseAddress = new Uri("https://v2.nba.api-sports.io");
-            client.DefaultRequestHeaders.Add("x-rapidapi-key", "4eb54507877398a66e1f0828f61ae689");
-            client.DefaultRequestHeaders.Add("x-rapidapi-host", "api-nba-v1.p.rapidapi.com");
-            var response = await client.GetAsync($"/standings?league=standard&season={SeasonInt}");
-            SeasonStatsList = await response.Content.ReadFromJsonAsync<NbaSeasonStandings>();            
+            var response = await App.nbaClient.GetAsync($"/standings?league=standard&season={SeasonInt}");
+            SeasonStatsList = await response.Content.ReadFromJsonAsync<NbaSeasonStandings>();
         }
 
         [RelayCommand]
@@ -157,6 +155,16 @@ namespace Sportify.Controller
                 "2018-2019" => 2018,
                 _ => 2023
             };
+        }
+
+        [RelayCommand]
+        public async Task GoToTeamsStatistics(NBAResponse response)
+        {
+            if (response is null)
+            {
+                return;
+            }
+            await App.Current.MainPage.Navigation.PushAsync(new NbaTeamsStatisticsView(response));
         }
     }
 }
