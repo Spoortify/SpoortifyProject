@@ -43,5 +43,15 @@ namespace Sportify.Controller
             teamSeasonStatistics = await response.Content.ReadFromJsonAsync<NbaTeamsStatisticsModel>();
             TeamSeasonStatisticsResponse = teamSeasonStatistics.Response;
         }
+
+        [RelayCommand]
+        public async Task GoToRoaster(List<NBAResponse> response)
+        {
+            if (response is null)
+            {
+                return;
+            }
+            await App.Current.MainPage.Navigation.PushAsync(new NbaSeasonRoasterView(response));
+        }
     }
 }

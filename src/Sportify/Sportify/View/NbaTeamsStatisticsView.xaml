@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sportify.View.NbaTeamsStatisticsView"
-            xmlns:controller="clr-namespace:Sportify.Controller"
-            xmlns:model="clr-namespace:Sportify.Model"
-            x:DataType="controller:NbaTeamsStatisticsController"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model"
+             x:DataType="controller:NbaTeamsStatisticsController"
              Title="NbaTeamsStatisticsView">
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="auto,auto,auto">
@@ -24,6 +24,15 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Frame Grid.Column="2" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Center"
+                   WidthRequest="150" CornerRadius="20" >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaTeamsStatisticsController}}, Path=GoToRoasterCommand}"
+                      CommandParameter="{Binding TeamSeasonStandings}"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Roaster" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" 
+                       FontSize="25" />
+            </Frame>
             <CollectionView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding TeamSeasonStatisticsResponse}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:NBATeamsResponse">
