@@ -17,8 +17,8 @@
                 <Label Text="Leagues:" Margin="0,15,0,0" HorizontalOptions="Center"/>
                 <Picker ItemsSource="{Binding Leagues}" Margin="20,0,0,0" MaximumWidthRequest="300" SelectedItem="{Binding SelectedLeagueFootball}"
                 HorizontalOptions="Center"/>
-                <Button Text="CONFIRM"  HorizontalOptions="Center" Command="{Binding ShowLeaguesCommand}"
-                Margin="30,0,0,0" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold"/>
+                <!--<Button Text="CONFIRM"  HorizontalOptions="Center" Command="{Binding ShowLeaguesCommand}"
+                Margin="30,0,0,0" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold"/>-->
                 <Picker ItemsSource="{Binding Seasons}" WidthRequest="100" 
                 SelectedItem="{Binding SelectedSeasonFootball}" HorizontalOptions="Center"/>
             </HorizontalStackLayout>

@@ -23,7 +23,7 @@ namespace Sportify.Controller
         "SUPER LIG", "LIGA PORTUGAL", "CHAMPIONS LEAGUE", "EUROPA LEAGUE", "CONFERENCE LEAGUE", "EURO2024 QUALIFICATION"};
 
         [ObservableProperty]
-        private static string _selectedLeague;
+        private static string _selectedLeague = "SERIE A";
 
         public string SelectedLeagueFootball
         {
@@ -41,10 +41,11 @@ namespace Sportify.Controller
         Football football = new();
 
         public ObservableCollection<string> Groups { get; set; } = new();
-        string previousGroup = null;
+        private string previousGroup = null;
 
         [ObservableProperty]
         private static string _selectedSeason = DateTime.Now.Year.ToString();
+
         public string SelectedSeasonFootball
         {
             get => _selectedSeason;
@@ -57,11 +58,17 @@ namespace Sportify.Controller
             }
         }
 
+        public FootballStandingsController()
+        {
+            ShowLeagues();
+        }
+
         [RelayCommand]
         public async Task ShowLeagues()
         {
             Groups.Clear();
             Football = new();
+            previousGroup = null;
 
             string id = GetFootballLeagueId(_selectedLeague);
             var response = await App.FootballClient.GetAsync($"/standings?league={id}&season={_selectedSeason}");
@@ -95,7 +102,8 @@ namespace Sportify.Controller
                 "CHAMPIONS LEAGUE" => 2,
                 "EUROPA LEAGUE" => 3,
                 "CONFERENCE LEAGUE" => 848,
-                "EURO2024 QUALIFICATION" => 960
+                "EURO2024 QUALIFICATION" => 960,
+                _ => 135
             };
             return id.ToString();
         }
