@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 using Sportify.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
@@ -18,14 +20,31 @@ namespace Sportify.Controller
 
         [ObservableProperty]
         string league;
+
         [ObservableProperty]
         Football football = new();
+
+        public ObservableCollection<string> Groups { get; set; } = new();
+        string previousGroup = null;
+
         [RelayCommand]
         public async Task ShowLeagues()
         {
             string id = App.GetFootballLeagueId(League);
-            var response = await App.FootballClient.GetAsync($"/standings?league={id}&season=2023");
+            var response = await App.FootballClient.GetAsync($"/standings?league={id}&season={DateTime.Now.Year}");
             Football = await response.Content.ReadFromJsonAsync<Football>();
+
+            foreach (var standings in Football.Response[0].League.Standings)
+            {
+                foreach (var standing in standings)
+                {
+                    if (standing.Group != previousGroup)
+                    {
+                        Groups.Add(standing.Group);
+                    }
+                    previousGroup = standing.Group;
+                }
+            }
         }
     }
 }

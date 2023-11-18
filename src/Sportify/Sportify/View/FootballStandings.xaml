@@ -9,40 +9,75 @@
     <ContentPage.BindingContext>
         <Controller:FootballStandingsController/>
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <HorizontalStackLayout>
-            <Image Source="https://assets.stickpng.com/images/609912b13ae4510004af4a22.png" MaximumHeightRequest="50"
-                       />
-            <Label Text="Leagues:" Margin="0,15,0,0" HorizontalOptions="Center"/>
-            <Picker ItemsSource="{Binding Leagues}" Margin="20,0,0,0" MaximumWidthRequest="300" SelectedItem="{Binding League}"
-                        HorizontalOptions="Center"/>
-            <Button Text="CONFIRM"  HorizontalOptions="Center" Command="{Binding ShowLeaguesCommand}"
-                        Margin="30,0,0,0" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold"/>
-        </HorizontalStackLayout>
-        <CollectionView ItemsSource="{Binding Football.Response[0].League.Standings}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="Model:FootballStandingsModel">
-                    <Frame >
-                        <Grid RowDefinitions="*,*">
-                            <Label Text="{Binding Group}" HorizontalOptions="Center" VerticalOptions="Center"
-                                           FontSize="100"/>
-                            <Grid RowDefinitions="*,*" Grid.Row="1">
+ 
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <Image Source="https://assets.stickpng.com/images/609912b13ae4510004af4a22.png" MaximumHeightRequest="50"
+                   />
+                <Label Text="Leagues:" Margin="0,15,0,0" HorizontalOptions="Center"/>
+                <Picker ItemsSource="{Binding Leagues}" Margin="20,0,0,0" MaximumWidthRequest="300" SelectedItem="{Binding League}"
+                    HorizontalOptions="Center"/>
+                <Button Text="CONFIRM"  HorizontalOptions="Center" Command="{Binding ShowLeaguesCommand}"
+                    Margin="30,0,0,0" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            
+            <!--<CollectionView ItemsSource="{Binding Football.Response[0].League.Standings}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:FootballStandingsModel">
+                        <Frame>
+                            <Grid RowDefinitions="*,*">
+                                <Label Text="" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"
+                                       FontSize="50"/>
                                 <CollectionView ItemsSource="{Binding .}" Grid.Row="1">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate x:DataType="Model:FootballStandingsModel">
                                             <Frame BorderColor="Black" MaximumHeightRequest="100">
-                                                <Label Text="{Binding Team.Name}" TextColor="Black"
-                                                HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                <Label Text="{Binding Team.Name}" TextColor="White"
+                                                       HorizontalOptions="Center" VerticalOptions="Center"/>
                                             </Frame>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
                             </Grid>
-                        </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
 
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+            <StackLayout>
+                <Grid
+                    RowDefinitions="Auto, Auto">
+                    <CollectionView ItemsSource="{Binding Groups}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame>
+                                    <Label Text="{Binding .}"></Label>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding Football.Response[0].League.Standings}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="Model:FootballStandingsModel">
+                                <Frame>
+                                    <CollectionView ItemsSource="{Binding .}" Grid.Row="1">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="Model:FootballStandingsModel">
+                                                <Frame BorderColor="Black" MaximumHeightRequest="100">
+                                                    <Label Text="{Binding Team.Name}" TextColor="White"
+                                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                </Frame>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

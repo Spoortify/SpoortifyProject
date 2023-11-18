@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sportify.Model
 {
     // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
-    public class League
+    public class FootballLeague
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -65,7 +65,7 @@ namespace Sportify.Model
     public class FootballResponse
     {
         [JsonPropertyName("league")]
-        public League League { get; set; }
+        public FootballLeague League { get; set; }
     }
     public class Football
     {
