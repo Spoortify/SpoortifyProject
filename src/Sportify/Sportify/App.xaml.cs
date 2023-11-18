@@ -48,25 +48,5 @@ namespace Sportify
             List<string> shuffledKeys = apiKeys.OrderBy(x => random.Next()).ToList();
             return shuffledKeys.FirstOrDefault();
         }
-
-        public static string GetFootballLeagueId(string league)
-        {
-            int id = league switch
-            {
-                "SERIE A" => 135,
-                "PREMIER LEAGUE" => 39,
-                "LALIGA" => 140,
-                "BUNDESLIGA" => 78,
-                "LIGUE 1" => 61,
-                "EREDIVISIE" => 88,
-                "SUPER LIG" => 203,
-                "LIGA PORTUGAL" => 94,
-                "CHAMPIONS LEAGUE" => 2,
-                "EUROPA LEAGUE" => 3,
-                "CONFERENCE LEAGUE" => 848,
-                "EURO2024 QUALIFICATION" => 960
-            };
-            return id.ToString();
-        }
     }
 }
