@@ -1,0 +1,35 @@
++-------------------------------------+
+|             <<class>>               |
+|      RugbyLeaguesController         |
+|-------------------------------------|
+| # rugbyLeagueStandings: RugbyLeagueStandingsModel |
+| # Seasons: List<string>              |
+| # SelectedSeasonLeagues: string      |
+| # IsBusy: bool                       |
+| # RugbyLeagues: List<RugbyLeagueResponse> |
+|-------------------------------------|
+| + RugbyLeaguesController(rugbyLeague: RugbyLeague)|
+| + GetLeagues(): Task                 |
+| + GoToRugbyLeagueStandings(rugbyLeague: RugbyLeagueResponse): Task |
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|        RugbyLeagueResponse           |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|        RugbyLeagueStandingsModel     |
+|-------------------------------------|
+| - Response: List<RugbyLeagueStandingsResponse> |
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|   RugbyLeagueStandingsResponse      |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+

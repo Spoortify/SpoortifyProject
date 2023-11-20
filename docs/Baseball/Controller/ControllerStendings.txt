@@ -1,0 +1,14 @@
++------------------------------------------+
+|              ControllerStandings         |
++------------------------------------------+
+| - myDeserializedClass: BaseballStandings |
+| - Game: ObservableCollection<BaseballStandingsResponse> |
+| - season: int                             |
+| - league: int                             |
++------------------------------------------+
+| + ControllerStandings(s: int, l: int)    |
+| + CreateList(): void                      |
+| + Start(): Task                           |
+| + LinkQuery(): string                     |
+| + GetBaseballApi(): Task                  |
++------------------------------------------+

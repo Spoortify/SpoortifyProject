@@ -1,0 +1,22 @@
++-------------------------------------+
+|             <<class>>               |
+|  RugbyLeagueStandingsController     |
+|-------------------------------------|
+| # rugbyLeagueStandings: List<RugbyLeagueStandingsResponse> |
+|-------------------------------------|
+| + RugbyLeagueStandingsController(rugbyLeagueStandings: RugbyLeagueStandingsModel)|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|  RugbyLeagueStandingsResponse       |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|   RugbyLeagueStandingsModel         |
+|-------------------------------------|
+| - Response: List<List<RugbyLeagueStandingsResponse>> |
++-------------------------------------+
