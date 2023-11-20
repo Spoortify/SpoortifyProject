@@ -5,23 +5,19 @@
              Title="FootballStandings"
              xmlns:controller="clr-namespace:Sportify.Controller"
              xmlns:model="clr-namespace:Sportify.Model"
+             x:DataType="controller:FootballStandingsController"
              Shell.NavBarIsVisible="False">
     
-    <ContentPage.BindingContext>
-        <controller:FootballStandingsController/>
-    </ContentPage.BindingContext>
-
     <ScrollView>
         <VerticalStackLayout>
             <HorizontalStackLayout>
                 <Image Source="https://assets.stickpng.com/images/609912b13ae4510004af4a22.png" MaximumHeightRequest="50"/>
                 <Label Text="Leagues:" Margin="0,15,0,0" HorizontalOptions="Center"/>
                 <Picker ItemsSource="{Binding Leagues}" Margin="20,0,0,0" MaximumWidthRequest="300" SelectedItem="{Binding SelectedLeagueFootball}"
-                HorizontalOptions="Center"/>
-                <!--<Button Text="CONFIRM"  HorizontalOptions="Center" Command="{Binding ShowLeaguesCommand}"
-                Margin="30,0,0,0" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold"/>-->
-                <Picker ItemsSource="{Binding Seasons}" WidthRequest="100" 
+                        HorizontalOptions="Center"/>
+                <Picker ItemsSource="{Binding Seasons}" WidthRequest="100"
                 SelectedItem="{Binding SelectedSeasonFootball}" HorizontalOptions="Center"/>
+                <Button Text="Top scorers" Command="{Binding GoToTopScorersCommand}"/>
             </HorizontalStackLayout>
 
             <ScrollView>

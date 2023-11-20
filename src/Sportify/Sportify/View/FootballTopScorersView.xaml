@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.FootballTopScorersView"
+             Title="FootballTopScorers"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model"
+             x:DataType="controller:FootballTopScorersController">
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding TopScores}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:FootballTopScorersResponse">
+                            <Frame BackgroundColor="#34495e" CornerRadius="10" HeightRequest="300">
+                                <VerticalStackLayout>
+                                    <Image Source="{Binding Player.Photo}" Style="{StaticResource BaseImage}"/>
+                                    <Label Text="{Binding Player.Name}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Player.Age}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Player.Birth}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Player.Nationality}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Player.Height}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Player.Weight}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Games.Appearences}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Games.Position}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Games.Position}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Shots.Total}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Goals.Total}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Goals.Assists}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Passes.Total}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Tackles.Total}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Duels.Total}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Duels.Won}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Dribbles.Attempts}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Dribbles.Success}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Fouls.Committed}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Cards.Yellow}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Cards.Red}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Penalty.Scored}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Statistics[0].Penalty.Missed}" Style="{StaticResource BaseLabel}"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

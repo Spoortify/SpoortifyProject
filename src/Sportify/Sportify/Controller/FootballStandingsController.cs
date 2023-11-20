@@ -71,7 +71,7 @@ namespace Sportify.Controller
             Football = new();
             previousGroup = null;
 
-            string id = GetFootballLeagueId(_selectedLeague);
+            int id = GetFootballLeagueId(_selectedLeague);
             var response = await App.FootballClient.GetAsync($"/standings?league={id}&season={_selectedSeason}");
             Football = await response.Content.ReadFromJsonAsync<Football>();
 
@@ -95,7 +95,13 @@ namespace Sportify.Controller
             await App.Current.MainPage.Navigation.PushAsync(new SeasonTeamDetails(team));
         }
 
-        public static string GetFootballLeagueId(string league)
+        [RelayCommand]
+        public async Task GoToTopScorers()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new FootballTopScorersView(_selectedSeason, GetFootballLeagueId(_selectedLeague)));
+        }
+
+        public static int GetFootballLeagueId(string league)
         {
             int id = league switch
             {
@@ -113,7 +119,7 @@ namespace Sportify.Controller
                 "EURO2024 QUALIFICATION" => 960,
                 _ => 135
             };
-            return id.ToString();
+            return id;
         }
     }
 }
