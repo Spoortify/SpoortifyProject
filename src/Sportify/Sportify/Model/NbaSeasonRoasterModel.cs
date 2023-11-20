@@ -137,7 +137,7 @@ namespace Sportify.Model
     public class Vegas
     {
         [JsonPropertyName("jersey")]
-        public int Jersey { get; set; }
+        public int? Jersey { get; set; }
 
         [JsonPropertyName("active")]
         public bool Active { get; set; }

@@ -10,7 +10,7 @@
             client.DefaultRequestHeaders.Add("x-rapidapi-key", "7169e21806353dcad1a1592a2b7043bd");
             client.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");
 
-            var response = await client.GetAsync("players?season=2023&team=17");
+            var response = await client.GetAsync("players/statistics?id=462&season=2023");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();

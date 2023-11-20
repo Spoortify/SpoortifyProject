@@ -5,10 +5,10 @@ namespace Sportify.View;
 
 public partial class NbaPlayerSeasonStatisticsView : ContentPage
 {
-	public NbaPlayerSeasonStatisticsView(List<NBAResponse> response)
+	public NbaPlayerSeasonStatisticsView(NBARoasterResponse response, int season)
 	{
 		InitializeComponent();
-		NbaPlayerSeasonStatisticsController controller = new NbaPlayerSeasonStatisticsController(response);
+		NbaPlayerSeasonStatisticsController controller = new NbaPlayerSeasonStatisticsController(response, season);
 		BindingContext = controller;
 	}
 }

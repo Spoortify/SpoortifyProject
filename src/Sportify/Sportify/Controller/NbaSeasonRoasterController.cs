@@ -45,13 +45,13 @@ namespace Sportify.Controller
         }
 
         [RelayCommand]
-        public async Task GoToPlayerStatistic(List<NBAResponse> response)
+        public async Task GoToPlayerStatistic(NBARoasterResponse response)
         {
             if (response is null)
             {
                 return;
             }
-            await App.Current.MainPage.Navigation.PushAsync(new NbaPlayerSeasonStatisticsView(response));
+            await App.Current.MainPage.Navigation.PushAsync(new NbaPlayerSeasonStatisticsView(response, season));
         }
     }
 }
