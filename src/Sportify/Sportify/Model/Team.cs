@@ -56,7 +56,7 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public TeamsParameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }

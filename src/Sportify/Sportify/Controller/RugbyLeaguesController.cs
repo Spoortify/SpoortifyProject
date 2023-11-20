@@ -21,13 +21,13 @@ namespace Sportify.Controller
             "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" };
 
         [ObservableProperty]
-        private static string _selectedSeason = DateTime.Now.Year.ToString();
+        private string _selectedSeason = DateTime.Now.Year.ToString();
 
         [ObservableProperty]
-        private static bool isBusy = false;
+        public bool isBusy = false;
 
         [ObservableProperty]
-        public static ObservableCollection<RugbyLeagueResponse> rugbyLeagues;
+        public List<RugbyLeagueResponse> rugbyLeagues;
 
         public string SelectedSeasonLeagues
         {
@@ -47,28 +47,19 @@ namespace Sportify.Controller
             rugbyLeagueStandings = new();
         }
 
-        public static async Task GetLeagues()
+        public async Task GetLeagues()
         {
-            if (isBusy) return;
-            isBusy = true;
-            rugbyLeagues.Clear();
+            if (IsBusy) return;
+            IsBusy = true;
+            RugbyLeagues = new();
             var response = await App.rugbyClient.GetAsync($"/leagues/?season={_selectedSeason}");
             if (!response.IsSuccessStatusCode)
                 return;
 
             var content = await response.Content.ReadAsStreamAsync();
             var rugbyLeague = await JsonSerializer.DeserializeAsync<RugbyLeague>(content);
-            await Task.Run(() =>
-            {
-                Parallel.ForEach(rugbyLeague.Response, async league =>
-                {
-                    await MainThread.InvokeOnMainThreadAsync(() =>
-                    {
-                        rugbyLeagues.Add(league);
-                    });
-                });
-            });
-            isBusy = false;
+            RugbyLeagues = rugbyLeague.Response;
+            IsBusy = false;
         }
 
         [RelayCommand]
@@ -76,8 +67,8 @@ namespace Sportify.Controller
         {
             if (rugbyLeague == null)
                 return;
-            if (isBusy) return;
-            isBusy = true;
+            if (IsBusy) return;
+            IsBusy = true;
             var response = await App.rugbyClient.GetAsync($"/standings/?league={rugbyLeague.Id}&season={_selectedSeason}");
             if (!response.IsSuccessStatusCode)
                 return;
@@ -85,15 +76,12 @@ namespace Sportify.Controller
             try
             {
                 rugbyLeagueStandings = await JsonSerializer.DeserializeAsync<RugbyLeagueStandingsModel>(content);
+                IsBusy = false;
+                await App.Current.MainPage.Navigation.PushAsync(new RugbyLeagueStandings(rugbyLeagueStandings));
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Error", ex.Source + ": " + ex.Message, "OK");
-            }
-            finally
-            {
-                isBusy = false;
-                await App.Current.MainPage.Navigation.PushAsync(new RugbyLeagueStandings(rugbyLeagueStandings));
             }
         }
     }

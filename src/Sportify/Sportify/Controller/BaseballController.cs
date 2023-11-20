@@ -59,7 +59,7 @@ namespace Sportify.Controller
         }
 
         [RelayCommand]
-        public async void OpenDetails(Response response)
+        public async void OpenDetails(BaseballGameResponse response)
         {
             var nuovaPagina = new ViewTypes();
             var diz = new Dictionary<string, object> { { "Game", response } };

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sportify.View.RugbyLeagues"
+             x:Class="Sportify.View.RugbyLeaguesView"
              xmlns:model="clr-namespace:Sportify.Model"
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:RugbyLeaguesController"
@@ -10,6 +10,13 @@
         <VerticalStackLayout>
             <Picker ItemsSource="{Binding Seasons}" WidthRequest="100" 
                     SelectedItem="{Binding SelectedSeasonLeagues}" HorizontalOptions="Center"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                   IsVisible="{Binding IsBusy}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   WidthRequest="50"
+                   HeightRequest="50"
+                   Color="White"/>
             <CollectionView ItemsSource="{Binding RugbyLeagues}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:RugbyLeagueResponse">

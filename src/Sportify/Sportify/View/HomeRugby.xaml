@@ -15,14 +15,13 @@
                         Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
                         DateSelected="OnDateSelected" Margin="0,0,0,10"/>
 
-            <!--TODO: da sistemare activity indicator non funziona-->
             <ActivityIndicator IsRunning="{Binding IsBusy}"
                                IsVisible="{Binding IsBusy}"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
                                WidthRequest="50"
                                HeightRequest="50"
-                               Color="Red" />
+                               Color="White"/>
             
             <Button Text="Leagues"
                     Command="{Binding GoToLeaguesCommand}"

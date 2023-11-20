@@ -16,6 +16,8 @@ namespace Sportify.Controller
         [ObservableProperty]
         bool isVisible = false;
 
+        private static bool isBusy = false;
+
         [RelayCommand]
         public void ViewMenu()
         {
@@ -26,17 +28,23 @@ namespace Sportify.Controller
         [RelayCommand]
         public async Task SportClicked(string sport)
         {
+            if (isBusy) return;
+            isBusy = true;
             switch (sport)
             {
                 case "Formula 1":
                     await Shell.Current.GoToAsync(nameof(HomeFormula1), true);
+                    isBusy = false;
                     break;
                 case "Rugby":
                     await Shell.Current.GoToAsync(nameof(HomeRugby), true);
+                    isBusy = false;
                     break;
                 case "Baseball":
                     await Shell.Current.GoToAsync(nameof(ChooseCall), true);
+                    isBusy = false;
                     break;
+
             }
         }
     }

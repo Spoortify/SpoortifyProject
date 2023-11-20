@@ -60,7 +60,7 @@
 	  <MauiXaml Update="View\RugbyGameDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\RugbyLeagues.xaml">
+	  <MauiXaml Update="View\RugbyLeaguesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\RugbyLeagueStandings.xaml">
@@ -68,6 +68,9 @@
 	  </MauiXaml>
 	  <Compile Update="View\CurrentSeason.xaml.cs">
 	    <DependentUpon>CurrentSeason.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\RugbyLeaguesView.xaml.cs">
+	    <DependentUpon>RugbyLeaguesView.xaml</DependentUpon>
 	  </Compile>
 	  <MauiXaml Update="View\ConstructorStandings.xaml">
 	    <Generator>MSBuild:Compile</Generator>

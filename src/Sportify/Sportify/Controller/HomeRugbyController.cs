@@ -13,26 +13,37 @@ namespace Sportify.Controller
     public partial class HomeRugbyController : ObservableObject
     {
         [ObservableProperty]
-        private static bool isBusy = false;
+        public bool isBusy = false;
 
         [ObservableProperty]
-        public static ObservableCollection<RugbyGameResponse> rugbyGame = new();
+        public List<RugbyGameResponse> rugbyGame;
 
-        private static RugbyLeague rugbyLeague = new();
-        private static DateTime _selectedDate = DateTime.Now;
+        private static RugbyLeague rugbyLeague;
+        private static DateTime _selectedDate;
         public DateTime SelectedDate
         {
             get => _selectedDate;
             set => SetProperty(ref _selectedDate, value);
         }
 
-        public static async Task ShowGames()
+        public HomeRugbyController()
         {
-            if (isBusy) return;
-            isBusy = true;
+            RugbyGame = new();
+            rugbyLeague = new();
+            _selectedDate = DateTime.Now;
+            new Action(async () =>
+            {
+                await ShowGames();
+            })();
+        }
+
+        public async Task ShowGames()
+        {
+            if (IsBusy) return;
+            IsBusy = true;
             try
             {
-                rugbyGame.Clear();
+                RugbyGame = new();
                 string formattedDate = _selectedDate.ToString("yyyy-MM-dd");
                 var response = await App.rugbyClient.GetAsync($"/games/?date={formattedDate}");
 
@@ -40,17 +51,7 @@ namespace Sportify.Controller
 
                 var content = await response.Content.ReadAsStreamAsync();
                 var games = await JsonSerializer.DeserializeAsync<RugbyGame>(content);
-
-                await Task.Run(() =>
-                {
-                    Parallel.ForEach(games.Responses, async game =>
-                    {
-                        await MainThread.InvokeOnMainThreadAsync(() =>
-                        {
-                            rugbyGame.Add(game);
-                        });
-                    });
-                });
+                RugbyGame = games.Responses;
             }
             catch (Exception ex)
             {
@@ -58,31 +59,30 @@ namespace Sportify.Controller
             }
             finally
             {
-                isBusy = false;
+                IsBusy = false;
             }
         }
 
         [RelayCommand]
         private static async Task GoToRugbyGameDetails(RugbyGameResponse rugbyGame)
         {
-            if (rugbyGame == null)
-                return;
+            if (rugbyGame == null) return;
             await App.Current.MainPage.Navigation.PushAsync(new RugbyGameDetails(rugbyGame));
         }
 
         [RelayCommand]
         private async Task GoToLeagues()
         {
-            if (isBusy) return;
-            isBusy = true;
+            if (IsBusy) return;
+            IsBusy = true;
             var response = await App.rugbyClient.GetAsync($"/leagues/?season={SelectedDate.Year}");
             if (!response.IsSuccessStatusCode)
                 return;
 
             var content = await response.Content.ReadAsStreamAsync();
             rugbyLeague = await JsonSerializer.DeserializeAsync<RugbyLeague>(content);
-            isBusy = false;
-            await App.Current.MainPage.Navigation.PushAsync(new RugbyLeagues(rugbyLeague));
+            IsBusy = false;
+            await App.Current.MainPage.Navigation.PushAsync(new RugbyLeaguesView(rugbyLeague));
         }
 
         [RelayCommand]

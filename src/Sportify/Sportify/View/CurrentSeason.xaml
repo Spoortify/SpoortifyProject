@@ -31,7 +31,7 @@
             </Frame>
             <CollectionView ItemsSource="{Binding Formula1.Response}" IsVisible="{Binding DriverVisible}">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="Model:Response">
+                    <DataTemplate x:DataType="Model:Formula1Response">
                         <Frame BackgroundColor="White" CornerRadius="0">
                             <Grid ColumnDefinitions="*,*,*,*,*,*">
                                 <Label Text="{Binding Position}" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>

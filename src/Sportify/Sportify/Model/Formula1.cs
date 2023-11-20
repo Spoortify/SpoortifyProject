@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sportify.Model
 {
-    public class Driver
+    public class Formula1Driver
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -24,18 +24,18 @@ namespace Sportify.Model
         [JsonPropertyName("image")]
         public string Image { get; set; }
     }
-    public class Parameters
+    public class Formula1Parameters
     {
         [JsonPropertyName("season")]
         public string Season { get; set; }
     }
-    public class Response
+    public class Formula1Response
     {
         [JsonPropertyName("position")]
         public int Position { get; set; }
 
         [JsonPropertyName("driver")]
-        public Driver Driver { get; set; }
+        public Formula1Driver Driver { get; set; }
 
         [JsonPropertyName("team")]
         public Formula1Team Team { get; set; }
@@ -58,7 +58,7 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public Formula1Parameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
@@ -67,7 +67,7 @@ namespace Sportify.Model
         public int Results { get; set; }
 
         [JsonPropertyName("response")]
-        public List<Response> Response { get; set; }
+        public List<Formula1Response> Response { get; set; }
     }
     public class Formula1Team
     {

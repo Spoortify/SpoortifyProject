@@ -5,21 +5,17 @@ namespace Sportify.View;
 
 public partial class HomeRugby : ContentPage
 {
+    private HomeRugbyController controller;
     public HomeRugby()
     {
         InitializeComponent();
-        HomeRugbyController controller = new HomeRugbyController();
+        controller = new HomeRugbyController();
         BindingContext = controller; 
-    }
-
-    protected override void OnAppearing()
-    {
-        HomeRugbyController.ShowGames();
     }
 
     private async void OnDateSelected(object sender, DateChangedEventArgs e)
     {
-        await HomeRugbyController.ShowGames();
+        await controller.ShowGames();
     }
 
 }

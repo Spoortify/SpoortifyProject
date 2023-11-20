@@ -3,17 +3,19 @@ using Sportify.Model;
 
 namespace Sportify.View;
 
-public partial class RugbyLeagues : ContentPage
+public partial class RugbyLeaguesView : ContentPage
 {
-	public RugbyLeagues(RugbyLeague rugbyLeague)
+    private RugbyLeaguesController controller;
+
+    public RugbyLeaguesView(RugbyLeague rugbyLeague)
 	{
 		InitializeComponent();
-		RugbyLeaguesController controller = new(rugbyLeague);
+		controller = new(rugbyLeague);
         BindingContext = controller;   
 	}
 
     private async void OnDateSelected(object sender, DateChangedEventArgs e)
     {
-        await RugbyLeaguesController.GetLeagues();
+        await controller.GetLeagues();
     }
 }
