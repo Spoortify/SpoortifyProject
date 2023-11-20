@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Sportify.Model;
+using Sportify.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -85,6 +86,13 @@ namespace Sportify.Controller
                     previousGroup = standing.Group;
                 }
             }
+        }
+
+        [RelayCommand]
+        public async Task GoToSeasonTeamDetails(FootballStandingsModel team)
+        {
+            if (team is null) return;
+            await App.Current.MainPage.Navigation.PushAsync(new SeasonTeamDetails(team));
         }
 
         public static string GetFootballLeagueId(string league)

@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sportify.View.FootballStandings"
              Title="FootballStandings"
-             xmlns:Controller="clr-namespace:Sportify.Controller"
-             xmlns:Model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model"
              Shell.NavBarIsVisible="False">
+    
     <ContentPage.BindingContext>
-        <Controller:FootballStandingsController/>
+        <controller:FootballStandingsController/>
     </ContentPage.BindingContext>
 
     <ScrollView>
@@ -24,7 +25,7 @@
             </HorizontalStackLayout>
 
             <ScrollView>
-                <Grid ColumnDefinitions="*, *">
+                <Grid ColumnDefinitions="200, *">
                     <CollectionView ItemsSource="{Binding Groups}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -37,13 +38,24 @@
 
                     <CollectionView Grid.Column="1" ItemsSource="{Binding Football.Response[0].League.Standings}">
                         <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="Model:FootballStandingsModel">
+                            <DataTemplate x:DataType="model:FootballStandingsModel">
                                 <Frame WidthRequest="325">
                                     <CollectionView ItemsSource="{Binding .}">
                                         <CollectionView.ItemTemplate>
-                                            <DataTemplate x:DataType="Model:FootballStandingsModel">
+                                            <DataTemplate x:DataType="model:FootballStandingsModel">
                                                 <Frame BorderColor="White">
-                                                    <Label Text="{Binding Team.Name}" TextColor="White"/>
+                                                    <Frame.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type controller:FootballStandingsController}}, Path=GoToSeasonTeamDetailsCommand}"
+                                                            CommandParameter="{Binding .}"/>            
+                                                    </Frame.GestureRecognizers>
+                                                    <Grid
+                                                        ColumnDefinitions="*, *, *, *">
+                                                        <Label Text="{Binding Rank}" Style="{StaticResource BaseLabel}"/>
+                                                        <Image Source="{Binding Team.Logo}" Style="{StaticResource BaseImage}" Grid.Column="1"/>
+                                                        <Label Text="{Binding Team.Name}" Style="{StaticResource BaseLabel}" Grid.Column="2"/>
+                                                        <Label Text="{Binding Points}" Style="{StaticResource BaseLabel}" Grid.Column="3"/>
+                                                    </Grid>
                                                 </Frame>
                                             </DataTemplate>
                                         </CollectionView.ItemTemplate>
