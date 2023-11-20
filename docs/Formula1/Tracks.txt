@@ -1,0 +1,49 @@
++-----------------------------------+
+|           Competition             |
++-----------------------------------+
+| - Id: int                         |
+| - Name: string                    |
+| - Location: Location              |
++-----------------------------------+
+
++-----------------------------------+
+|            LapRecord              |
++-----------------------------------+
+| - Time: string                    |
+| - Driver: string                  |
+| - Year: string                    |
++-----------------------------------+
+
++-----------------------------------+
+|             Location              |
++-----------------------------------+
+| - Country: string                 |
+| - City: string                    |
++-----------------------------------+
+
++-----------------------------------+
+|          TrackResponse            |
++-----------------------------------+
+| - Id: int                         |
+| - Name: string                    |
+| - Image: string                   |
+| - Competition: Competition        |
+| - FirstGrandPrix: int              |
+| - Laps: int                        |
+| - Length: string                   |
+| - RaceDistance: string             |
+| - LapRecord: LapRecord             |
+| - Capacity: int?                   |
+| - Opened: int?                     |
+| - Owner: string                    |
++-----------------------------------+
+
++-----------------------------------+
+|             Tracks                |
++-----------------------------------+
+| - Get: string                      |
+| - Parameters: List<object>         |
+| - Errors: List<object>             |
+| - Results: int                     |
+| - Response: List<TrackResponse>    |
++-----------------------------------+

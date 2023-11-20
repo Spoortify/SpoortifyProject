@@ -1,0 +1,9 @@
++-------------------+
+|  BaseballSeasons 		|
++-------------------+
+| - Get: string     		|
+| - Parameters: List<object>    |
+| - Errors: List<object>        |
+| - Results: int                |
+| - Response: List<int>         |
++-------------------+
