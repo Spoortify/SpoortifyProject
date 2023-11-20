@@ -19,6 +19,7 @@ namespace Sportify.Controller
         [ObservableProperty]
         public static ObservableCollection<HockeyGameResponse> hockeyGame = new();
 
+        private static HockeyGameLeague hockeyLeague = new();
         private static DateTime _selectedDate = DateTime.Now;
         public DateTime SelectedDate
         {
@@ -28,8 +29,8 @@ namespace Sportify.Controller
 
         public static async Task ShowGames()
         {
-            if (isBusy) return;
-            isBusy = true;
+        //    if (isBusy) return;
+        //    isBusy = true;
             try
             {
                 hockeyGame.Clear();
@@ -58,7 +59,7 @@ namespace Sportify.Controller
             }
             finally
             {
-                isBusy = false;
+               // isBusy = false;
             }
         }
 
@@ -66,9 +67,9 @@ namespace Sportify.Controller
         //[RelayCommand]
         //private static async Task GoToRugbyGameDetails(HockeyGameResponse rugbyGame)
         //{
-        //    if (rugbyGame == null)
+        //    if (hockeyGame == null)
         //        return;
-        //    await App.Current.MainPage.Navigation.PushAsync(new HockeyGameDetails(rugbyGame));
+        //    await App.Current.MainPage.Navigation.PushAsync(new HockeyGameDetailsController(hockeyGame));
         //}
 
         //[RelayCommand]
