@@ -9,6 +9,14 @@
     
     <ScrollView>
         <VerticalStackLayout>
+            <ActivityIndicator IsRunning="{Binding IsLoading}"
+                                       IsVisible="{Binding IsLoading}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       WidthRequest="50"
+                                       HeightRequest="50"
+                                       Margin="0,20,0,20"
+                                       Color="#8EBBFF" Grid.Column="0"/>
             <ScrollView>
                 <CollectionView ItemsSource="{Binding Game}">
                     <CollectionView.ItemTemplate>

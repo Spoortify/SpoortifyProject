@@ -18,6 +18,9 @@ namespace Sportify.Controller
         public ObservableCollection<BaseballLeaguesResponse> Game { get; set; } = new();
         public int season;
 
+        [ObservableProperty]
+        public bool isLoading = false;
+
         public ControllerSeasonDetails(int s)
         {
             season = s;
@@ -33,8 +36,10 @@ namespace Sportify.Controller
 
         public async Task Start()
         {
+            IsLoading = true;
             await GetBaseballApi();
             CreateList();
+            IsLoading = false;
         }
 
         [RelayCommand]

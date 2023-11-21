@@ -31,6 +31,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		
+		<Font Include="Fonts/fontBoom.ttf" />
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
@@ -46,6 +48,10 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\fontBoom.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>

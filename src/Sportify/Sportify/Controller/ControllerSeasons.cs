@@ -8,14 +8,18 @@ using Sportify.Model;
 using Sportify.View;
 using System.Collections.ObjectModel;
 using System.Text.Json;
+using CommunityToolkit.Mvvm.ComponentModel;
 //using static Android.Provider.DocumentsContract;
 
 namespace Sportify.Controller
 {
-    public partial class ControllerSeasons
+    public partial class ControllerSeasons : ObservableObject
     {
         public static BaseballSeasons myDeserializedClass;
         public ObservableCollection<int> Game { get; set; } = new ObservableCollection<int>();
+
+        [ObservableProperty]
+        public bool isLoading = false;
 
         public ControllerSeasons()
         {}
@@ -30,8 +34,10 @@ namespace Sportify.Controller
 
         public async Task Start()
         {
+            IsLoading = true; 
             await GetBaseballApi();
             CreateList();
+            IsLoading = false;
         }
 
         [RelayCommand]
