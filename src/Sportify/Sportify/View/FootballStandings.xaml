@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.FootballStandings"
+             Title="FootballStandings"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model"
+             x:DataType="controller:FootballStandingsController"
+             Shell.NavBarIsVisible="False">
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <Image Source="https://assets.stickpng.com/images/609912b13ae4510004af4a22.png" MaximumHeightRequest="50"/>
+                <Label Text="Leagues:" Margin="0,15,0,0" HorizontalOptions="Center"/>
+                <Picker ItemsSource="{Binding Leagues}" Margin="20,0,0,0" MaximumWidthRequest="300" SelectedItem="{Binding SelectedLeagueFootball}"
+                        HorizontalOptions="Center"/>
+                <Picker ItemsSource="{Binding Seasons}" WidthRequest="100"
+                SelectedItem="{Binding SelectedSeasonFootball}" HorizontalOptions="Center"/>
+                <Button Text="Top scorers" Command="{Binding GoToTopScorersCommand}"/>
+            </HorizontalStackLayout>
+
+            <ScrollView>
+                <Grid ColumnDefinitions="200, *">
+                    <CollectionView ItemsSource="{Binding Groups}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame>
+                                    <Label Text="{Binding .}"></Label>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <CollectionView Grid.Column="1" ItemsSource="{Binding Football.Response[0].League.Standings}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:FootballStandingsModel">
+                                <Frame WidthRequest="750">
+                                    <CollectionView ItemsSource="{Binding .}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="model:FootballStandingsModel">
+                                                <Frame BorderColor="White" WidthRequest="650" HeightRequest="125">
+                                                    <Frame.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type controller:FootballStandingsController}}, Path=GoToSeasonTeamDetailsCommand}"
+                                                            CommandParameter="{Binding .}"/>            
+                                                    </Frame.GestureRecognizers>
+                                                    <Grid
+                                                        ColumnDefinitions="*, *, *, *">
+                                                        <Label Text="{Binding Rank}" Style="{StaticResource BaseLabel}"/>
+                                                        <Image Source="{Binding Team.Logo}" Style="{StaticResource BaseImage}" Grid.Column="1"/>
+                                                        <Label Text="{Binding Team.Name}" Style="{StaticResource BaseLabel}" Grid.Column="2"/>
+                                                        <Label Text="{Binding Points}" Style="{StaticResource BaseLabel}" Grid.Column="3"/>
+                                                    </Grid>
+                                                </Frame>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

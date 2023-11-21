@@ -32,6 +32,9 @@ namespace Sportify.Controller
             isBusy = true;
             switch (sport)
             {
+                case "Football":
+                    await Shell.Current.GoToAsync(nameof(HomeFootball), true);
+                    break;
                 case "Formula 1":
                     await Shell.Current.GoToAsync(nameof(HomeFormula1), true);
                     isBusy = false;

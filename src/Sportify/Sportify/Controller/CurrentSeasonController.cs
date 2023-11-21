@@ -42,7 +42,7 @@ namespace Sportify.Controller
             DriverVisible = false;
             ConstructorVisible = true;
             ResultsVisible = false;
-            var response = await App.ClientF1.GetAsync("/rankings/teams?season=2023");
+            var response = await App.ClientF1.GetAsync($"/rankings/teams?season={DateTime.Now.Year}");
             Constructor = await response.Content.ReadFromJsonAsync<Constructors>();
         }
         [RelayCommand]
@@ -51,7 +51,7 @@ namespace Sportify.Controller
             DriverVisible = false;
             ConstructorVisible = false;
             ResultsVisible = true;
-            var response = await App.ClientF1.GetAsync("/races?season=2023");
+            var response = await App.ClientF1.GetAsync($"/races?season={DateTime.Now.Year}");
             RaceResult = await response.Content.ReadFromJsonAsync<Result>();
             Results = RaceResult.Response.Where(r => r.Type == "Race").ToList();
         }

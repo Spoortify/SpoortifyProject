@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.SeasonTeamDetails"
+             xmlns:model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             x:DataType="controller:SeasonTeamDetailsController"
+             Title="SeasonTeamDetails">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Margin="20">
+
+            <Image Source="{Binding Team.Team.Logo}" Style="{StaticResource BaseImage}" VerticalOptions="Start"/>
+            <Label Text="{Binding Team.Team.Name}" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Label Text="{Binding Team.Points}" Style="{StaticResource BaseLabel}"/>
+            <Label Text="{Binding Team.GoalsDiff}" Style="{StaticResource BaseLabel}"/>
+            <Label Text="Form (last five games) " Style="{StaticResource BaseLabel}"/>
+            <Label Text="{Binding Team.Form}"/>
+            <Label Text="Games"/>
+            <VerticalStackLayout>
+                <Label Text="{Binding Team.All.Played}" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding Team.All.Win}" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding Team.All.Lose}" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding Team.All.Draw}" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding Team.All.Goals.For}" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding Team.All.Goals.Against}" Style="{StaticResource BaseLabel}"/>
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
