@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.FootballTopScorerDetails"
+             Title="FootballTopScorerDetails"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model"
+             x:DataType="controller:FootballTopScorerDetailsController">
+    
+    <VerticalStackLayout>
+        <Image Source="{Binding TopScorer.Player.Photo}" Style="{StaticResource BaseImage}"/>
+        <Label Text="{Binding TopScorer.Player.Name}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Player.Age}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Goals.Total}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Player.Birth}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Player.Nationality}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Player.Height}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Player.Weight}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Games.Appearences}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Games.Position}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Games.Position}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Shots.Total}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Goals.Assists}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Passes.Total}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Tackles.Total}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Duels.Total}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Duels.Won}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Dribbles.Attempts}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Dribbles.Success}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Fouls.Committed}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Cards.Yellow}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Cards.Red}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Penalty.Scored}" Style="{StaticResource BaseLabel}"/>
+        <Label Text="{Binding TopScorer.Statistics[0].Penalty.Missed}" Style="{StaticResource BaseLabel}"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -57,6 +57,9 @@
 	  <MauiXaml Update="View\FootballStandings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\FootballTopScorerDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\FootballTopScorersView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
