@@ -17,10 +17,11 @@ namespace Sportify.Controller
         IGrouping<string,GameDayResponse> serieA;
         public FootballTodayGameController()
         {
-            new Action(async () =>
-            {
-                await Init();
-            })();
+            //TODO: da sistemare non funziona ancora del tutto
+            //new Action(async () =>
+            //{
+            //    await Init();
+            //})();
         }
 
         private async Task Init()

@@ -29,7 +29,7 @@ namespace Sportify.Controller
             switch (sport)
             {
                 case "Football":
-                    await Shell.Current.GoToAsync(nameof(FootballStandings), true);
+                    await Shell.Current.GoToAsync(nameof(HomeFootball), true);
                     break;
                 case "Formula 1":
                     await Shell.Current.GoToAsync(nameof(HomeFormula1), true);

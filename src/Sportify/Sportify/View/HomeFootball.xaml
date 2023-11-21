@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.HomeFootball"
+             Title="HomeFootball"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model">
+    <VerticalStackLayout>
+        <Button Text="Team list" Clicked="GoToTeamList"/>
+        <Button Text="Today game" Clicked="GoToTodayGames"/>
+        <Button Text="Football standings" Clicked="GoToFootballStandings"/>
+    </VerticalStackLayout>
+</ContentPage>

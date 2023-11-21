@@ -17,6 +17,7 @@ namespace Sportify
             Routing.RegisterRoute(nameof(HomeRugby), typeof(HomeRugby));
             Routing.RegisterRoute(nameof(HomeFormula1), typeof(HomeFormula1));
             Routing.RegisterRoute(nameof(FootballTodayGame), typeof(FootballTodayGame));
+            Routing.RegisterRoute(nameof(HomeFootball), typeof(HomeFootball));
         }
     }
 }
