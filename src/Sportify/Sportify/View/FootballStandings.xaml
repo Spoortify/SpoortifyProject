@@ -35,11 +35,11 @@
                     <CollectionView Grid.Column="1" ItemsSource="{Binding Football.Response[0].League.Standings}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="model:FootballStandingsModel">
-                                <Frame WidthRequest="325">
+                                <Frame WidthRequest="750">
                                     <CollectionView ItemsSource="{Binding .}">
                                         <CollectionView.ItemTemplate>
                                             <DataTemplate x:DataType="model:FootballStandingsModel">
-                                                <Frame BorderColor="White">
+                                                <Frame BorderColor="White" WidthRequest="650" HeightRequest="125">
                                                     <Frame.GestureRecognizers>
                                                         <TapGestureRecognizer
                                                             Command="{Binding Source={RelativeSource AncestorType={x:Type controller:FootballStandingsController}}, Path=GoToSeasonTeamDetailsCommand}"

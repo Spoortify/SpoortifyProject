@@ -37,7 +37,7 @@ namespace Sportify.Controller
         }
 
         [RelayCommand]
-        private async Task GoToTopScorerDetailsCommand(FootballTopScorersResponse topScorer)
+        private async Task GoToTopScorerDetails(FootballTopScorersResponse topScorer)
         {
             if (topScorer is null) return;
             await App.Current.MainPage.Navigation.PushAsync(new FootballTopScorerDetails(topScorer));

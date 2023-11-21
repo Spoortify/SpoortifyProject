@@ -12,7 +12,9 @@
         <Label Text="{Binding TopScorer.Player.Name}" Style="{StaticResource BaseLabel}"/>
         <Label Text="{Binding TopScorer.Player.Age}" Style="{StaticResource BaseLabel}"/>
         <Label Text="{Binding TopScorer.Statistics[0].Goals.Total}" Style="{StaticResource BaseLabel}"/>
-        <Label Text="{Binding TopScorer.Player.Birth}" Style="{StaticResource BaseLabel}"/>
+        
+        <!--TODO: sistemare data-->
+        <Label Text="{Binding TopScorer.Player.Birth, StringFormat='{0:dd/MM/yyyy}'}" Style="{StaticResource BaseLabel}"/>
         <Label Text="{Binding TopScorer.Player.Nationality}" Style="{StaticResource BaseLabel}"/>
         <Label Text="{Binding TopScorer.Player.Height}" Style="{StaticResource BaseLabel}"/>
         <Label Text="{Binding TopScorer.Player.Weight}" Style="{StaticResource BaseLabel}"/>
