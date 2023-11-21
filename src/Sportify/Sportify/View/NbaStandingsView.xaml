@@ -11,8 +11,8 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*,*">
-            <Picker ItemsSource="{Binding Seasons}" SelectedItem="{Binding SeasonString}"/>
-            <Button Text="find" Command="{Binding RiempiListaCommand}" Grid.Column="1"/>
+            <Picker ItemsSource="{Binding Seasons}" SelectedItem="{Binding SelectedSeason}" />
+            <!--<Button Text="find" Command="{Binding RiempiListaCommand}" Grid.Column="1"/>-->
             <HorizontalStackLayout Grid.Row="1">
                 <Button Text="League" Command="{Binding LeagueStandingsCommand}"/>
                 <Button Text="Conference" Command="{Binding ConferenceStandingsCommand}"/>

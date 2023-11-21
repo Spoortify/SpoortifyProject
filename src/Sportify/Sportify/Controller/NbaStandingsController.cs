@@ -17,6 +17,8 @@ namespace Sportify.Controller
     {
         static HttpClient client;
 
+        #region Observableproperty
+
         [ObservableProperty]
         bool leagueVisible = false;
 
@@ -30,10 +32,10 @@ namespace Sportify.Controller
         List<string> seasons = new List<string> { "2023-2024", "2022-2023", "2021-2022", "2020-2021", "2019-2020", "2018-2019" };
 
         [ObservableProperty]
-        string seasonString;
+        string seasonString = "2023-2024";
 
         [ObservableProperty]
-        int seasonInt = 2018;
+        int seasonInt = 2023;
 
         [ObservableProperty]
         NbaSeasonStandings seasonStatsList;
@@ -64,6 +66,8 @@ namespace Sportify.Controller
 
         [ObservableProperty]
         List<NBAResponse> southwestDivStandingsList;
+
+        #endregion
 
         private static bool isBusy = false;
 
@@ -141,11 +145,11 @@ namespace Sportify.Controller
                 Where(s => s.Division.Name.Equals("southwest")).OrderByDescending(t => t.Win.Total).ToList();
         }
 
-        public void ConvertSeason()
+        public string ConvertSeason()
         {
             //{ "2023-2024", "2022-2023", "2021-2022", "2020-2021", "2019-2020", "2018-2019" }
 
-            SeasonInt = SeasonString switch
+            SeasonInt = seasonString switch
             {
                 "2023-2024" => 2023,
                 "2022-2023" => 2022,
@@ -155,6 +159,8 @@ namespace Sportify.Controller
                 "2018-2019" => 2018,
                 _ => 2023
             };
+
+            return SeasonInt.ToString();
         }
 
         [RelayCommand]
@@ -165,6 +171,18 @@ namespace Sportify.Controller
                 return;
             }
             await App.Current.MainPage.Navigation.PushAsync(new NbaTeamsStatisticsView(response));
+        }
+
+        public string SelectedSeason
+        {
+            get => seasonString;
+            set
+            {
+                if (SetProperty(ref seasonString, value))
+                {
+                    _ = RiempiLista();
+                }
+            }
         }
     }
 }
