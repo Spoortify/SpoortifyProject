@@ -50,7 +50,7 @@ namespace Sportify.Model
         public TeamsCountry Country { get; set; }
     }
 
-    public class Team
+    public class BaseballTeam
     {
         [JsonPropertyName("get")]
         public string Get { get; set; }
