@@ -24,7 +24,7 @@ namespace Sportify.Controller
         "SUPER LIG", "LIGA PORTUGAL", "CHAMPIONS LEAGUE", "EUROPA LEAGUE", "CONFERENCE LEAGUE", "EURO2024 QUALIFICATION"};
 
         [ObservableProperty]
-        private static string _selectedLeague = "SERIE A";
+        private static string _selectedLeague = "PREMIER LEAGUE";
 
         public string SelectedLeagueFootball
         {
@@ -61,7 +61,10 @@ namespace Sportify.Controller
 
         public FootballStandingsController()
         {
-            ShowLeagues();
+            new Action(async () =>
+            {
+                await ShowLeagues();
+            })();
         }
 
         [RelayCommand]
@@ -117,7 +120,7 @@ namespace Sportify.Controller
                 "EUROPA LEAGUE" => 3,
                 "CONFERENCE LEAGUE" => 848,
                 "EURO2024 QUALIFICATION" => 960,
-                _ => 135
+                _ => 39
             };
             return id;
         }

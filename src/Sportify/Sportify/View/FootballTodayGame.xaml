@@ -9,19 +9,282 @@
     <ContentPage.BindingContext>
         <Controller:FootballTodayGameController/>
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding GameDay.Response}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="Model:GameDayResponse">
-                    <Frame>
-                        <HorizontalStackLayout>
-                            <Label Text="{Binding League.Name}"/>
-                            <Label Text="{Binding Teams.Home.Name}"/>
-                            <Label Text="{Binding Teams.Away.Name}"/>
-                        </HorizontalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <DatePicker MinimumDate="01/01/2015"
+                            Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
+                            Margin="0,10,0,10"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="125"
+                            HeightRequest="50"/>
+                <Button Text="CONFIRM" Command="{Binding InitCommand}"/>
+            </HorizontalStackLayout>
+            <Label Text="{Binding Today, StringFormat='{0:D}'}"/>
+            <HorizontalStackLayout IsVisible="{Binding Lists[0]}">
+                <Image Source="{Binding PremierLeague[0].League.Logo}"/>
+                <Label Text="Premier League"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding PremierLeague}" IsVisible="{Binding Lists[0]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[1]}">
+                <Image Source="{Binding SerieA[0].League.Logo}"/>
+                <Label Text="Serie A"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding SerieA}" IsVisible="{Binding Lists[1]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[2]}">
+                <Image Source="{Binding Bundesliga[0].League.Logo}"/>
+                <Label Text="Bundesliga"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Bundesliga}" IsVisible="{Binding Lists[2]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[3]}">
+                <Image Source="{Binding Laliga[0].League.Logo}"/>
+                <Label Text="LaLiga"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Laliga}" IsVisible="{Binding Lists[3]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[4]}">
+                <Image Source="{Binding Ligue1[0].League.Logo}"/>
+                <Label Text="Ligue 1"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Ligue1}" IsVisible="{Binding Lists[4]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[5]}">
+                <Image Source="{Binding Eredivisie[0].League.Logo}"/>
+                <Label Text="Eredivisie"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Eredivisie}" IsVisible="{Binding Lists[5]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[6]}">
+                <Image Source="{Binding SuperLig[0].League.Logo}"/>
+                <Label Text="Super Lig"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding SuperLig}" IsVisible="{Binding Lists[6]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[7]}">
+                <Image Source="{Binding Liganos[0].League.Logo}"/>
+                <Label Text="Primeira Liga"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Liganos}" IsVisible="{Binding Lists[7]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[8]}">
+                <Image Source="{Binding Champions[0].League.Logo}"/>
+                <Label Text="Champions League"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Champions}" IsVisible="{Binding Lists[8]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[9]}">
+                <Image Source="{Binding Europa[0].League.Logo}"/>
+                <Label Text="Europa League"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Europa}" IsVisible="{Binding Lists[9]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[10]}">
+                <Image Source="{Binding Conference[0].League.Logo}"/>
+                <Label Text="Conference League"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Conference}" IsVisible="{Binding Lists[10]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout IsVisible="{Binding Lists[11]}">
+                <Image Source="{Binding EuroQuali[0].League.Logo}"/>
+                <Label Text="Euro Qualification"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding EuroQuali}" IsVisible="{Binding Lists[11]}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:GameDayResponse">
+                        <Frame CornerRadius="0">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Image Source="{Binding Teams.Home.Logo}" />
+                                <Label Text="{Binding Teams.Home.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Goals.Home}" Grid.Column="2"/>
+                                <Label Text="-" Grid.Column="3"/>
+                                <Label Text="{Binding Goals.Away}" Grid.Column="4"/>
+                                <Label Text="{Binding Teams.Away.Name}" Grid.Column="5"/>
+                                <Image Source="{Binding Teams.Away.Logo}" Grid.Column="6"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
