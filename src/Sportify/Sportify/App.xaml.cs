@@ -58,6 +58,11 @@ namespace Sportify
             return shuffledKeys.FirstOrDefault();
         }
 
+        //public static void ChangeApiKey(HttpClient client)
+        //{
+        //    client.DefaultRequestHeaders.Add("x-rapidapikey", GetRandomApiKey());
+        //}
+
         public static string GetFootballLeagueId(string league)
         {
             int id = league switch
