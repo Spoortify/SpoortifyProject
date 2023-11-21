@@ -64,6 +64,10 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\HomeFootball.xaml">
+	  <MauiXaml Update="View\FootballTopScorerDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\FootballTopScorersView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\HomeRugby.xaml">
@@ -81,8 +85,8 @@
 	  <Compile Update="View\CurrentSeason.xaml.cs">
 	    <DependentUpon>CurrentSeason.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\HomeFootball.xaml.cs">
-	    <DependentUpon>HomeFootball.xaml</DependentUpon>
+	  <Compile Update="View\FootballTopScorersView.xaml.cs">
+	    <DependentUpon>FootballTopScorersView.xaml</DependentUpon>
 	  </Compile>
 	  <MauiXaml Update="View\ConstructorStandings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
@@ -97,6 +101,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\RaceResults.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\SeasonTeamDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Standings.xaml">

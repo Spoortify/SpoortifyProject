@@ -25,7 +25,7 @@
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type controller:RugbyLeaguesController}}, Path=GoToRugbyLeagueStandingsCommand}"
-                                    CommandParameter="{Binding .}"/>    
+                                    CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
                             <Grid ColumnDefinitions="*, *">
                                 <VerticalStackLayout>
