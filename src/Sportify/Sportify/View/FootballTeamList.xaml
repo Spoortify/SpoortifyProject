@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.FootballTeamList"
+             Title="FootballTeamList"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             xmlns:Model="clr-namespace:Sportify.Model"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <Controller:FootballTeamListController/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <Image Source="https://assets.stickpng.com/images/609912b13ae4510004af4a22.png" MaximumHeightRequest="50"
+                   />
+                <Label Text="Leagues:" Margin="0,15,0,0" HorizontalOptions="Center"/>
+                <Picker ItemsSource="{Binding Leagues}" Margin="20,0,0,0" MaximumWidthRequest="300" SelectedItem="{Binding League}"
+                    HorizontalOptions="Center"/>
+                <Button Text="CONFIRM"  HorizontalOptions="Center" Command="{Binding ShowTeamsCommand}"
+                    Margin="30,0,0,0" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding Teams.Response}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:FootballListResponse">
+                        <Frame CornerRadius="0">
+                            <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*">
+                                <Image Source="{Binding Team.Logo}" Grid.RowSpan="3" MaximumHeightRequest="100"
+                                       MaximumWidthRequest="100"/>
+                                <Label Text="{Binding Team.Name}" Grid.Column="1"/>
+                                <Label Text="{Binding Team.Country}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Text="{Binding Team.Founded, StringFormat='Founded: {0}'}" Grid.Row="2" Grid.Column="1"/>
+
+                                <Image Source="{Binding Venue.Image}" Grid.RowSpan="3" MaximumHeightRequest="100" MaximumWidthRequest="100"
+                                       Grid.Column="2"/>
+                                <Label Grid.Column="3" Text="{Binding Venue.FullName}"/>
+                                <Label Text="{Binding Venue.City}" Grid.Column="3" Grid.Row="1"/>
+                                <Label Text="{Binding Venue.Capacity,StringFormat='Capacity: {0}'}"
+                                       Grid.Column="3" Grid.Row="2"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label Text="EMPTY VIEW"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

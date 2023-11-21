@@ -5,15 +5,23 @@
              xmlns:model="clr-namespace:Sportify.Model"
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:RugbyLeaguesController"
-             Title="RugbyLeagues">
+             Title="RugbyLeagues"
+             Shell.NavBarIsVisible="False">
     <ScrollView>
         <VerticalStackLayout>
-            <Picker ItemsSource="{Binding Seasons}" WidthRequest="100" 
-                    SelectedItem="{Binding SelectedSeasonLeagues}" HorizontalOptions="Center"/>
-            <CollectionView ItemsSource="{Binding RugbyLeagues}">
+            <Picker ItemsSource="{Binding Seasons}" MaximumWidthRequest="150" Grid.Column="1"
+                            SelectedItem="{Binding SelectedSeasonLeagues}" HorizontalOptions="Center" 
+                            />
+            <Frame BackgroundColor="Green" CornerRadius="0">
+                <Grid ColumnDefinitions="*">
+                    <Label Text="Leagues" FontAttributes="Bold" FontSize="30" TextColor="White"
+                        HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+            <CollectionView ItemsSource="{Binding RugbyLeagues}" VerticalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:RugbyLeagueResponse">
-                        <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
+                        <Frame BackgroundColor="White" HeightRequest="300" CornerRadius="0">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type controller:RugbyLeaguesController}}, Path=GoToRugbyLeagueStandingsCommand}"
@@ -22,11 +30,13 @@
                             <Grid ColumnDefinitions="*, *">
                                 <VerticalStackLayout>
                                     <Image Source="{Binding Logo}" Style="{StaticResource BaseImage}"/>
-                                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}" TextColor="Black"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
                                 </VerticalStackLayout>
                                 <VerticalStackLayout Grid.Column="1">
                                     <Image Source="{Binding Country.Flag}" Style="{StaticResource BaseImage}"/>
-                                    <Label Text="{Binding Country.Name}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Country.Name}" Style="{StaticResource BaseLabel}" TextColor="Black"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>

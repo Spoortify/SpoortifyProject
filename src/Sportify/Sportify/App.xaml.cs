@@ -64,7 +64,8 @@ namespace Sportify
                 "CHAMPIONS LEAGUE" => 2,
                 "EUROPA LEAGUE" => 3,
                 "CONFERENCE LEAGUE" => 848,
-                "EURO2024 QUALIFICATION" => 960
+                "EURO2024 QUALIFICATION" => 960,
+                _ => 39
             };
             return id.ToString();
         }

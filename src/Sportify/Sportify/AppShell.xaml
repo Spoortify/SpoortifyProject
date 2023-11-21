@@ -9,7 +9,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate View:FootballStandings}"
+        ContentTemplate="{DataTemplate View:HomePage}"
         Route="MainPage" />
     <ShellContent
         Title="Home"
@@ -38,5 +38,8 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate View:HomeFormula1}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:FootballTodayGame}" />
 
 </Shell>
