@@ -12,7 +12,7 @@ namespace Sportify.Controller
 {
     public partial class ControllerTeams : ObservableObject
     {
-        public static Team myDeserializedClass;
+        public static BaseballTeam myDeserializedClass;
         public ObservableCollection<TeamsResponse> Game { get; set; } = new ObservableCollection<TeamsResponse>();
         public int season;
         public int league;
@@ -51,8 +51,7 @@ namespace Sportify.Controller
         {
             var response = await App.baseballClient.GetAsync(LinkQuery());
             var stringa = await response.Content.ReadAsStringAsync();
-            myDeserializedClass = JsonSerializer.Deserialize<Team>(stringa);
-            Thread.Sleep(1000);
+            myDeserializedClass = JsonSerializer.Deserialize<BaseballTeam>(stringa);
         }
     }
 }

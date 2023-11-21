@@ -8,7 +8,7 @@ namespace test_api_football
     {
         static HttpClient client = new();
         private static readonly Api_Key api_key = GetApi_Key();
-        private static readonly string x_rapidapi_key = api_key.APIKeyValue;
+        private static readonly string x_rapidapi_key = api_key.APIKeyValue[0];
         private static readonly string x_rapid_host = "v3.football.api-sports.io";
         //private static List<RugbyGamePrincipalInformation> rugbyGame = new();
         private static List<RugbyLeagueResponse> rugbyLeague = new();
@@ -24,13 +24,13 @@ namespace test_api_football
         static async Task Main(string[] args)
         {
             //client.BaseAddress = new Uri("https://v1.rugby.api-sports.io/");
-            client.BaseAddress = new Uri("https://v1.hockey.api-sports.io/");
+            client.BaseAddress = new Uri("https://v3.football.api-sports.io/");
     
             client.DefaultRequestHeaders.Add("x-rapidapi-key", x_rapidapi_key);
             client.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapid_host);
 
-            string formattedDate = DateTime.Now.ToString("yyyy-MM-dd");
-            var response = await client.GetAsync($"/games/?date={formattedDate}");
+            string formattedDate = DateTime.Now.ToString("yyyy");
+            var response = await client.GetAsync($"/players/topscorers?league=135&season={DateTime.Now.Year}");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -102,7 +102,7 @@ namespace test_api_football
     public class Api_Key
     {
         [JsonPropertyName("api_key")]
-        public string APIKeyValue { get; set; } = string.Empty;
+        public List<string> APIKeyValue { get; set; }
     }
 
 }

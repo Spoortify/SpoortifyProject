@@ -5,41 +5,52 @@
              xmlns:model="clr-namespace:Sportify.Model"
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:RugbyGameDetailsController"
-             Title="RugbyGameDetails">
-    <ScrollView>
-        <StackLayout Orientation="Vertical" Margin="20">
-            <Label Text="{Binding RugbyGame.Date, StringFormat='{0:dddd, dd MMMM yyyy HH:mm}'}"
-                   Style="{StaticResource BaseLabel}" Margin="0,0,0,10"/>
-            
-            <Label Text="{Binding RugbyGame.Status.long, StringFormat='State: {0}'}"
-                   Style="{StaticResource BaseLabel}" Margin="0,0,0,10"/>
-            
-            <Label Text="{Binding RugbyGame.League.Name, StringFormat='League: {0}'}"
-                   Style="{StaticResource BaseLabel}" Margin="0,0,0,10"/>
-            <Image
-                Source="{Binding RugbyGame.League.Logo}" Style="{StaticResource BaseImage}" Margin="0,0,0,20"/>
+             Title="RugbyGameDetails"
+             BackgroundColor="#141822"
+             Shell.NavBarIsVisible="False">
 
-            <Label Text="Periods" Style="{StaticResource BaseLabel}" Margin="0,0,0,10"/>
+    <ScrollView Margin="300, 50, 300, 0">
+        <StackLayout Orientation="Vertical">
+            <Frame
+                BackgroundColor="#2f3652" CornerRadius="25" Margin="0,0,0,10" 
+                BorderColor="Black" WidthRequest="500" HeightRequest="75">
+                <VerticalStackLayout>
+                    <Label Text="{Binding RugbyGame.Date, StringFormat='Date: {0:dddd, dd MMMM yyyy HH:mm}'}"
+                           Style="{StaticResource BaseLabel}" HorizontalOptions="Start"/>
+                    <Label Text="{Binding RugbyGame.Status.long, StringFormat='State: {0}'}"
+                           Style="{StaticResource BaseLabel}" HorizontalOptions="Start"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="{Binding RugbyGame.League.Name, StringFormat='League: {0}'}"
+                       Style="{StaticResource BaseLabel}" Margin="0,20,20,10" FontSize="20"/>
+                <Image Source="{Binding RugbyGame.League.Logo}" Style="{StaticResource BaseImage}" Margin="0,20,0,10"/>
+            </HorizontalStackLayout>
+
             <Grid
                 ColumnDefinitions="*, *, *, *, *, *"
-                RowDefinitions="*, *, *">
-                    <Label Text="First period" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="Second period" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="First overtime" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="Second overtime" Grid.Column="4" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="Final score" Grid.Column="5" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Teams.Home.Name}" Grid.Row="1" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Teams.Away.Name}" Grid.Row="2" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.First.HomePoints}" Grid.Row="1" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.First.AwayPoints}" Grid.Row="2" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.Second.HomePoints}" Grid.Row="1" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.First.AwayPoints}" Grid.Row="2" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.Overtime.HomePoints}" Grid.Row="1" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.Overtime.AwayPoints}" Grid.Row="2" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.Second_overtime.HomePoints}" Grid.Row="1" Grid.Column="4" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Periods.Second_overtime.AwayPoints}" Grid.Row="2" Grid.Column="4" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Score.Home}" Grid.Row="1" Grid.Column="5" Style="{StaticResource BaseLabel}"/>
-                    <Label Text="{Binding RugbyGame.Score.Away}" Grid.Row="2" Grid.Column="5" Style="{StaticResource BaseLabel}"/>
+                RowDefinitions="*, *, *"
+                RowSpacing="20"
+                ColumnSpacing="20">
+                <Label Margin="0, 0, 0, 50"/>
+                <Label Text="First period" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
+                <Label Text="Second period" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
+                <Label Text="First overtime" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
+                <Label Text="Second overtime" Grid.Column="4" Style="{StaticResource BaseLabel}"/>
+                <Label Text="Final score" Grid.Column="5" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Teams.Home.Name}" Grid.Row="1" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Teams.Away.Name}" Grid.Row="2" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.First.HomePoints}" Grid.Row="1" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.First.AwayPoints}" Grid.Row="2" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.Second.HomePoints}" Grid.Row="1" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.First.AwayPoints}" Grid.Row="2" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.Overtime.HomePoints}" Grid.Row="1" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.Overtime.AwayPoints}" Grid.Row="2" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.Second_overtime.HomePoints}" Grid.Row="1" Grid.Column="4" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Periods.Second_overtime.AwayPoints}" Grid.Row="2" Grid.Column="4" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Score.Home}" Grid.Row="1" Grid.Column="5" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding RugbyGame.Score.Away}" Grid.Row="2" Grid.Column="5" Style="{StaticResource BaseLabel}"/>
             </Grid>
         </StackLayout>
     </ScrollView>

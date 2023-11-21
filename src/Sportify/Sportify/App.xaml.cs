@@ -14,11 +14,13 @@ namespace Sportify
         public static HttpClient ClientF1 = new();
         public static HttpClient rugbyClient = new();
         public static HttpClient baseballClient = new();
+        public static HttpClient FootballClient = new();
         private static readonly List<string> apiKeys = GetApi_Keys();
         //private static readonly string x_rapidapi_key = GetRandomApiKey();
         private static readonly string x_rapidapi_host_rugby = "v3.football.api-sports.io";
         private static readonly string x_rapidapi_host_formula1 = "v1.formula-1.api-sports.io";
         private static readonly string x_rapidapi_host_baseball = "v3.football.api-sports.io";
+        private static readonly string x_rapidapi_host_football = "v3.football.api-sports.io";
 
         public App()
         {
@@ -35,6 +37,10 @@ namespace Sportify
             baseballClient.BaseAddress = new Uri("https://v1.baseball.api-sports.io");
             baseballClient.DefaultRequestHeaders.Add("x-rapidapi-key", GetRandomApiKey());
             baseballClient.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapidapi_host_baseball);
+
+            FootballClient.BaseAddress = new Uri("https://v3.football.api-sports.io");
+            FootballClient.DefaultRequestHeaders.Add("x-rapidapi-key", GetRandomApiKey());
+            FootballClient.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapidapi_host_football);
         }
 
         private static List<string> GetApi_Keys()
@@ -50,6 +56,32 @@ namespace Sportify
             Random random = new Random();
             List<string> shuffledKeys = apiKeys.OrderBy(x => random.Next()).ToList();
             return shuffledKeys.FirstOrDefault();
+        }
+
+        //public static void ChangeApiKey(HttpClient client)
+        //{
+        //    client.DefaultRequestHeaders.Add("x-rapidapikey", GetRandomApiKey());
+        //}
+
+        public static string GetFootballLeagueId(string league)
+        {
+            int id = league switch
+            {
+                "SERIE A" => 135,
+                "PREMIER LEAGUE" => 39,
+                "LALIGA" => 140,
+                "BUNDESLIGA" => 78,
+                "LIGUE 1" => 61,
+                "EREDIVISIE" => 88,
+                "SUPER LIG" => 203,
+                "LIGA PORTUGAL" => 94,
+                "CHAMPIONS LEAGUE" => 2,
+                "EUROPA LEAGUE" => 3,
+                "CONFERENCE LEAGUE" => 848,
+                "EURO2024 QUALIFICATION" => 960,
+                _ => 39
+            };
+            return id.ToString();
         }
     }
 }

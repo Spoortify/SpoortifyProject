@@ -12,14 +12,15 @@
             
             <Style TargetType="Label" x:Key="BaseLabel">
                 <Setter Property="FontFamily" Value="TimesNewRoman" />
-                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TextColor" Value="#f7f9fa" />
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="16"/>
             </Style>
 
             <Style TargetType="Image" x:Key="BaseImage">
-                <Setter Property="MaximumHeightRequest" Value="50" />
-                <Setter Property="MaximumWidthRequest" Value="50" />
+                <Setter Property="MaximumHeightRequest" Value="60" />
+                <Setter Property="MaximumWidthRequest" Value="60" />
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>

@@ -5,35 +5,50 @@
              xmlns:model="clr-namespace:Sportify.Model"
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:RugbyLeaguesController"
-             Title="RugbyLeagues">
-    <ScrollView>
+             Title="RugbyLeagues"
+             BackgroundColor="#141822"
+             Shell.NavBarIsVisible="False">
+    
+    <ScrollView Margin="300, 50, 300, 0">
         <VerticalStackLayout>
-            <Picker ItemsSource="{Binding Seasons}" WidthRequest="100" 
-                    SelectedItem="{Binding SelectedSeasonLeagues}" HorizontalOptions="Center"/>
+            <Label
+                Text="Rugby Leagues 🏆"
+                Style="{StaticResource BaseLabel}"
+                FontSize="50"/>     
+            
+            <Picker ItemsSource="{Binding Seasons}" WidthRequest="125" HeightRequest="50"
+                    SelectedItem="{Binding SelectedSeasonLeagues}" HorizontalOptions="Center"
+                    BackgroundColor="#8EBBFF" TextColor="#181b29" Margin="0,20,0,20"/>
+            
             <ActivityIndicator IsRunning="{Binding IsBusy}"
                    IsVisible="{Binding IsBusy}"
                    VerticalOptions="Center"
                    HorizontalOptions="Center"
                    WidthRequest="50"
                    HeightRequest="50"
-                   Color="White"/>
+                   Margin="0,20,0,20"
+                   Color="#8EBBFF"/>
+            
             <CollectionView ItemsSource="{Binding RugbyLeagues}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:RugbyLeagueResponse">
-                        <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
+                        <Frame BackgroundColor="#2f3652" HeightRequest="175" WidthRequest="750"
+                               CornerRadius="25" Margin="0,0,0,10" BorderColor="Black">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type controller:RugbyLeaguesController}}, Path=GoToRugbyLeagueStandingsCommand}"
                                     CommandParameter="{Binding .}"/>    
                             </Frame.GestureRecognizers>
                             <Grid ColumnDefinitions="*, *">
-                                <VerticalStackLayout>
+                                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                     <Image Source="{Binding Logo}" Style="{StaticResource BaseImage}"/>
-                                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}" 
+                                           Margin="0, 20, 0, 0"/>
                                 </VerticalStackLayout>
-                                <VerticalStackLayout Grid.Column="1">
-                                    <Image Source="{Binding Country.Flag}" Style="{StaticResource BaseImage}"/>
-                                    <Label Text="{Binding Country.Name}" Style="{StaticResource BaseLabel}"/>
+                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <!--<Image Source="{Binding Country.Flag}" Style="{StaticResource BaseImage}"/>-->
+                                    <Label Text="{Binding Country.Name}" Style="{StaticResource BaseLabel}" 
+                                           Margin="0, 20, 0, 0"/>
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>
