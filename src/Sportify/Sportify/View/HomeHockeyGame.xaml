@@ -13,28 +13,18 @@
                         Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
                         DateSelected="OnDateSelected" Margin="0,0,0,10"/>
 
-            <!--<ActivityIndicator IsRunning="{Binding IsBusy}"
-                               IsVisible="{Binding IsBusy}"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center"
-                               WidthRequest="10"
-                               HeightRequest="10"
-                               Color="Red" />-->
-
-            <!--<Button Text="Leagues"
-                    Command="{Binding GoToLeaguesCommand}"
-                    BackgroundColor="#3498db"
-                    TextColor="White"
-                    CornerRadius="5"
-                    Margin="0,10,0,10"/>-->
-
             <ScrollView>
                 <CollectionView ItemsSource="{Binding HockeyGame}" Margin="0,10,0,10">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:HockeyGameResponse">
                             <Frame BackgroundColor="MediumPurple" CornerRadius="10" HeightRequest="250" Margin="0,0,0,10">
-                                <Grid
-                                    ColumnDefinitions="*, *, *, *, *">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeHockeyGameController}}, Path=GoToHockeyDetailsGameCommand}" 
+                                            CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+
+                                <Grid ColumnDefinitions="*, *, *, *, *">
                                     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
                                         <Image Source="{Binding Teams.Home.Logo}" WidthRequest="100" HeightRequest="100"/>
@@ -65,47 +55,6 @@
                     </CollectionView.EmptyView>
                 </CollectionView>
             </ScrollView>
-
-            <!--<CollectionView ItemsSource="{Binding HockeyGame}" Margin="0,10,0,10">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:HockeyGameResponse">
-
-                        --><!--<ScrollView>
-                            <StackLayout Orientation="Vertical" Margin="20">
-                                <Label Text="{Binding Date, StringFormat='{0:dddd, dd MMMM yyyy HH:mm}'}" Margin="0,0,0,10"/>
-
-                                <Label Text="{Binding Status, StringFormat='State: {0}'}" Margin="0,0,0,10"/>
-
-                                <Label Text="{Binding League.Name, StringFormat='League: {0}'}" Margin="0,0,0,10"/>
-                                <Image Source="{Binding League.Logo}" Margin="0,0,0,20"/>
-
-                                <Label Text="Periods" Margin="0,0,0,10"/>
-                                <Grid ColumnDefinitions="*, *, *, *, *, *" RowDefinitions="*, *, *">
-                                    <Label Text="First period" Grid.Column="1"/>
-                                    <Label Text="Second period" Grid.Column="2"/>
-                                    <Label Text="First overtime" Grid.Column="3"/>
-                                    <Label Text="Second overtime" Grid.Column="4"/>
-                                    <Label Text="Final score" Grid.Column="5"/>
-
-                                    <Label Text="{Binding Teams.Home.Name}" Grid.Row="1"/>
-                                    <Label Text="{Binding Teams.Away.Name}" Grid.Row="2"/>
-                                    <Label Text="{Binding Periods.First}" Grid.Row="1" Grid.Column="1"/>
-                                    <Label Text="{Binding Periods.First}" Grid.Row="2" Grid.Column="1"/>
-                                    <Label Text="{Binding Periods.Second}" Grid.Row="1" Grid.Column="2"/>
-                                    <Label Text="{Binding Periods.First}" Grid.Row="2" Grid.Column="2"/>
-                                    <Label Text="{Binding Periods.Overtime}" Grid.Row="1" Grid.Column="3"/>
-                                    <Label Text="{Binding Periods.Overtime}" Grid.Row="2" Grid.Column="3"/>
-                                    <Label Text="{Binding Periods.Third}" Grid.Row="1" Grid.Column="4"/>
-                                    <Label Text="{Binding Periods.Third}" Grid.Row="2" Grid.Column="4"/>
-                                    <Label Text="{Binding Scores.Home}" Grid.Row="1" Grid.Column="5"/>
-                                    <Label Text="{Binding Scores.Away}" Grid.Row="2" Grid.Column="5"/>
-                                </Grid>
-                            </StackLayout>
-                        </ScrollView>--><!--
-
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>-->
         </StackLayout>
     </ScrollView>
 </ContentPage>

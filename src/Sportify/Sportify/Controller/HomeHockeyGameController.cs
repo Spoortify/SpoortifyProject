@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Sportify.Model;
+using Sportify.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -59,33 +60,17 @@ namespace Sportify.Controller
             }
             finally
             {
-               // isBusy = false;
+               //isBusy = false;
             }
         }
 
-        #region relay
-        //[RelayCommand]
-        //private static async Task GoToRugbyGameDetails(HockeyGameResponse rugbyGame)
-        //{
-        //    if (hockeyGame == null)
-        //        return;
-        //    await App.Current.MainPage.Navigation.PushAsync(new HockeyGameDetailsController(hockeyGame));
-        //}
 
-        //[RelayCommand]
-        //private async Task GoToLeagues()
-        //{
-        //    if (isBusy) return;
-        //    isBusy = true;
-        //    var response = await App.hockeyClient.GetAsync($"/leagues/?season={SelectedDate.Year}");
-        //    if (!response.IsSuccessStatusCode)
-        //        return;
-
-        //    var content = await response.Content.ReadAsStreamAsync();
-        //    rugbyLeague = await JsonSerializer.DeserializeAsync<RugbyLeague>(content);
-        //    isBusy = false;
-        //    await App.Current.MainPage.Navigation.PushAsync(new RugbyLeagues(rugbyLeague));
-        //}
-        #endregion
+        [RelayCommand]
+        public async Task GoToHockeyDetailsGame(HockeyGameResponse hockeyGame)
+        {
+            if (hockeyGame == null)
+                return;
+            await App.Current.MainPage.Navigation.PushAsync(new HockeyDetailsGame(hockeyGame));
+        }
     }
 }

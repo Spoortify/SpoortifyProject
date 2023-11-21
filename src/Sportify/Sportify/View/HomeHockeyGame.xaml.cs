@@ -9,6 +9,7 @@ public partial class HomeHockeyGame : ContentPage
         InitializeComponent();
 		HomeHockeyGameController controller = new HomeHockeyGameController();
 		BindingContext = controller;
+
         //BindingContext = new HomeHockeyGameController();
 	}
     protected override void OnAppearing()

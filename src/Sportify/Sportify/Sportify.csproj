@@ -54,6 +54,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="View\HockeyDetailsGame.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\HomeHockeyGame.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
