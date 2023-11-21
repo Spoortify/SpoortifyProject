@@ -1,4 +1,4 @@
-﻿using Sportify.View;
+using Sportify.View;
 using Sportify.Model;
 using System;
 using System.Collections.Generic;
@@ -15,12 +15,14 @@ namespace Sportify
         public static HttpClient rugbyClient = new();
         public static HttpClient baseballClient = new();
         public static HttpClient FootballClient = new();
+        public static HttpClient hockeyClient = new();
         private static readonly List<string> apiKeys = GetApi_Keys();
         //private static readonly string x_rapidapi_key = GetRandomApiKey();
         private static readonly string x_rapidapi_host_rugby = "v3.football.api-sports.io";
         private static readonly string x_rapidapi_host_formula1 = "v1.formula-1.api-sports.io";
         private static readonly string x_rapidapi_host_baseball = "v3.football.api-sports.io";
         private static readonly string x_rapidapi_host_football = "v3.football.api-sports.io";
+        private static readonly string x_rapid_host_hockey = "v1.hockey.api-sports.io";
 
         public App()
         {
@@ -41,6 +43,10 @@ namespace Sportify
             FootballClient.BaseAddress = new Uri("https://v3.football.api-sports.io");
             FootballClient.DefaultRequestHeaders.Add("x-rapidapi-key", GetRandomApiKey());
             FootballClient.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapidapi_host_football);
+
+            hockeyClient.BaseAddress = new Uri("https://v1.hockey.api-sports.io/");
+            hockeyClient.DefaultRequestHeaders.Add("x-rapidapi-key", GetRandomApiKey());
+            hockeyClient.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapid_host_hockey);
         }
 
         private static List<string> GetApi_Keys()
