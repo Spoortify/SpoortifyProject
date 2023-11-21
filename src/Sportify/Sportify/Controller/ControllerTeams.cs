@@ -1,4 +1,5 @@
-﻿using Sportify.Model;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Sportify.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,12 +10,15 @@ using System.Threading.Tasks;
 
 namespace Sportify.Controller
 {
-    public partial class ControllerTeams
+    public partial class ControllerTeams : ObservableObject
     {
         public static BaseballTeam myDeserializedClass;
         public ObservableCollection<TeamsResponse> Game { get; set; } = new ObservableCollection<TeamsResponse>();
         public int season;
         public int league;
+
+        [ObservableProperty]
+        public bool isLoading = false;
 
         public ControllerTeams(int s, int l)
         {
@@ -32,8 +36,10 @@ namespace Sportify.Controller
 
         public async Task Start()
         {
+            IsLoading = true;
             await GetBaseballApi();
             CreateList();
+            IsLoading = false;
         }
 
         public string LinkQuery()

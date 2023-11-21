@@ -12,10 +12,13 @@ using Sportify.View;
 
 namespace Sportify.Controller
 {
-    public partial class BaseballController
+    public partial class BaseballController : ObservableObject
     {
         public static BaseballGame myDeserializedClass;
         public ObservableCollection<BaseballGameResponse> Game { get; set; } = new();
+
+        [ObservableProperty]
+        public bool isLoading = false;
 
         public BaseballController()
         {
@@ -54,8 +57,10 @@ namespace Sportify.Controller
 
         public async Task Start()
         {
+            IsLoading = true;
             await GetBaseballApi();
             CreateList();
+            IsLoading = false;
         }
 
         [RelayCommand]
