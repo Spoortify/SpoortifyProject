@@ -18,8 +18,8 @@
             </Style>
 
             <Style TargetType="Image" x:Key="BaseImage">
-                <Setter Property="MaximumHeightRequest" Value="50" />
-                <Setter Property="MaximumWidthRequest" Value="50" />
+                <Setter Property="MaximumHeightRequest" Value="75" />
+                <Setter Property="MaximumWidthRequest" Value="75" />
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>

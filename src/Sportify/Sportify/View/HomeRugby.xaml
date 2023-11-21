@@ -6,35 +6,52 @@
              xmlns:model="clr-namespace:Sportify.Model"
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:HomeRugbyController"
-             Title="HomeRugby">
+             Title="HomeRugby"
+             BackgroundColor="Transparent">
       
     <ScrollView>
         <StackLayout Orientation="Vertical">
-            
-            <DatePicker MinimumDate="01/01/2008"
-                        Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
-                        DateSelected="OnDateSelected" Margin="0,0,0,10"/>
 
+            <Label
+                Text="Rugby"
+                Style="{StaticResource BaseLabel}"
+                FontSize="50"/>
+
+            <Grid ColumnDefinitions="*, *">
+                <DatePicker MinimumDate="01/01/2008"
+                            Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
+                            DateSelected="OnDateSelected" Margin="0,10,0,10"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="125"
+                            HeightRequest="50"/>    
+                <Button Text="Leagues"
+                        Grid.Column="1"
+                        Command="{Binding GoToLeaguesCommand}"
+                        BackgroundColor="#C8F560"
+                        TextColor="#21251F"
+                        CornerRadius="5"
+                        Margin="0,10,0,10"
+                        WidthRequest="200"
+                        HeightRequest="50"
+                        BorderColor="#4E515C"
+                        BorderWidth="3"/>
+            </Grid>
+            
             <ActivityIndicator IsRunning="{Binding IsBusy}"
                                IsVisible="{Binding IsBusy}"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
                                WidthRequest="50"
                                HeightRequest="50"
-                               Color="White"/>
+                               Color="#4E515C"/>
             
-            <Button Text="Leagues"
-                    Command="{Binding GoToLeaguesCommand}"
-                    BackgroundColor="#3498db"
-                    TextColor="White"
-                    CornerRadius="5"
-                    Margin="0,10,0,10"/>
-
             <ScrollView>
                 <CollectionView ItemsSource="{Binding RugbyGame}" Margin="0,10,0,10">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:RugbyGameResponse">
-                            <Frame BackgroundColor="#34495e" CornerRadius="10" HeightRequest="150" Margin="0,0,0,10">
+                            <Frame BackgroundColor="#21251F" CornerRadius="10" Margin="0,0,0,10" 
+                                   WidthRequest="750" HeightRequest="200" BorderColor="Black">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeRugbyController}}, Path=GoToRugbyGameDetailsCommand}"
@@ -44,21 +61,21 @@
                                     ColumnDefinitions="*, *, *, *, *">
                                     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                         <Image Source="{Binding Teams.Home.Logo}" Style="{StaticResource BaseImage}"/>
-                                        <Label Text="{Binding Teams.Home.Name}" Style="{StaticResource BaseLabel}"/>
+                                        <Label Text="{Binding Teams.Home.Name}" Style="{StaticResource BaseLabel}" TextColor="#C8F560"/>
                                     </VerticalStackLayout>
-                                    <Label Text="{Binding Score.Home}" Grid.Column="1" Style="{StaticResource BaseLabel}"/>
-                                    <Label Text="-" Grid.Column="2" Style="{StaticResource BaseLabel}"/>
-                                    <Label Text="{Binding Score.Away}" Grid.Column="3" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Score.Home}" Grid.Column="1" Style="{StaticResource BaseLabel}" TextColor="#C8F560"/>
+                                    <Label Text="-" Grid.Column="2" Style="{StaticResource BaseLabel}" TextColor="#C8F560"/>
+                                    <Label Text="{Binding Score.Away}" Grid.Column="3" Style="{StaticResource BaseLabel}" TextColor="#C8F560"/>
                                     <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
                                         <Image Source="{Binding Teams.Away.Logo}" Style="{StaticResource BaseImage}"/>
-                                        <Label Text="{Binding Teams.Away.Name}" Style="{StaticResource BaseLabel}"/>
+                                        <Label Text="{Binding Teams.Away.Name}" Style="{StaticResource BaseLabel}" TextColor="#C8F560"/>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                     <CollectionView.EmptyView>
-                        <Label Text="No games today" Style="{StaticResource BaseLabel}"/>
+                        <Label Text="No games today" Style="{StaticResource BaseLabel}" TextColor="#7862F8"/>
                     </CollectionView.EmptyView>
                 </CollectionView>
             </ScrollView>
