@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Sportify.Services;
 
 namespace Sportify.Controller
 {
@@ -18,7 +19,6 @@ namespace Sportify.Controller
         [ObservableProperty]
         public List<RugbyGameResponse> rugbyGame;
 
-        private static RugbyLeague rugbyLeague;
         private static DateTime _selectedDate;
         public DateTime SelectedDate
         {
@@ -29,7 +29,6 @@ namespace Sportify.Controller
         public HomeRugbyController()
         {
             RugbyGame = new();
-            rugbyLeague = new();
             _selectedDate = DateTime.Now;
             new Action(async () =>
             {
@@ -45,13 +44,14 @@ namespace Sportify.Controller
             {
                 RugbyGame = new();
                 string formattedDate = _selectedDate.ToString("yyyy-MM-dd");
-                var response = await App.rugbyClient.GetAsync($"/games/?date={formattedDate}");
+                var rugbyGames = await CacheRugbyService.GetAsync<RugbyGame>($"/games/?date={formattedDate}", $"getRugbyGames-{formattedDate}");
+                RugbyGame = rugbyGames.Responses;
 
-                if (!response.IsSuccessStatusCode) return;
-
-                var content = await response.Content.ReadAsStreamAsync();
-                var games = await JsonSerializer.DeserializeAsync<RugbyGame>(content);
-                RugbyGame = games.Responses;
+                //request without cache
+                //var response = await App.rugbyClient.GetAsync($"/games/?date={formattedDate}");
+                //if (!response.IsSuccessStatusCode) return;
+                //var content = await response.Content.ReadAsStreamAsync();
+                //var games = await JsonSerializer.DeserializeAsync<RugbyGame>(content);
             }
             catch (Exception ex)
             {
@@ -75,14 +75,16 @@ namespace Sportify.Controller
         {
             if (IsBusy) return;
             IsBusy = true;
-            var response = await App.rugbyClient.GetAsync($"/leagues/?season={SelectedDate.Year}");
-            if (!response.IsSuccessStatusCode)
-                return;
-
-            var content = await response.Content.ReadAsStreamAsync();
-            rugbyLeague = await JsonSerializer.DeserializeAsync<RugbyLeague>(content);
+            var rugbyLeagues = await CacheRugbyService.GetAsync<RugbyLeague>($"/leagues/?season={SelectedDate.Year}", $"getRugbyLeagues-{SelectedDate.Year}");
             IsBusy = false;
-            await App.Current.MainPage.Navigation.PushAsync(new RugbyLeaguesView(rugbyLeague));
+            await App.Current.MainPage.Navigation.PushAsync(new RugbyLeaguesView(rugbyLeagues));
+
+            //request without cache
+            //var response = await App.rugbyClient.GetAsync($"/leagues/?season={SelectedDate.Year}");
+            //if (!response.IsSuccessStatusCode)
+            //    return;
+            //var content = await response.Content.ReadAsStreamAsync();
+            //rugbyLeague = await JsonSerializer.DeserializeAsync<RugbyLeague>(content);
         }
 
         [RelayCommand]
