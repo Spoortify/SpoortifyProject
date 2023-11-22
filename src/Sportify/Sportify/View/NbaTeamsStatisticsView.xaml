@@ -5,13 +5,14 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              xmlns:model="clr-namespace:Sportify.Model"
              x:DataType="controller:NbaTeamsStatisticsController"
-             Title="NbaTeamsStatisticsView">
+             Title="NbaTeamsStatisticsView"
+             BackgroundImageSource="{Binding BgiImage}">
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="auto,auto,auto">
             <CollectionView Grid.Column="1" ItemsSource="{Binding TeamSeasonStandings}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:NBAResponse">
-                        <Frame>
+                        <Frame BackgroundColor="Transparent">
                             <VerticalStackLayout>
                                 <Label Text="{Binding Team.Name}" FontSize="25"/>
                                 <HorizontalStackLayout>
@@ -25,7 +26,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <Frame Grid.Column="2" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Center"
-                   WidthRequest="150" CornerRadius="20" >
+                   WidthRequest="150" CornerRadius="20" BackgroundColor="Transparent">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaTeamsStatisticsController}}, Path=GoToRoasterCommand}"
                       CommandParameter="{Binding TeamSeasonStandings}"/>
@@ -36,7 +37,7 @@
             <CollectionView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding TeamSeasonStatisticsResponse}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:NBATeamsResponse">
-                        <Frame>
+                        <Frame BackgroundColor="Transparent">
                             <Label Text="{Binding Points}" FontSize="40"/>
                         </Frame>
                     </DataTemplate>
