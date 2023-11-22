@@ -5,21 +5,118 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              xmlns:model="clr-namespace:Sportify.Model"
              x:DataType="controller:NbaPlayerSeasonStatisticsController"
-             Title="NbaPlayerSeasonStatisticsView">
-    <ScrollView Orientation="Horizontal">
-        <HorizontalStackLayout>
-            <CollectionView ItemsSource="{Binding PlayerStatsList}">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:NbaPStatsResponse">
-                        <Frame WidthRequest="80">
-                            <Label Text="{Binding Points}"/>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </HorizontalStackLayout>
-    </ScrollView>
+             Title="Games Stats"
+             BackgroundImageSource="nbabgidue.jpg">
+    <Grid RowDefinitions="auto, auto">
+        <ScrollView Orientation="Horizontal">
+            <HorizontalStackLayout>
+                <CollectionView ItemsSource="{Binding PlayerStatsList}" HeightRequest="530">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:NbaPStatsResponse">
+                            <Frame WidthRequest="130" Margin="2" Padding="5" BackgroundColor="#ddffffff">
+                                <Grid ColumnDefinitions="*, *" RowDefinitions="30,auto,auto,30,auto,30,auto,auto,30,auto,auto,auto,auto,30,auto">
+                                    <Label Grid.ColumnSpan="2" Text="{Binding Game.Id}" HorizontalOptions="Center"/>
+                                    <Label Text="pts:" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" HorizontalOptions="End"
+                                   FontSize="20" Margin="0,0,10,0"/>
+                                    <Label Text="{Binding Points}" FontAttributes="Bold" FontSize="30"
+                                   VerticalOptions="Center" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"
+                                   />
+                                    <Grid Grid.Row="2" Grid.ColumnSpan="2" ColumnDefinitions="*,*,*" Margin="5">
+                                        <VerticalStackLayout Grid.Column="0">
+                                            <Label Text="fgp" FontSize="9" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Fgp, StringFormat='{0:F0}%'}" FontSize="10" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="1">
+                                            <Label Text="ftp" FontSize="9" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Ftp, StringFormat='{0:F0}%'}" FontSize="10" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="2">
+                                            <Label Text="tpp" FontSize="9" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Tpp, StringFormat='{0:F0}%'}" FontSize="10" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                    <Label Grid.Row="4" Grid.Column="0" Text="ast:" FontSize="17" HorizontalOptions="End"
+                                   Margin="0,5,5,0"/>
+                                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Assists}" FontSize="25"
+                                   FontAttributes="Bold" HorizontalOptions="Start" Margin="3,0,0,0"/>
+                                    <Label Grid.Row="6" Grid.Column="0" Text="reb:" FontSize="19" HorizontalOptions="End"
+                                    Margin="0,5,5,0"/>
+                                    <Label Grid.Row="6" Grid.Column="1" Text="{Binding TotReb}" FontSize="27"
+                                   FontAttributes="Bold" HorizontalOptions="Start" Margin="6,0,0,0"/>
+                                    <Grid Grid.Row="7" Grid.ColumnSpan="2" ColumnDefinitions="*,*">
+                                        <VerticalStackLayout Grid.Column="0">
+                                            <Label Text="dReb" FontSize="9" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding DefReb, StringFormat='{0}'}" FontSize="11" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="1">
+                                            <Label Text="oReb" FontSize="9" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding OffReb, StringFormat='{0}'}" FontSize="11" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                    <Label Grid.Row="9" Grid.Column="0" Text="fouls:" FontSize="16" HorizontalOptions="End"
+                                   Margin="0,5,5,0"/>
+                                    <Label Grid.Row="9" Grid.Column="1" Text="{Binding PFouls}" FontSize="23"
+                                   FontAttributes="Bold" HorizontalOptions="Start" Margin="8,0,0,0"/>
+                                    <Label Grid.Row="10" Grid.Column="0" Text="stl:" FontSize="16" HorizontalOptions="End"
+                                   Margin="0,5,5,0"/>
+                                    <Label Grid.Row="10" Grid.Column="1" Text="{Binding Steals}" FontSize="23"
+                                   FontAttributes="Bold" HorizontalOptions="Start" Margin="8,0,0,0"/>
+                                    <Label Grid.Row="11" Grid.Column="0" Text="blks:" FontSize="16" HorizontalOptions="End"
+                                   Margin="0,5,5,0"/>
+                                    <Label Grid.Row="11" Grid.Column="1" Text="{Binding Blocks}" FontSize="23"
+                                   FontAttributes="Bold" HorizontalOptions="Start" Margin="8,0,0,0"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Text="to:" FontSize="16" HorizontalOptions="End"
+                                   Margin="0,5,5,0"/>
+                                    <Label Grid.Row="12" Grid.Column="1" Text="{Binding Turnovers}" FontSize="23"
+                                   FontAttributes="Bold" HorizontalOptions="Start" Margin="8,0,0,0"/>
+                                    <Label Grid.Row="14" Grid.Column="0" Text="min:" FontSize="14" HorizontalOptions="End"
+                                           Margin="0,5,5,0"/>
+                                    <Label Grid.Row="14" Grid.Column="1" Text="{Binding Min}" FontSize="21"
+                                           FontAttributes="Bold" HorizontalOptions="Start" Margin="8,0,0,0"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </HorizontalStackLayout>
+        </ScrollView>
+        <Frame Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center"
+               WidthRequest="600" HeightRequest="175" Margin="15" Padding="5" BackgroundColor="#ddffffff">
+            <Grid RowDefinitions="auto, *,*,*,*" ColumnDefinitions="*,*,*">
+                <Label Grid.Row="0" Grid.ColumnSpan="3" Text="GLOSSARY:" FontSize="35" FontAttributes="Bold"
+                       VerticalOptions="Start" HorizontalOptions="Center"/>
+                
+                <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"
+                       Text="pts = points" FontSize="16"/>
+                <Label Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"
+                       Text="fgp = fieldgoalpercentuage" FontSize="13"/>
+                <Label Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"
+                       Text="ftp = freethrowpercentuage" FontSize="13"/>
+                <Label Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"
+                       Text="tpp = threepointpercentuage" FontSize="13"/>
+                
+                <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="ast = assists" FontSize="16"/>
+                <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="reb = rebounds" FontSize="16"/>
+                <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="dReb = defensiverebounds" FontSize="13"/>
+                <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="oReb = offensiverebounds" FontSize="13"/>
+
+                <Label Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="stl = steals" FontSize="15"/>
+                <Label Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="blks = blocks" FontSize="15"/>
+                <Label Grid.Row="3" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="to = turnovers" FontSize="15"/>
+                <Label Grid.Row="4" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"
+                        Text="min = minuteplayed" FontSize="15"/>
+            </Grid>
+        </Frame>
+    </Grid>
+    
 </ContentPage>

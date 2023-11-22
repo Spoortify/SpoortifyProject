@@ -30,7 +30,7 @@
                     <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaTeamsStatisticsController}}, Path=GoToRoasterCommand}"
                       CommandParameter="{Binding TeamSeasonStandings}"/>
                 </Frame.GestureRecognizers>
-                <Label Text="Roaster" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" 
+                <Label Text="Roster" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" 
                        FontSize="25" />
             </Frame>
             <CollectionView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding TeamSeasonStatisticsResponse}">
