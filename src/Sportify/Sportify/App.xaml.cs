@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
+using MonkeyCache.FileStore;
 
 namespace Sportify
 {
@@ -27,7 +28,9 @@ namespace Sportify
         public App()
         {
             InitializeComponent();
+            Barrel.ApplicationId = AppInfo.PackageName;
             MainPage = new AppShell();
+
             ClientF1.BaseAddress = new Uri("https://v1.formula-1.api-sports.io");
             ClientF1.DefaultRequestHeaders.Add("x-rapidapi-key", GetRandomApiKey());
             ClientF1.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapidapi_host_formula1);
@@ -63,11 +66,6 @@ namespace Sportify
             List<string> shuffledKeys = apiKeys.OrderBy(x => random.Next()).ToList();
             return shuffledKeys.FirstOrDefault();
         }
-
-        //public static void ChangeApiKey(HttpClient client)
-        //{
-        //    client.DefaultRequestHeaders.Add("x-rapidapikey", GetRandomApiKey());
-        //}
 
         public static string GetFootballLeagueId(string league)
         {
