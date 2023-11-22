@@ -13,11 +13,14 @@
                         Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
                         DateSelected="OnDateSelected" Margin="0,0,0,10"/>
 
+            <Label Text="🏒  HOCKEY GAMES  🏒" HorizontalOptions="Center" VerticalOptions="Center" FontSize="120" TextColor="White"/>
+            
             <ScrollView>
                 <CollectionView ItemsSource="{Binding HockeyGame}" Margin="0,10,0,10">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:HockeyGameResponse">
-                            <Frame BackgroundColor="MediumPurple" CornerRadius="10" HeightRequest="250" Margin="0,0,0,10">
+                            
+                            <Frame BackgroundColor="MediumPurple" CornerRadius="50" HeightRequest="300" Margin="0,0,0,20">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeHockeyGameController}}, Path=GoToHockeyDetailsGameCommand}" 
@@ -27,23 +30,24 @@
                                 <Grid ColumnDefinitions="*, *, *, *, *">
                                     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
-                                        <Image Source="{Binding Teams.Home.Logo}" WidthRequest="100" HeightRequest="100"/>
-                                        <Label Text="{Binding Teams.Home.Name}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20"/>
+                                        <Image Source="{Binding Teams.Home.Logo}" WidthRequest="120" HeightRequest="120"/>
+                                        <Label Text="{Binding Teams.Home.Name}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="25"/>
 
                                     </VerticalStackLayout>
 
+                                    
 
-                                    <Label Text="{Binding Scores.Home}" Grid.Column="1" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" FontSize="40"/>
+                                    <Label Text="{Binding Scores.Home}" Grid.Column="1" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" FontSize="45"/>
 
-                                    <Label Text="-" Grid.Column="2" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" FontSize="40"/>
+                                    <Label Text="---" Grid.Column="2" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" FontSize="50"/>
 
-                                    <Label Text="{Binding Scores.Away}" Grid.Column="3" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" FontSize="40"/>
+                                    <Label Text="{Binding Scores.Away}" Grid.Column="3" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" FontSize="45"/>
 
 
                                     <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
 
-                                        <Image Source="{Binding Teams.Away.Logo}" WidthRequest="80" HeightRequest="80"/>
-                                        <Label Text="{Binding Teams.Away.Name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Image Source="{Binding Teams.Away.Logo}" WidthRequest="120" HeightRequest="120"/>
+                                        <Label Text="{Binding Teams.Away.Name}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="25"/>
 
                                     </VerticalStackLayout>
                                 </Grid>
@@ -51,7 +55,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                     <CollectionView.EmptyView>
-                        <Label Text="No games today" HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
+                        <Label Text="No Games Today  😭 " HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
                     </CollectionView.EmptyView>
                 </CollectionView>
             </ScrollView>

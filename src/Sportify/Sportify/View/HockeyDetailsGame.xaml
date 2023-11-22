@@ -10,6 +10,8 @@
     <ScrollView>
         <StackLayout Orientation="Vertical">
 
+            <Label Text="🏒  HOCKEY DETAILS  🏒" HorizontalOptions="Center" VerticalOptions="Center" FontSize="120" TextColor="White"/>
+
             <ScrollView>
                 <StackLayout Orientation="Vertical" Margin="20">
                     
