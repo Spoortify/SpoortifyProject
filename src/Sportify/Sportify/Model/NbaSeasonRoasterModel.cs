@@ -27,6 +27,8 @@ namespace Sportify.Model
 
         [JsonPropertyName("meters")]
         public string Meters { get; set; }
+
+        public string AmericanHeight => $"{Feets}'{Inches}";
     }
 
     public class Leagues
