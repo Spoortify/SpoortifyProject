@@ -5,7 +5,8 @@
              Title="ViewTypes"
              xmlns:Model="clr-namespace:Sportify.Model"
              xmlns:Controller="clr-namespace:Sportify.Controller"
-             BackgroundImageSource="baseball_4.png">
+             BackgroundImageSource="baseball_4.png"
+             Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
         <Controller:ControllerType/>
     </ContentPage.BindingContext>

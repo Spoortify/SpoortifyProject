@@ -5,33 +5,42 @@
              Title="ViewSeasons"
              xmlns:Model="clr-namespace:Sportify.Model"
              xmlns:Controller="clr-namespace:Sportify.Controller"
-             x:DataType="Controller:ControllerSeasons">
+             x:DataType="Controller:ControllerSeasons"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#05161A">
     <ContentPage.BindingContext>
         <Controller:ControllerSeasons/>
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
+            <Label
+                Text="Baseball Seasons ⚾"
+                Style="{StaticResource BaseLabel}"
+                FontSize="50"
+                Margin="30"/>
             <ActivityIndicator IsRunning="{Binding IsLoading}"
-                                       IsVisible="{Binding IsLoading}"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Center"
-                                       WidthRequest="50"
-                                       HeightRequest="50"
-                                       Margin="0,20,0,20"
-                                       Color="#8EBBFF" Grid.Column="0"/>
+                               IsVisible="{Binding IsLoading}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               Margin="0,20,0,20"
+                               Color="#0F969C"/>
+            
             <ScrollView>
                 <CollectionView ItemsSource="{Binding Game}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
+                            <Frame HeightRequest="175" WidthRequest="250" BackgroundColor="#072E33" CornerRadius="50"
+                               Margin="0,0,0,15" BorderColor="Black">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type Controller:ControllerSeasons}}, Path=SeasonDetailsCommand}"
                                         CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid
-                                ColumnDefinitions="*, *, *, *, *">
-                                    <Label Text="{Binding .}" Grid.Column="1"/>
+                                    ColumnDefinitions="*">
+                                    <Label Text="{Binding .}" Style="{StaticResource BaseLabel}" FontSize="28" TextColor="#6DA5C0"/>
                                 </Grid>
                             </Frame>
                         </DataTemplate>
