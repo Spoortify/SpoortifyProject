@@ -15,12 +15,13 @@
                 Text="Baseball ⚾"
                 Style="{StaticResource BaseLabel}"
                 FontSize="50"
-                Margin="30"/>
+                Margin="30"
+                TextColor="#294D61"/>
 
             <CollectionView ItemsSource="{Binding Game}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Model:BaseballGameResponse">
-                        <Frame HeightRequest="175" WidthRequest="900" BackgroundColor="#072E33" CornerRadius="30"
+                        <Frame HeightRequest="150" WidthRequest="800" BackgroundColor="#072E33" CornerRadius="30"
                                Margin="0,0,0,15" BorderColor="Black">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:BaseballController}}, Path = OpenDetailsCommand}"/>

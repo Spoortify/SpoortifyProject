@@ -4,42 +4,57 @@
              x:Class="Sportify.View.ViewStandings"
              Title="ViewStandings"
              xmlns:Model="clr-namespace:Sportify.Model"
-            xmlns:Controller="clr-namespace:Sportify.Controller"
-            x:DataType="Controller:ControllerStandings">
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             x:DataType="Controller:ControllerStandings"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#05161A">
 
     <VerticalStackLayout>
+        <Label
+            Text="Standings 🏅"
+            Style="{StaticResource BaseLabel}"
+            FontSize="50"
+            Margin="30"
+            TextColor="#294D61"/>
+        
         <ActivityIndicator IsRunning="{Binding IsLoading}"
-                                       IsVisible="{Binding IsLoading}"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Center"
-                                       WidthRequest="50"
-                                       HeightRequest="50"
-                                       Margin="0,20,0,20"
-                                       Color="#8EBBFF" Grid.Column="0"/>
+                           IsVisible="{Binding IsLoading}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           WidthRequest="50"
+                           HeightRequest="50"
+                           Margin="0,20,0,20"
+                           Color="#0F969C"/>
         <ScrollView>
             <CollectionView ItemsSource="{Binding Game}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Model:BaseballStandingsResponse">
-                        <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
-                            <Grid ColumnDefinitions="*, *, *, *, *, *, *">
-                                <Label Text="{Binding Position}" Style="{StaticResource BaseLabel}"/>
-                                <VerticalStackLayout Grid.Column="1">
+                        <Frame HeightRequest="200" WidthRequest="1250" BackgroundColor="#072E33" CornerRadius="30"
+                               Margin="0,0,0,15" BorderColor="Black">
+                            <Grid ColumnDefinitions="*, *, *, *, *">
+                                <Label Text="{Binding Position}" Style="{StaticResource BaseLabel}" TextColor="#6DA5C0"/>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
                                     <Image Source="{Binding Team.Logo}" Style="{StaticResource BaseImage}"/>
-                                    <Label Text="{Binding Team.Name}" Style="{StaticResource BaseLabel}"/>
+                                    <Label Text="{Binding Team.Name}" Style="{StaticResource BaseLabel}" Margin="0, 20, 0, 0"
+                                           TextColor="#6DA5C0"/>
                                 </VerticalStackLayout>
-                                <VerticalStackLayout Grid.Column="2">
-                                    <Label Text="{Binding Points, StringFormat='Points: {0}'}" Style="{StaticResource BaseLabel}"/>
-                                    <Label Text="{Binding Games.Played, StringFormat='Total games played: {0}'}" Style="{StaticResource BaseLabel}"/>
+                                <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Label Text="{Binding Points.For, StringFormat='Points: {0}'}" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
+                                    <Label Text="{Binding Games.Played, StringFormat='Total games played: {0}'}" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
                                 </VerticalStackLayout>
-                                <VerticalStackLayout Grid.Column="3">
-                                    <Label Text="{Binding Games.Win.Total, StringFormat='Win: {0}'}" Style="{StaticResource BaseLabel}"/>
-                                    <Label Text="{Binding Games.Win.Percentage, StringFormat='Win percentage: {0}%'}" Style="{StaticResource BaseLabel}"/>
+                                <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Label Text="{Binding Games.Win.Total, StringFormat='Win: {0}'}" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
+                                    <Label Text="{Binding Games.Win.Percentage, StringFormat='Win percentage: {0}%'}" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
                                 </VerticalStackLayout>
-                                <VerticalStackLayout Grid.Column="4">
-                                    <Label Text="{Binding Games.Lose.Total, StringFormat='Loose: {0} '}" Style="{StaticResource BaseLabel}"/>
-                                </VerticalStackLayout>
-                                <VerticalStackLayout Grid.Column="5">
-                                    <Label Text="{Binding Games.Lose.Percentage, StringFormat='Loose percentage: {0}%'}" Style="{StaticResource BaseLabel}"/>
+                                <VerticalStackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Label Text="{Binding Games.Lose.Total, StringFormat='Loose: {0} '}" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
+                                    <Label Text="{Binding Games.Lose.Percentage, StringFormat='Loose percentage: {0}%'}" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>

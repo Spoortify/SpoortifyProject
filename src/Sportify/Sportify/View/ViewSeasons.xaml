@@ -17,7 +17,9 @@
                 Text="Baseball Seasons ⚾"
                 Style="{StaticResource BaseLabel}"
                 FontSize="50"
-                Margin="30"/>
+                Margin="30"
+                TextColor="#294D61"/>
+            
             <ActivityIndicator IsRunning="{Binding IsLoading}"
                                IsVisible="{Binding IsLoading}"
                                VerticalOptions="Center"
@@ -31,7 +33,7 @@
                 <CollectionView ItemsSource="{Binding Game}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame HeightRequest="175" WidthRequest="250" BackgroundColor="#072E33" CornerRadius="50"
+                            <Frame HeightRequest="125" WidthRequest="300" BackgroundColor="#072E33" CornerRadius="50"
                                Margin="0,0,0,15" BorderColor="Black">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
