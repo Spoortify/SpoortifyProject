@@ -17,7 +17,7 @@
                 <Label Text="Season:" Margin="0,15,0,0" HorizontalOptions="Center"/>
                 <Picker ItemsSource="{Binding Seasons}" Margin="20,0,0,0" WidthRequest="100" SelectedItem="{Binding Season}"
                         HorizontalOptions="Center"/>
-                <Button Text="CONFIRMS" Command="{Binding GetStandingsCommand}" HorizontalOptions="Center"
+                <Button Text="CONFIRM" Command="{Binding GetStandingsCommand}" HorizontalOptions="Center"
                         Margin="30,0,0,0" BackgroundColor="Red" TextColor="White" FontAttributes="Bold"/>
             </HorizontalStackLayout>
             <Frame BackgroundColor="Black" CornerRadius="0">
@@ -34,13 +34,13 @@
                 <CollectionView ItemsSource="{Binding Formula1.Response}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="Model:Formula1Response">
-                            <Frame BackgroundColor="White" CornerRadius="0">
+                            <Frame BackgroundColor="White" CornerRadius="0" >
                                 <Grid ColumnDefinitions="*,*,*,*,*,*">
                                     <Label Text="{Binding Position}" TextColor="Black" HorizontalOptions="Center"
                                            VerticalOptions="Center"/>
                                     <Image Source="{Binding Team.Logo}" Grid.Column="1" HorizontalOptions="Center"
-                                           MaximumHeightRequest="100" VerticalOptions="Center"
-                                           MaximumWidthRequest="100"/>
+                                           HeightRequest="100" VerticalOptions="Center"
+                                           WidthRequest="100"/>
                                     <Label Text="{Binding Driver.Number}" Grid.Column="2" TextColor="Black" HorizontalOptions="Center"
                                            VerticalOptions="Center"/>
                                     <Label Text="{Binding Driver.Name}" Grid.Column="3" TextColor="Black" HorizontalOptions="Center"
