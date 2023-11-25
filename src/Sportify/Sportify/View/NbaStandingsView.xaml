@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.NbaStandingsView"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model"
+             x:DataType="controller:NbaStandingsController"
+             Title="NbaStandingsView"
+             BackgroundImageSource="nbabgitre.jpg">
+    <ContentPage.BindingContext>
+        <controller:NbaStandingsController/>
+    </ContentPage.BindingContext>
+    <ScrollView Padding="3">
+        <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*,*">
+            <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                <Label Text="Select a season: " FontSize="28" VerticalOptions="Center" Margin="5"/>
+                <Picker ItemsSource="{Binding Seasons}" SelectedItem="{Binding SelectedSeason}" HeightRequest="60" 
+                        WidthRequest="200" FontSize="20" Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+            <!--<Button Text="find" Command="{Binding RiempiListaCommand}" Grid.Column="1"/>-->
+            <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Grid.ColumnSpan="2" Margin="20">
+                <Button Text="League" Command="{Binding LeagueStandingsCommand}" WidthRequest="150" Margin="15"
+                        BackgroundColor="{Binding ButtonBGCLeagues}" TextColor="{Binding TextColorLeagues}" BorderColor="Black" 
+                        BorderWidth="2" FontSize="16" HeightRequest="50" CornerRadius="17"/>
+                <Button Text="Conference" Command="{Binding ConferenceStandingsCommand}" WidthRequest="150" Margin="15"
+                        BackgroundColor="{Binding ButtonBGCConference}" TextColor="{Binding TextColorConference}" BorderColor="Black" 
+                        BorderWidth="2" FontSize="16" HeightRequest="50" CornerRadius="17"/>
+                <Button Text="Division" Command="{Binding DivisionStandingsCommand}" WidthRequest="150" Margin="15"
+                        BackgroundColor="{Binding ButtonBGCDivision}" TextColor="{Binding TextColorDivision}" BorderColor="Black" 
+                        BorderWidth="2" FontSize="16" HeightRequest="50" CornerRadius="17"/>
+            </HorizontalStackLayout>
+            <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <CollectionView ItemsSource="{Binding LeaguesStandingsList}" IsVisible="{Binding LeagueVisible}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:NBAResponse">
+                            <Frame HorizontalOptions="Center" WidthRequest="600" HeightRequest="90" Padding="10"
+                                   BackgroundColor="#f8ffffff" Margin="2">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions="290,*,*,30">
+                                    <HorizontalStackLayout VerticalOptions="Center">
+                                        <Image Source="{Binding Team.Logo}" HeightRequest="32" Margin="10,0,0,0"/>
+                                        <Label Text="{Binding Team.Name}" FontSize="20" Margin="12" FontAttributes="Bold"/>
+                                    </HorizontalStackLayout>
+                                    <VerticalStackLayout HorizontalOptions="Center" Grid.Column="1">
+                                        <Label Text="WIN" FontSize="19" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding Win.Total}" HorizontalOptions="Center" Margin="0,0,0,0"
+                                               FontSize="17"/>
+                                        <HorizontalStackLayout Margin="0,3,0,0">
+                                            <Label Text="{Binding Win.Home, StringFormat='H: {0}'}" FontSize="11"/>
+                                            <Label Text="{Binding Win.Away, StringFormat='A: {0}'}" Margin="20,0,0,0"
+                                                   FontSize="11"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout HorizontalOptions="Center" Grid.Column="2">
+                                        <Label Text="LOSS" FontSize="19" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding Loss.Total}" HorizontalOptions="Center" Margin="0,0,0,0"
+                                               FontSize="17"/>
+                                        <HorizontalStackLayout Margin="0,3,0,0">
+                                            <Label Text="{Binding Loss.Home, StringFormat='H: {0}'}" FontSize="11"/>
+                                            <Label Text="{Binding Loss.Away, StringFormat='A: {0}'}" Margin="20,0,0,0"
+                                                   FontSize="11"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid ColumnDefinitions="*,*">
+                    <CollectionView Grid.Column="0" ItemsSource="{Binding WesternConferenceStandingsList}" 
+                                    IsVisible="{Binding ConferenceVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HorizontalOptions="Center" WidthRequest="600" HeightRequest="90" Padding="10"
+                                       BackgroundColor="#f8ffffff" Margin="2">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                          CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="290,*,*,30">
+                                        <HorizontalStackLayout VerticalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="32" Margin="10,0,0,0"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="20" Margin="12" FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout HorizontalOptions="Center" Grid.Column="1">
+                                            <Label Text="WIN" FontSize="19" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Win.Total}" HorizontalOptions="Center" Margin="0,0,0,0"
+                                                    FontSize="17"/>
+                                            <HorizontalStackLayout Margin="0,3,0,0">
+                                                <Label Text="{Binding Win.Home, StringFormat='H: {0}'}" FontSize="11"/>
+                                                <Label Text="{Binding Win.Away, StringFormat='A: {0}'}" Margin="20,0,0,0"
+                       FontSize="11"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout HorizontalOptions="Center" Grid.Column="2">
+                                            <Label Text="LOSS" FontSize="19" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Loss.Total}" HorizontalOptions="Center" Margin="0,0,0,0"
+                   FontSize="17"/>
+                                            <HorizontalStackLayout Margin="0,3,0,0">
+                                                <Label Text="{Binding Loss.Home, StringFormat='H: {0}'}" FontSize="11"/>
+                                                <Label Text="{Binding Loss.Away, StringFormat='A: {0}'}" Margin="20,0,0,0"
+                       FontSize="11"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="1" ItemsSource="{Binding EasternConferenceStandingsList}" 
+                                    IsVisible="{Binding ConferenceVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HorizontalOptions="Center" WidthRequest="600" HeightRequest="90" Padding="10"
+                                       BackgroundColor="#f8ffffff" Margin="2">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                          CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="290,*,*,30">
+                                        <HorizontalStackLayout VerticalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="32" Margin="10,0,0,0"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="20" Margin="12" FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout HorizontalOptions="Center" Grid.Column="1">
+                                            <Label Text="WIN" FontSize="19" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Win.Total}" HorizontalOptions="Center" Margin="0,0,0,0"
+                   FontSize="17"/>
+                                            <HorizontalStackLayout Margin="0,3,0,0">
+                                                <Label Text="{Binding Win.Home, StringFormat='H: {0}'}" FontSize="11"/>
+                                                <Label Text="{Binding Win.Away, StringFormat='A: {0}'}" Margin="20,0,0,0"
+                       FontSize="11"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout HorizontalOptions="Center" Grid.Column="2">
+                                            <Label Text="LOSS" FontSize="19" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Loss.Total}" HorizontalOptions="Center" Margin="0,0,0,0"
+                   FontSize="17"/>
+                                            <HorizontalStackLayout Margin="0,3,0,0">
+                                                <Label Text="{Binding Loss.Home, StringFormat='H: {0}'}" FontSize="11"/>
+                                                <Label Text="{Binding Loss.Away, StringFormat='A: {0}'}" Margin="20,0,0,0"
+                       FontSize="11"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid ColumnDefinitions="*,*,*,*,*,*">
+                    <CollectionView Grid.Column="0" ItemsSource="{Binding AtlanticDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HeightRequest="105" Margin="2" BackgroundColor="#eeffffff">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                                                              CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="*,25,*" RowDefinitions="auto,*">
+                                        <HorizontalStackLayout Grid.ColumnSpan="3" HorizontalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="25"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="18" Margin="10,0,0,0"
+                                                   FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="End"
+                                                             VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="WIN" FontSize="14"/>
+                                            <Label Text="{Binding Win.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="2" Grid.Row="1" HorizontalOptions="Start"
+                                                             VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="LOSS" FontSize="14"/>
+                                            <Label Text="{Binding Loss.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>                                   
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="1" ItemsSource="{Binding CentralDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HeightRequest="105" Margin="2" BackgroundColor="#f8ffffff">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                                                              CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="*,25,*" RowDefinitions="auto,*">
+                                        <HorizontalStackLayout Grid.ColumnSpan="3" HorizontalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="25"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="18" Margin="10,0,0,0"
+                             FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="End"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="WIN" FontSize="14"/>
+                                            <Label Text="{Binding Win.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="2" Grid.Row="1" HorizontalOptions="Start"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="LOSS" FontSize="14"/>
+                                            <Label Text="{Binding Loss.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="2" ItemsSource="{Binding SoutheastDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HeightRequest="105" Margin="2" BackgroundColor="#f8ffffff">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                                                                CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="*,25,*" RowDefinitions="auto,*">
+                                        <HorizontalStackLayout Grid.ColumnSpan="3" HorizontalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="25"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="18" Margin="10,0,0,0"
+                             FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="End"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="WIN" FontSize="14"/>
+                                            <Label Text="{Binding Win.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="2" Grid.Row="1" HorizontalOptions="Start"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="LOSS" FontSize="14"/>
+                                            <Label Text="{Binding Loss.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="3" ItemsSource="{Binding NorthwestDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HeightRequest="105" Margin="2" BackgroundColor="#f8ffffff">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                                                              CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="*,25,*" RowDefinitions="auto,*">
+                                        <HorizontalStackLayout Grid.ColumnSpan="3" HorizontalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="25"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="18" Margin="10,0,0,0"
+                             FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="End"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="WIN" FontSize="14"/>
+                                            <Label Text="{Binding Win.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="2" Grid.Row="1" HorizontalOptions="Start"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="LOSS" FontSize="14"/>
+                                            <Label Text="{Binding Loss.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="4" ItemsSource="{Binding PacificDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HeightRequest="105" Margin="2" BackgroundColor="#f8ffffff">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                                                              CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="*,25,*" RowDefinitions="auto,*">
+                                        <HorizontalStackLayout Grid.ColumnSpan="3" HorizontalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="25"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="18" Margin="10,0,0,0"
+                             FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="End"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="WIN" FontSize="14"/>
+                                            <Label Text="{Binding Win.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="2" Grid.Row="1" HorizontalOptions="Start"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="LOSS" FontSize="14"/>
+                                            <Label Text="{Binding Loss.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Column="5" ItemsSource="{Binding SouthwestDivStandingsList}" 
+                                    IsVisible="{Binding DivisionVisible}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NBAResponse">
+                                <Frame HeightRequest="105" Margin="2" BackgroundColor="#eeffffff">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaStandingsController}}, Path=GoToTeamsStatisticsCommand}"
+                                                                CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="*,25,*" RowDefinitions="auto,*">
+                                        <HorizontalStackLayout Grid.ColumnSpan="3" HorizontalOptions="Center">
+                                            <Image Source="{Binding Team.Logo}" HeightRequest="25"/>
+                                            <Label Text="{Binding Team.Name}" FontSize="18" Margin="10,0,0,0"
+                             FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="End"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="WIN" FontSize="14"/>
+                                            <Label Text="{Binding Win.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="2" Grid.Row="1" HorizontalOptions="Start"
+                                       VerticalOptions="EndAndExpand" Margin="0,8,0,0">
+                                            <Label Text="LOSS" FontSize="14"/>
+                                            <Label Text="{Binding Loss.Total}" FontSize="12" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
