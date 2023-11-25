@@ -33,7 +33,6 @@ namespace Sportify.Controller
         [ObservableProperty]
         string id;
 
-
         [ObservableProperty]
         Football football = new();
 
@@ -83,6 +82,7 @@ namespace Sportify.Controller
 
         [ObservableProperty]
         FootballTopScorers topScorers;
+
         [RelayCommand]
         async Task ShowTopScorers()
         {
@@ -92,8 +92,10 @@ namespace Sportify.Controller
             var response = await App.FootballClient.GetAsync($"/players/topscorers?league={Id}&season={_selectedSeason}");
             TopScorers = await response.Content.ReadFromJsonAsync<FootballTopScorers>();
         }
+
         [ObservableProperty]
         GameDay gameDay;
+
         [RelayCommand]
         async Task ShowFixtures()
         {
