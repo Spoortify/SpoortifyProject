@@ -55,6 +55,5 @@
         ContentTemplate="{DataTemplate View:HomeHockeyGame}" />
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate view:NbaStandingsView}"
-        Route="view:NbaStandingsView" />
+        ContentTemplate="{DataTemplate View:NbaStandingsView}" />
 </Shell>

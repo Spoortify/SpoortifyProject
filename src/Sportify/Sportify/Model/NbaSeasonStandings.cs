@@ -59,7 +59,7 @@ namespace Sportify.Model
         public int LastTen { get; set; }
     }
 
-    public class Parameters
+    public class NbaSeasonParameters
     {
         [JsonPropertyName("league")]
         public string League { get; set; }
@@ -77,7 +77,7 @@ namespace Sportify.Model
         public int Season { get; set; }
 
         [JsonPropertyName("team")]
-        public Team Team { get; set; }
+        public NbaSeasonTeam Team { get; set; }
 
         [JsonPropertyName("conference")]
         public Conference Conference { get; set; }
@@ -110,7 +110,7 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public NbaSeasonParameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
@@ -122,7 +122,7 @@ namespace Sportify.Model
         public List<NBAResponse> Response { get; set; }
     }
 
-    public class Team
+    public class NbaSeasonTeam
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sportify.Model
 {
-    public class TeamsParameters
+    public class NbaTeamsParameters
     {
         [JsonPropertyName("id")]
         public string Id { get; set; }
@@ -103,7 +103,7 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public Parameters Parameters { get; set; }
+        public NbaTeamsParameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
