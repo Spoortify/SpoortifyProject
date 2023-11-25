@@ -30,8 +30,8 @@ namespace Sportify.Controller
 
         public static async Task ShowGames()
         {
-        //    if (isBusy) return;
-        //    isBusy = true;
+            if (isBusy) return;
+            isBusy = true;
             try
             {
                 hockeyGame.Clear();
@@ -60,7 +60,7 @@ namespace Sportify.Controller
             }
             finally
             {
-               //isBusy = false;
+               isBusy = false;
             }
         }
 

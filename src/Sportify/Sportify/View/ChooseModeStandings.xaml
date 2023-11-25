@@ -5,9 +5,22 @@
              Title="ChooseModeStandings"
              xmlns:Model="clr-namespace:Sportify.Model"
              xmlns:Controller="clr-namespace:Sportify.Controller"
-             x:DataType="Controller:ControllerChooseModeStendings">
-    <VerticalStackLayout>
-        <Button Text="Teams" Command="{Binding ButtonTeamsCommand}"/>
-        <Button Text="Classifica" Command="{Binding ButtonClassificaCommand}"/>
+             x:DataType="Controller:ControllerChooseModeStendings"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#05161A">
+    
+    <VerticalStackLayout
+        Margin="300">
+        <Grid
+            ColumnDefinitions="*, *">
+            <Button Text="Teams" Command="{Binding ButtonTeamsCommand}"
+                    HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="400" 
+                    HeightRequest="150" TextColor="#6DA5C0" BackgroundColor="#072E33"
+                    FontSize="30" BorderColor="#294D61" BorderWidth="4" CornerRadius="30"/>
+            <Button Text="Classifica" Command="{Binding ButtonClassificaCommand}" Grid.Column="1"
+                    HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="400" 
+                    HeightRequest="150" TextColor="#6DA5C0" BackgroundColor="#072E33"
+                    FontSize="30" BorderColor="#294D61" BorderWidth="4" CornerRadius="30"/>
+        </Grid> 
     </VerticalStackLayout>
 </ContentPage>

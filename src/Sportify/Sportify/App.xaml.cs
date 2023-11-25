@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
+using MonkeyCache.FileStore;
 
 namespace Sportify
 {
@@ -27,7 +28,9 @@ namespace Sportify
         public App()
         {
             InitializeComponent();
+            Barrel.ApplicationId = AppInfo.PackageName;
             MainPage = new AppShell();
+
             ClientF1.BaseAddress = new Uri("https://v1.formula-1.api-sports.io");
             ClientF1.DefaultRequestHeaders.Add("x-rapidapi-key", GetRandomApiKey());
             ClientF1.DefaultRequestHeaders.Add("x-rapidapi-host", x_rapidapi_host_formula1);
@@ -64,11 +67,6 @@ namespace Sportify
             return shuffledKeys.FirstOrDefault();
         }
 
-        //public static void ChangeApiKey(HttpClient client)
-        //{
-        //    client.DefaultRequestHeaders.Add("x-rapidapikey", GetRandomApiKey());
-        //}
-
         public static string GetFootballLeagueId(string league)
         {
             int id = league.ToUpper() switch
@@ -88,6 +86,36 @@ namespace Sportify
                 _ => 39
             };
             return id.ToString();
+        }
+
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            Window window = base.CreateWindow(activationState);
+            window.Activated += Window_Activated;
+            return window;
+        }
+
+        private async void Window_Activated(object sender, EventArgs e)
+        {
+#if WINDOWS
+        const int DefaultWidth = 1920;
+        const int DefaultHeight = 1080;
+
+        var window = sender as Window;
+
+        // change window size.
+        window.Width = DefaultWidth;
+        window.Height = DefaultHeight;
+
+        // give it some time to complete window resizing task.
+        await window.Dispatcher.DispatchAsync(() => { });
+
+        var disp = DeviceDisplay.Current.MainDisplayInfo;
+
+        // move to screen center
+        window.X = (disp.Width / disp.Density - window.Width) / 2;
+        window.Y = (disp.Height / disp.Density - window.Height) / 2;
+#endif
         }
     }
 }

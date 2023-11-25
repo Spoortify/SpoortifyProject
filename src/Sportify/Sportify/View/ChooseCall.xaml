@@ -3,11 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sportify.View.ChooseCall"
              Title="ChooseCall"
-             BackgroundImageSource="baseball_3.png">
+             BackgroundImageSource="baseball_3.png"
+             Shell.NavBarIsVisible="False">
     <VerticalStackLayout>
-        <Grid ColumnDefinitions="*, *" RowDefinitions="*, auto">
-            <ImageButton Source="baseball_1.png" Clicked="Button_Response" WidthRequest="300" HeightRequest="300" Grid.Column="0"/>
-            <ImageButton Source="baseball_2.png" Clicked="Button_Season"  WidthRequest="350" HeightRequest="350" Grid.Column="1"/>
+        <Grid ColumnDefinitions="*, *">
+            <ImageButton Source="baseball_1.png" Clicked="Button_Response" 
+                         WidthRequest="350" HeightRequest="350" Grid.Column="0" HorizontalOptions="Center"
+                         VerticalOptions="Center"/>
+            <ImageButton Source="baseball_2.png" Clicked="Button_Season"  
+                         WidthRequest="350" HeightRequest="350" Grid.Column="1"/>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
