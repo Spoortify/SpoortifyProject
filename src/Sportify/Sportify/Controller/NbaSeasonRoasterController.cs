@@ -78,21 +78,23 @@ namespace Sportify.Controller
         public static List<NBARoasterResponse> RiempiListaGuards(List<NBARoasterResponse> list)
         {
             List<NBARoasterResponse> guards = new();
-            guards = list.Where(g => g.Leagues.Standard.Pos.Equals("G") || g.Leagues.Standard.Pos.Equals("G-F")).ToList();
+            guards = list.Where(g => (g.Leagues.Standard!=null && g.Leagues.Standard.Pos != null) && (g.Leagues.Standard.Pos.Equals("G") || g.Leagues.Standard.Pos.Equals("G-F"))).ToList();
             return guards;
         }
 
         public static List<NBARoasterResponse> RiempiListaForwards(List<NBARoasterResponse> list)
         {
             List<NBARoasterResponse> forwards = new();
-            forwards = list.Where(f => f.Leagues.Standard.Pos.Equals("F") || f.Leagues.Standard.Pos.Equals("F-G") || f.Leagues.Standard.Pos.Equals("F-C")).ToList();
+            forwards = list.
+                Where(f => (f.Leagues.Standard != null && f.Leagues.Standard.Pos != null) && (f.Leagues.Standard.Pos.Equals("F") || f.Leagues.Standard.Pos.Equals("F-G") || f.Leagues.Standard.Pos.Equals("F-C"))).ToList();
             return forwards;
         }
 
         public static List<NBARoasterResponse> RiempiListaCenters(List<NBARoasterResponse> list)
         {
             List<NBARoasterResponse> centers = new();
-            centers = list.Where(c => c.Leagues.Standard.Pos.Equals("C") || c.Leagues.Standard.Pos.Equals("C-F") || c.Leagues.Standard.Pos.Equals("C-G")).ToList();
+            centers = list.
+                Where(c => (c.Leagues.Standard != null && c.Leagues.Standard.Pos != null) && (c.Leagues.Standard.Pos.Equals("C") || c.Leagues.Standard.Pos.Equals("C-F") || c.Leagues.Standard.Pos.Equals("C-G"))).ToList();
             return centers;
         }
 

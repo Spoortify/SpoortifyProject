@@ -20,6 +20,21 @@ namespace Sportify.Controller
         #region Observableproperty
 
         [ObservableProperty]
+        Color buttonBGCLeagues = Colors.White;
+        [ObservableProperty]
+        Color textColorLeagues = Colors.Black;
+
+        [ObservableProperty]
+        Color buttonBGCConference = Colors.White;
+        [ObservableProperty]
+        Color textColorConference = Colors.Black;
+
+        [ObservableProperty]
+        Color buttonBGCDivision = Colors.White;
+        [ObservableProperty]
+        Color textColorDivision = Colors.Black;
+
+        [ObservableProperty]
         bool leagueVisible = false;
 
         [ObservableProperty]
@@ -94,6 +109,16 @@ namespace Sportify.Controller
             LeagueVisible = true;
             ConferenceVisible = false;
             DivisionVisible = false;
+
+            ButtonBGCLeagues = Colors.Black;
+            TextColorLeagues = Colors.White;
+
+            ButtonBGCConference = Colors.White;
+            TextColorConference = Colors.Black;
+
+            ButtonBGCDivision = Colors.White;
+            TextColorDivision = Colors.Black;
+
             LeaguesStandingsList = RiordinaClassificaTotale(SeasonStatsList);
         }
         public static List<NBAResponse> RiordinaClassificaTotale(NbaSeasonStandings classifica)
@@ -110,6 +135,16 @@ namespace Sportify.Controller
             LeagueVisible = false;
             ConferenceVisible = true;
             DivisionVisible = false;
+
+            ButtonBGCLeagues = Colors.White;
+            TextColorLeagues = Colors.Black;
+
+            ButtonBGCConference = Colors.Black;
+            TextColorConference = Colors.White;
+
+            ButtonBGCDivision = Colors.White;
+            TextColorDivision = Colors.Black;
+
             RiordinaClassificaConference(SeasonStatsList);
         }
         public void RiordinaClassificaConference(NbaSeasonStandings classifica)
@@ -127,6 +162,16 @@ namespace Sportify.Controller
             LeagueVisible = false;
             ConferenceVisible = false;
             DivisionVisible = true;
+
+            ButtonBGCLeagues = Colors.White;
+            TextColorLeagues = Colors.Black;
+
+            ButtonBGCConference = Colors.White;
+            TextColorConference = Colors.Black;
+
+            ButtonBGCDivision = Colors.Black;
+            TextColorDivision = Colors.White;
+
             RiordinaClassificaDivision(SeasonStatsList);
         }
         public void RiordinaClassificaDivision(NbaSeasonStandings classifica)

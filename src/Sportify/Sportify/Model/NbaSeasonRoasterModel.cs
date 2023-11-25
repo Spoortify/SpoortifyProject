@@ -34,7 +34,7 @@ namespace Sportify.Model
     public class Leagues
     {
         [JsonPropertyName("standard")]
-        public Standard Standard { get; set; }
+        public Standard? Standard { get; set; }
 
         [JsonPropertyName("vegas")]
         public Vegas Vegas { get; set; }
@@ -121,7 +121,7 @@ namespace Sportify.Model
         public bool Active { get; set; }
 
         [JsonPropertyName("pos")]
-        public string Pos { get; set; }
+        public string Pos { get; set; } 
     }
 
     public class Standard
@@ -133,7 +133,7 @@ namespace Sportify.Model
         public bool Active { get; set; }
 
         [JsonPropertyName("pos")]
-        public string Pos { get; set; }
+        public string Pos { get; set; } = null!;
     }
 
     public class Vegas
@@ -145,7 +145,7 @@ namespace Sportify.Model
         public bool Active { get; set; }
 
         [JsonPropertyName("pos")]
-        public string Pos { get; set; }
+        public string? Pos { get; set; }
     }
 
     public class Weight

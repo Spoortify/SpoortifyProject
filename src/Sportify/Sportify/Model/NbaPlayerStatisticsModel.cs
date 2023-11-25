@@ -47,7 +47,7 @@ namespace Sportify.Model
         public Game Game { get; set; }
 
         [JsonPropertyName("points")]
-        public int Points { get; set; }
+        public int? Points { get; set; }
 
         [JsonPropertyName("pos")]
         public string Pos { get; set; }
@@ -56,55 +56,55 @@ namespace Sportify.Model
         public string Min { get; set; }
 
         [JsonPropertyName("fgm")]
-        public int Fgm { get; set; }
+        public int? Fgm { get; set; }
 
         [JsonPropertyName("fga")]
-        public int Fga { get; set; }
+        public int? Fga { get; set; }
 
         [JsonPropertyName("fgp")]
         public string Fgp { get; set; }
 
         [JsonPropertyName("ftm")]
-        public int Ftm { get; set; }
+        public int? Ftm { get; set; }
 
         [JsonPropertyName("fta")]
-        public int Fta { get; set; }
+        public int? Fta { get; set; }
 
         [JsonPropertyName("ftp")]
         public string Ftp { get; set; }
 
         [JsonPropertyName("tpm")]
-        public int Tpm { get; set; }
+        public int? Tpm { get; set; }
 
         [JsonPropertyName("tpa")]
-        public int Tpa { get; set; }
+        public int? Tpa { get; set; }
 
         [JsonPropertyName("tpp")]
         public string Tpp { get; set; }
 
         [JsonPropertyName("offReb")]
-        public int OffReb { get; set; }
+        public int? OffReb { get; set; }
 
         [JsonPropertyName("defReb")]
-        public int DefReb { get; set; }
+        public int? DefReb { get; set; }
 
         [JsonPropertyName("totReb")]
-        public int TotReb { get; set; }
+        public int? TotReb { get; set; }
 
         [JsonPropertyName("assists")]
-        public int Assists { get; set; }
+        public int? Assists { get; set; }
 
         [JsonPropertyName("pFouls")]
-        public int PFouls { get; set; }
+        public int? PFouls { get; set; }
 
         [JsonPropertyName("steals")]
-        public int Steals { get; set; }
+        public int? Steals { get; set; }
 
         [JsonPropertyName("turnovers")]
-        public int Turnovers { get; set; }
+        public int? Turnovers { get; set; }
 
         [JsonPropertyName("blocks")]
-        public int Blocks { get; set; }
+        public int? Blocks { get; set; }
 
         [JsonPropertyName("plusMinus")]
         public string PlusMinus { get; set; }
