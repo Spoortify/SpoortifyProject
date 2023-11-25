@@ -2,50 +2,250 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ProvaApiFootball
 {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-    public class Driver
+    // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
+    public class Away
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string abbr { get; set; }
-        public int? number { get; set; }
-        public string image { get; set; }
+        [JsonPropertyName("id")]
+        public int? Id { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("logo")]
+        public string Logo { get; set; }
+
+        [JsonPropertyName("winner")]
+        public bool? Winner { get; set; }
+    }
+
+    public class Extratime
+    {
+        [JsonPropertyName("home")]
+        public object Home { get; set; }
+
+        [JsonPropertyName("away")]
+        public object Away { get; set; }
+    }
+
+    public class Fixture
+    {
+        [JsonPropertyName("id")]
+        public int? Id { get; set; }
+
+        [JsonPropertyName("referee")]
+        public string Referee { get; set; }
+
+        [JsonPropertyName("timezone")]
+        public string Timezone { get; set; }
+
+        [JsonPropertyName("date")]
+        public DateTime? Date { get; set; }
+
+        [JsonPropertyName("timestamp")]
+        public int? Timestamp { get; set; }
+
+        [JsonPropertyName("periods")]
+        public Periods Periods { get; set; }
+
+        [JsonPropertyName("venue")]
+        public Venue Venue { get; set; }
+
+        [JsonPropertyName("status")]
+        public Status Status { get; set; }
+    }
+
+    public class Fulltime
+    {
+        [JsonPropertyName("home")]
+        public int? Home { get; set; }
+
+        [JsonPropertyName("away")]
+        public int? Away { get; set; }
+    }
+
+    public class Goals
+    {
+        [JsonPropertyName("home")]
+        public int? Home { get; set; }
+
+        [JsonPropertyName("away")]
+        public int? Away { get; set; }
+    }
+
+    public class Halftime
+    {
+        [JsonPropertyName("home")]
+        public int? Home { get; set; }
+
+        [JsonPropertyName("away")]
+        public int? Away { get; set; }
+    }
+
+    public class Home
+    {
+        [JsonPropertyName("id")]
+        public int? Id { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("logo")]
+        public string Logo { get; set; }
+
+        [JsonPropertyName("winner")]
+        public bool? Winner { get; set; }
+    }
+
+    public class League
+    {
+        [JsonPropertyName("id")]
+        public int? Id { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("country")]
+        public string Country { get; set; }
+
+        [JsonPropertyName("logo")]
+        public string Logo { get; set; }
+
+        [JsonPropertyName("flag")]
+        public string Flag { get; set; }
+
+        [JsonPropertyName("season")]
+        public int? Season { get; set; }
+
+        [JsonPropertyName("round")]
+        public string Round { get; set; }
+    }
+
+    public class Paging
+    {
+        [JsonPropertyName("current")]
+        public int? Current { get; set; }
+
+        [JsonPropertyName("total")]
+        public int? Total { get; set; }
     }
 
     public class Parameters
     {
-        public string season { get; set; }
+        [JsonPropertyName("league")]
+        public string League { get; set; }
+
+        [JsonPropertyName("season")]
+        public string Season { get; set; }
+    }
+
+    public class Penalty
+    {
+        [JsonPropertyName("home")]
+        public object Home { get; set; }
+
+        [JsonPropertyName("away")]
+        public object Away { get; set; }
+    }
+
+    public class Periods
+    {
+        [JsonPropertyName("first")]
+        public int? First { get; set; }
+
+        [JsonPropertyName("second")]
+        public int? Second { get; set; }
     }
 
     public class Response
     {
-        public int position { get; set; }
-        public Driver driver { get; set; }
-        public Team team { get; set; }
-        public int? points { get; set; }
-        public int wins { get; set; }
-        public int? behind { get; set; }
-        public int season { get; set; }
+        [JsonPropertyName("fixture")]
+        public Fixture Fixture { get; set; }
+
+        [JsonPropertyName("league")]
+        public League League { get; set; }
+
+        [JsonPropertyName("teams")]
+        public Teams Teams { get; set; }
+
+        [JsonPropertyName("goals")]
+        public Goals Goals { get; set; }
+
+        [JsonPropertyName("score")]
+        public Score Score { get; set; }
     }
 
-    public class Formula1
+    public class Root
     {
-        public string get { get; set; }
-        public Parameters parameters { get; set; }
-        public List<object> errors { get; set; }
-        public int results { get; set; }
-        public List<Response> response { get; set; }
+        [JsonPropertyName("get")]
+        public string Get { get; set; }
+
+        [JsonPropertyName("parameters")]
+        public Parameters Parameters { get; set; }
+
+        [JsonPropertyName("errors")]
+        public List<object> Errors { get; set; }
+
+        [JsonPropertyName("results")]
+        public int? Results { get; set; }
+
+        [JsonPropertyName("paging")]
+        public Paging Paging { get; set; }
+
+        [JsonPropertyName("response")]
+        public List<Response> Response { get; set; }
     }
 
-    public class Team
+    public class Score
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string logo { get; set; }
+        [JsonPropertyName("halftime")]
+        public Halftime Halftime { get; set; }
+
+        [JsonPropertyName("fulltime")]
+        public Fulltime Fulltime { get; set; }
+
+        [JsonPropertyName("extratime")]
+        public Extratime Extratime { get; set; }
+
+        [JsonPropertyName("penalty")]
+        public Penalty Penalty { get; set; }
+    }
+
+    public class Status
+    {
+        [JsonPropertyName("long")]
+        public string Long { get; set; }
+
+        [JsonPropertyName("short")]
+        public string Short { get; set; }
+
+        [JsonPropertyName("elapsed")]
+        public int? Elapsed { get; set; }
+    }
+
+    public class Teams
+    {
+        [JsonPropertyName("home")]
+        public Home Home { get; set; }
+
+        [JsonPropertyName("away")]
+        public Away Away { get; set; }
+    }
+
+    public class Venue
+    {
+        [JsonPropertyName("id")]
+        public int? Id { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("city")]
+        public string City { get; set; }
     }
 
 

@@ -71,7 +71,7 @@ namespace Sportify
 
         public static string GetFootballLeagueId(string league)
         {
-            int id = league switch
+            int id = league.ToUpper() switch
             {
                 "SERIE A" => 135,
                 "PREMIER LEAGUE" => 39,

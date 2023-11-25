@@ -10,7 +10,7 @@ namespace Sportify.Model
     public class GameDayAway
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -32,7 +32,7 @@ namespace Sportify.Model
     public class Fixture
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("referee")]
         public string Referee { get; set; }
@@ -41,10 +41,10 @@ namespace Sportify.Model
         public string Timezone { get; set; }
 
         [JsonPropertyName("date")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [JsonPropertyName("timestamp")]
-        public int Timestamp { get; set; }
+        public int? Timestamp { get; set; }
 
         [JsonPropertyName("periods")]
         public Periods Periods { get; set; }
@@ -55,7 +55,6 @@ namespace Sportify.Model
         [JsonPropertyName("status")]
         public Status Status { get; set; }
     }
-
     public class Fulltime
     {
         [JsonPropertyName("home")]
@@ -64,7 +63,6 @@ namespace Sportify.Model
         [JsonPropertyName("away")]
         public int? Away { get; set; }
     }
-
     public class GameDayGoals
     {
         [JsonPropertyName("home")]
@@ -73,7 +71,6 @@ namespace Sportify.Model
         [JsonPropertyName("away")]
         public int? Away { get; set; }
     }
-
     public class Halftime
     {
         [JsonPropertyName("home")]
@@ -82,11 +79,10 @@ namespace Sportify.Model
         [JsonPropertyName("away")]
         public int? Away { get; set; }
     }
-
     public class GameDayHome
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -97,11 +93,10 @@ namespace Sportify.Model
         [JsonPropertyName("winner")]
         public bool? Winner { get; set; }
     }
-
     public class League
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -116,24 +111,26 @@ namespace Sportify.Model
         public string Flag { get; set; }
 
         [JsonPropertyName("season")]
-        public int Season { get; set; }
+        public int? Season { get; set; }
 
         [JsonPropertyName("round")]
         public string Round { get; set; }
     }
-
     public class GameDayPaging
     {
         [JsonPropertyName("current")]
-        public int Current { get; set; }
+        public int? Current { get; set; }
 
         [JsonPropertyName("total")]
-        public int Total { get; set; }
+        public int? Total { get; set; }
     }
-    public class GameDayParameters
+    public class Parameters
     {
-        [JsonPropertyName("date")]
-        public string Date { get; set; }
+        [JsonPropertyName("league")]
+        public string League { get; set; }
+
+        [JsonPropertyName("season")]
+        public string Season { get; set; }
     }
     public class Penalty
     {
@@ -174,13 +171,13 @@ namespace Sportify.Model
         public string Get { get; set; }
 
         [JsonPropertyName("parameters")]
-        public GameDayParameters Parameters { get; set; }
+        public Parameters Parameters { get; set; }
 
         [JsonPropertyName("errors")]
         public List<object> Errors { get; set; }
 
         [JsonPropertyName("results")]
-        public int Results { get; set; }
+        public int? Results { get; set; }
 
         [JsonPropertyName("paging")]
         public GameDayPaging Paging { get; set; }
@@ -232,6 +229,4 @@ namespace Sportify.Model
         [JsonPropertyName("city")]
         public string City { get; set; }
     }
-
-
 }

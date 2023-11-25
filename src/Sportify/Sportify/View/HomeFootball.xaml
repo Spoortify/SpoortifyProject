@@ -4,10 +4,33 @@
              x:Class="Sportify.View.HomeFootball"
              Title="HomeFootball"
              xmlns:controller="clr-namespace:Sportify.Controller"
-             xmlns:model="clr-namespace:Sportify.Model">
-    <VerticalStackLayout>
-        <Button Text="Team list" Clicked="GoToTeamList"/>
-        <Button Text="Today game" Clicked="GoToTodayGames"/>
-        <Button Text="Football standings" Clicked="GoToFootballStandings"/>
-    </VerticalStackLayout>
+             xmlns:model="clr-namespace:Sportify.Model"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="https://wallpapercave.com/wp/wp2981701.jpg">
+    <ContentPage.BindingContext>
+        <controller:HomeFootballController/>
+    </ContentPage.BindingContext>
+    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowDefinitions="*" ColumnDefinitions="*">
+        <CollectionView ItemsSource="{Binding Leagues}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="4"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:LeagueModel">
+                    <Frame Padding="20" HorizontalOptions="Center" Margin="30" BackgroundColor="#66ffffff" BorderColor="Transparent"
+                           VerticalOptions="Center">
+                        <Image Source="{Binding Logo}" Aspect="Fill" MaximumHeightRequest="120"
+                               MaximumWidthRequest="120"
+                               VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource
+                                AncestorType={x:Type controller:HomeFootballController}}, Path=GoToLeagueCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
