@@ -3,9 +3,17 @@
 [![C#](https://img.shields.io/badge/C%23-FFA500.svg?style=for-the-badge&logo=c-sharp&logoColor=white)](https://learn.microsoft.com/it-it/dotnet/csharp/)
 [![Football API](https://img.shields.io/badge/Football_API-800080.svg?style=for-the-badge)](https://dashboard.api-football.com/)
 [![MAUI](https://img.shields.io/badge/MAUI-2B579A.svg?style=for-the-badge&logo=.net&logoColor=white)](https://learn.microsoft.com/it-it/dotnet/maui/what-is-maui?view=net-maui-8.0)
-[![.NET](https://img.shields.io/badge/.NET-512BD4.svg?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/en-us/download/dotnet/7.0/)
-[![License](https://img.shields.io/badge/License-GPL%203.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/GPL-3.0)
-
+[![.NET](https://img.shields.io/badge/.NET-FF5733.svg?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/en-us/download/dotnet/7.0/)
+---
+[![License](https://img.shields.io/badge/License-GPL%203.0-007EC6.svg?style=for-the-badge)](https://opensource.org/licenses/GPL-3.0)
+[![Code Size](https://img.shields.io/github/languages/code-size/Spoortify/SpoortifyProject?style=for-the-badge&color=CD5C5C)](https://github.com/Spoortify/SpoortifyProject)
+[![Last Commit](https://img.shields.io/github/last-commit/Spoortify/SpoortifyProject?style=for-the-badge&color=20B2AA)](https://github.com/Spoortify/SpoortifyProject)
+[![Commit Activity](https://img.shields.io/github/commit-activity/m/Spoortify/SpoortifyProject?style=for-the-badge&color=BA55D3)](https://github.com/Spoortify/SpoortifyProject)
+[![Contributors](https://img.shields.io/github/contributors/Spoortify/SpoortifyProject?style=for-the-badge&color=4CAF50)](https://github.com/Spoortify/SpoortifyProject/graphs/contributors)
+[![GitHub Issues](https://img.shields.io/github/issues/Spoortify/SpoortifyProject?style=for-the-badge&color=FF4500)](https://github.com/Spoortify/SpoortifyProject/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Spoortify/SpoortifyProject?style=for-the-badge&color=FFD700)](https://github.com/Spoortify/SpoortifyProject/pulls)
+[![.NET Version](https://img.shields.io/badge/.NET%20Version-512BD4.svg?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/download/dotnet/7.0)
+---
 
 
 ## Collaboratori
