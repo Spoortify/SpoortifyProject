@@ -5,7 +5,6 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              xmlns:model="clr-namespace:Sportify.Model"
              x:DataType="controller:NbaPlayerSeasonStatisticsController"
-             Title="Games Stats"
              BackgroundImageSource="nbabgidue.jpg">
     <Grid RowDefinitions="auto, auto">
         <ScrollView Orientation="Horizontal">

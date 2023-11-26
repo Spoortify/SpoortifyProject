@@ -5,7 +5,6 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              xmlns:model="clr-namespace:Sportify.Model"
              x:DataType="controller:NbaSeasonRoasterController"
-             Title="NbaSeasonRoasterView"
              BackgroundImageSource="{Binding BgiImage}">
     <ScrollView>
         <Grid RowDefinitions="auto,auto,auto">
