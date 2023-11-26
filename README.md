@@ -4,6 +4,9 @@
 [![Football API](https://img.shields.io/badge/Football_API-800080.svg?style=for-the-badge)](https://dashboard.api-football.com/)
 [![MAUI](https://img.shields.io/badge/MAUI-2B579A.svg?style=for-the-badge&logo=.net&logoColor=white)](https://learn.microsoft.com/it-it/dotnet/maui/what-is-maui?view=net-maui-8.0)
 [![.NET](https://img.shields.io/badge/.NET-512BD4.svg?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/en-us/download/dotnet/7.0/)
+[![License](https://img.shields.io/badge/License-GPL%203.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/GPL-3.0)
+
+
 
 ## Collaboratori
 
@@ -35,7 +38,7 @@ Sportify ti permette di esplorare partite e squadre in modo intuitivo e coinvolg
 
 ### Aggiornamenti in Tempo Reale
 
-Rimani sempre aggiornato con Sportify. Gli aggiornamenti in tempo reale ti informano sugli sviluppi delle partite, i risultati istantanei e gli eventi salienti. Non perderti mai un momento cruciale grazie alle notifiche personalizzate e alle notizie in diretta.
+Rimani sempre aggiornato con Sportify. Gli aggiornamenti in tempo reale ti informano sugli sviluppi delle partite, i risultati istantanei e gli eventi salienti.
 
 ### Analisi Statistiche Avanzate
 
@@ -43,7 +46,7 @@ Sportify offre un'esperienza analitica avanzata. Approfondisci le statistiche de
 
 ### Personalizzazione dell'Esperienza
 
-Sportify si adatta alle tue preferenze. Personalizza la tua esperienza scegliendo le squadre e le leghe preferite, impostando notifiche personalizzate e creando un feed personalizzato con i tuoi contenuti sportivi preferiti.
+Sportify si adatta alle tue preferenze. Personalizza la tua esperienza scegliendo le squadre e le leghe preferite.
 
 ## Approfondimento sull'Utilizzo delle API di Dashboard Football API 🌐
 
@@ -72,9 +75,7 @@ Apri il progetto con Visual Studio o il tuo ambiente di sviluppo preferito.
 
 ### Configurare le API Keys
 
-Ottieni le chiavi API per C#, Football API, MAUI e .NET e
-
- configurale nel progetto seguendo i link forniti nei badges.
+All'interno della repository di **Sportify**, le chiavi API necessarie per il corretto funzionamento del programma sono gestite in modo sicuro e non accessibile direttamente agli utenti. Questo file è strettamente riservato per motivi di sicurezza e per evitare un utilizzo improprio delle chiavi. **Sportify** utilizza un algoritmo interno per selezionare in modo casuale una chiave API da questo file, assicurando una distribuzione ottimale delle richieste alle API. Affinché il programma possa operare senza interruzioni 24 ore su 24, si consiglia di seguire attentamente le istruzioni fornite nella documentazione per garantire un monitoraggio efficace e automatico dello stato delle chiavi, senza la necessità di accesso diretto al file da parte dell'utente. :lock: :gear:
 
 ### Compilare ed Eseguire
 
@@ -85,10 +86,15 @@ Compila il progetto ed eseguilo per iniziare a esplorare Sportify.
 Desideriamo ringraziare sinceramente tutti coloro che hanno contribuito o supportato questo progetto. Il vostro contributo è prezioso per noi!
 
 ## Licenza
+Questo progetto è rilasciato sotto la licenza [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0), una licenza open source che conferisce agli utenti la libertà di utilizzare, modificare e distribuire il codice sorgente. La scelta di questa licenza è volta a garantire la massima trasparenza e condivisione del software.
 
-Questo progetto è rilasciato sotto la licenza [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0). Questa licenza ti dà la libertà di utilizzare, modificare e distribuire il codice sorgente in conformità con i termini specificati nella licenza.
+La [GNU GPL v3.0](https://opensource.org/licenses/GPL-3.0) conferisce diritti specifici agli utenti, permettendo loro di:
 
-È importante notare che, in virtù della licenza GNU GPL v3.0, qualsiasi modifica apportata a questo software e successivamente distribuita deve anch'essa essere rilasciata con la stessa licenza open source.
+- **Esplorare**: Hai la libertà di utilizzare questo software per qualsiasi scopo.
+- **Adattare**: Puoi modificare il codice sorgente secondo le tue esigenze.
+- **Condividere**: Se distribuisci il software, devi farlo sotto la stessa licenza open source.
+
+Questa licenza è scelta con cura per favorire uno sviluppo aperto e collaborativo. La tua partecipazione è incoraggiata, contribuendo a mantenere vivo lo spirito di condivisione e collaborazione nella comunità degli sviluppatori. :octocat:
 
 ---
 
