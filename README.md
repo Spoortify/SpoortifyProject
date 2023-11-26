@@ -13,6 +13,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/Spoortify/SpoortifyProject?style=for-the-badge&color=FF4500)](https://github.com/Spoortify/SpoortifyProject/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Spoortify/SpoortifyProject?style=for-the-badge&color=FFD700)](https://github.com/Spoortify/SpoortifyProject/pulls)
 [![.NET Version](https://img.shields.io/badge/.NET%20Version-512BD4.svg?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/download/dotnet/7.0)
+[![Code Languages](https://img.shields.io/badge/Code%20Languages-csharp%2050%25%2C%20javascript%2030%25%2C%20python%2020%25-blueviolet.svg?style=for-the-badge)](https://github.com/Spoortify/SpoortifyProject/blob/README/.github/workflows/items/analisi_codice.yml)
 ---
 
 
