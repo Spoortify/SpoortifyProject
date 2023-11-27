@@ -12,11 +12,12 @@
     <ScrollView>
         <VerticalStackLayout>
             <Grid RowDefinitions="*" ColumnDefinitions="*,*,*" Margin="20,30,20,0">
-                <Button Text="Driver Standings" Command="{Binding DriverStandingsCommand}" BackgroundColor="Red"
+                <Button Text="Driver Standings" Command="{Binding DriverStandingsCommand}" BackgroundColor="{Binding DriverColor}"
                         FontAttributes="Bold" Margin="0,0,20,0" TextColor="White"/>
-                <Button Text="Constructor Standings" Grid.Column="1" Command="{Binding ConstructorStandingsCommand}" BackgroundColor="Red"
+                <Button Text="Constructor Standings" Grid.Column="1" Command="{Binding ConstructorStandingsCommand}"
+                        BackgroundColor="{Binding ConstructorsColor}"
                         FontAttributes="Bold" Margin="0,0,20,0" TextColor="White"/>
-                <Button Text="Race Results" Grid.Column="2" Command="{Binding RaceResultsCommand}" BackgroundColor="Red"
+                <Button Text="Race Results" Grid.Column="2" Command="{Binding RaceResultsCommand}" BackgroundColor="{Binding RaceColor}"
                         FontAttributes="Bold" TextColor="White"/>
             </Grid>
             <Frame BackgroundColor="Black" CornerRadius="0" IsVisible="{Binding DriverVisible}">

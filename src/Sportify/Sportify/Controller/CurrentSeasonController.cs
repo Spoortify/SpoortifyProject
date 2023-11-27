@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Graphics;
 using Sportify.Model;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,12 @@ namespace Sportify.Controller
         Result raceResult;
         [ObservableProperty]
         List<ResultsResponse> results;
+        [ObservableProperty]
+        Color driverColor = Colors.Red;
+        [ObservableProperty]
+        Color constructorsColor = Colors.Red;
+        [ObservableProperty]
+        Color raceColor = Colors.Red;
 
         [RelayCommand]
         public async Task DriverStandings()
@@ -33,12 +40,18 @@ namespace Sportify.Controller
             DriverVisible= true;
             ConstructorVisible = false;
             ResultsVisible = false;
+            DriverColor = Colors.Black;
+            ConstructorsColor = Colors.Red;
+            RaceColor = Colors.Red;
             var response = await App.ClientF1.GetAsync("/rankings/drivers?season=2023");
             Formula1 = await response.Content.ReadFromJsonAsync<Formula1>();
         }
         [RelayCommand]
         public async Task ConstructorStandings()
         {
+            DriverColor = Colors.Red;
+            ConstructorsColor = Colors.Black;
+            RaceColor = Colors.Red;
             DriverVisible = false;
             ConstructorVisible = true;
             ResultsVisible = false;
@@ -48,6 +61,9 @@ namespace Sportify.Controller
         [RelayCommand]
         public async Task RaceResults()
         {
+            DriverColor = Colors.Red;
+            ConstructorsColor = Colors.Red;
+            RaceColor = Colors.Black;
             DriverVisible = false;
             ConstructorVisible = false;
             ResultsVisible = true;
