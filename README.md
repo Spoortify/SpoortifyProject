@@ -14,6 +14,9 @@
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Spoortify/SpoortifyProject?style=for-the-badge&color=FFD700)](https://github.com/Spoortify/SpoortifyProject/pulls)
 [![.NET Version](https://img.shields.io/badge/.NET%20Version-512BD4.svg?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/download/dotnet/7.0)
 [![Code Languages](https://img.shields.io/badge/Code%20Languages-csharp%2050%25%2C%20javascript%2030%25%2C%20python%2020%25-blueviolet.svg?style=for-the-badge)](https://github.com/Spoortify/SpoortifyProject/blob/README/.github/workflows/items/analisi_codice.yml)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-blue.svg)](./SECURITY.md)
+[![Contribute](https://img.shields.io/badge/Contribute-Here-brightgreen.svg)](./CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Read%20Now-orange.svg)](./CODE_OF_CONDUCT.md)
 ---
 
 ## Legenda
