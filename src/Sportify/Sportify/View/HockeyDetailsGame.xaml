@@ -6,45 +6,60 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              x:DataType="controller:HockeyDetailsGameController"
              x:Class="Sportify.View.HockeyDetailsGame"
-             Title="HockeyDetailsGame">
+             Title="HockeyDetailsGame"
+             BackgroundImageSource="https://www.megeve-tourisme.fr/app/uploads/iris-images/17421/activite-hockey-patinoire-olympique-palais-megeve-1920x1080-c.jpg">
     <ScrollView>
         <StackLayout Orientation="Vertical">
 
-            <Label Text="🏒  HOCKEY DETAILS  🏒" HorizontalOptions="Center" VerticalOptions="Center" FontSize="120" TextColor="White"/>
+            <Frame WidthRequest="1700" BackgroundColor="LightGray" CornerRadius="80" BorderColor="MediumPurple">
+                <Label Text="🏒  HOCKEY DETAILS  🏒" HorizontalOptions="Center" VerticalOptions="Center" FontSize="120" TextColor="White"/>
+            </Frame>
 
             <ScrollView>
-                <StackLayout Orientation="Vertical" Margin="20">
+                <StackLayout Orientation="Vertical" Margin="20" WidthRequest="1800">
                     
-                    <Label Text="{Binding HockeyGame.Date, StringFormat='{0:dddd, dd MMMM yyyy HH:mm}'}" Margin="0,0,0,10"/>
+                    <Frame WidthRequest="1100" BackgroundColor="MediumPurple" CornerRadius="80" HeightRequest="450" HorizontalOptions="Center">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="{Binding HockeyGame.Date, StringFormat='{0:dddd, dd MMMM yyyy HH:mm}'}" Margin="0,0,0,10" TextColor="Black" FontSize="40" HorizontalOptions="Center" FontAttributes="Bold"/>
 
-                    <Label Text="{Binding HockeyGame.Status, StringFormat='State: {0}'}" Margin="0,0,0,10"/>
+                            <Label Text="{Binding HockeyGame.Country.Name, StringFormat='Country: {0}'}" Margin="0,0,0,10" TextColor="Black" FontSize="40" HorizontalOptions="Center" FontAttributes="Bold"/>
 
-                    <Label Text="{Binding HockeyGame.League.Name, StringFormat='League: {0}'}" Margin="0,0,0,10"/>
+                            <Label Text="{Binding HockeyGame.League.Name, StringFormat='League: {0}'}" Margin="0,0,0,10" TextColor="Black" FontSize="40" HorizontalOptions="Center" FontAttributes="Bold"/>
 
-                    <Image Source="{Binding HockeyGame.League.Logo}" Margin="0,0,0,20"/>
+                            <Image Source="{Binding HockeyGame.League.Logo}" Margin="0,0,0,20" WidthRequest="150"/>
 
-                    <Label Text="Periods" Margin="0,0,0,10"/>
+                            <Label Text="Periods" Margin="0,0,0,10" TextColor="Black" FontSize="50" HorizontalOptions="Center" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+
+                    </Frame>
                     
-                    <Grid ColumnDefinitions="*, *, *, *, *, *" RowDefinitions="*, *, *">
-                        <Label Text="First period" Grid.Column="1"/>
-                        <Label Text="Second period" Grid.Column="2"/>
-                        <Label Text="First overtime" Grid.Column="3"/>
-                        <Label Text="Second overtime" Grid.Column="4"/>
-                        <Label Text="Final score" Grid.Column="5"/>
+                    <Frame BackgroundColor="MediumPurple" CornerRadius="30" Margin="0,40,0,0">
+                        <Grid ColumnDefinitions="*, *, *, *, *, *" RowDefinitions="*, *, *">
+                            <Label Text="First period" Grid.Column="1" FontSize="20" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="Second period" Grid.Column="2" FontSize="20" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="Third period" Grid.Column="3" FontSize="20" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="Overtime" Grid.Column="4" FontSize="20" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="Final score" Grid.Column="5" FontSize="20" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
 
-                        <Label Text="{Binding HockeyGame.Teams.Home.Name}" Grid.Row="1"/>
-                        <Label Text="{Binding HockeyGame.Teams.Away.Name}" Grid.Row="2"/>
-                        <Label Text="{Binding HockeyGame.Periods.First}" Grid.Row="1" Grid.Column="1"/>
-                        <Label Text="{Binding HockeyGame.Periods.First}" Grid.Row="2" Grid.Column="1"/>
-                        <Label Text="{Binding HockeyGame.Periods.Second}" Grid.Row="1" Grid.Column="2"/>
-                        <Label Text="{Binding HockeyGame.Periods.First}" Grid.Row="2" Grid.Column="2"/>
-                        <Label Text="{Binding HockeyGame.Periods.Overtime}" Grid.Row="1" Grid.Column="3"/>
-                        <Label Text="{Binding HockeyGame.Periods.Overtime}" Grid.Row="2" Grid.Column="3"/>
-                        <Label Text="{Binding HockeyGame.Periods.Third}" Grid.Row="1" Grid.Column="4"/>
-                        <Label Text="{Binding HockeyGame.Periods.Third}" Grid.Row="2" Grid.Column="4"/>
-                        <Label Text="{Binding HockeyGame.Scores.Home}" Grid.Row="1" Grid.Column="5"/>
-                        <Label Text="{Binding HockeyGame.Scores.Away}" Grid.Row="2" Grid.Column="5"/>
-                    </Grid>
+                            <Label Text="{Binding HockeyGame.Teams.Home.Name}" Grid.Row="1" FontSize="22" HorizontalOptions="Center" TextColor="Black"/>
+
+                            <Label Text="{Binding HockeyGame.Teams.Away.Name}" Grid.Row="2" FontSize="22" HorizontalOptions="Center" TextColor="Black"/>
+
+                            <Label Text="{Binding HockeyGame.Periods.First}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" TextColor="Black"/>
+
+                            <Label Text="{Binding HockeyGame.Periods.Second}" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" TextColor="Black"/>
+
+                            <Label Text="{Binding HockeyGame.Periods.Third}" Grid.Row="1" Grid.Column="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                            <Label Text="{Binding HockeyGame.Periods.Overtime}" Grid.Row="1" Grid.Column="4" HorizontalOptions="Center" TextColor="Black"/>
+
+                            <Label Text="{Binding HockeyGame.Scores.Home}" Grid.Row="1" Grid.Column="5" HorizontalOptions="Center" TextColor="Black"/>
+
+                            <Label Text="{Binding HockeyGame.Scores.Away}" Grid.Row="2" Grid.Column="5" HorizontalOptions="Center" TextColor="Black"/>
+                        </Grid>
+                    </Frame>
+
+                    
                     
                 </StackLayout>
             </ScrollView>

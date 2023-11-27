@@ -5,7 +5,11 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              xmlns:model="clr-namespace:Sportify.Model"
              x:DataType="controller:NbaSeasonRoasterController"
-             BackgroundImageSource="{Binding BgiImage}">
+             BackgroundImageSource="{Binding BgiImage}"
+             Title="TEAM ROSTER"
+             Shell.TitleColor="White"
+             Shell.TabBarTitleColor="Black"
+             Shell.NavBarIsVisible="True">
     <ScrollView>
         <Grid RowDefinitions="auto,auto,auto">
             <Frame HeightRequest="500" WidthRequest="1100" Grid.Row="0" Padding="8" BackgroundColor="#44ffffff" Margin="10">
