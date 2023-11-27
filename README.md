@@ -33,7 +33,7 @@ Il progetto Sportify è il risultato di un'innovativa iniziativa educativa, svil
 
 ## Introduzione all'App
 
-Benvenuto in **Sportify**, un'esperienza unica che ti consente di immergerti in modo approfondito e coinvolgente nel mondo dello sport come mai prima d'ora. Sportify non è solo un'applicazione, ma un compagno affidabile che offre una panoramica completa delle partite di calcio, hockey, baseball, NBA, rugby e Formula 1. Ogni dettaglio è accuratamente curato per fornire informazioni esaustive sui risultati delle partite, i precedenti e gli aggiornamenti giornalieri, offrendo una visione completa e approfondita del mondo dello sport.
+Benvenuto in **Sportify**, un'esperienza unica che ti consente di immergerti in modo approfondito e coinvolgente nel mondo dello sport come mai prima d'ora. Sportify non è solo un'applicazione, ma un compagno affidabile che offre una panoramica completa delle partite di Calcio, Hockey, Baseball, NBA, Rugby e Formula 1. Ogni dettaglio è accuratamente curato per fornire informazioni esaustive sui risultati delle partite, i precedenti e gli aggiornamenti giornalieri, offrendo una visione completa e approfondita del mondo dello sport.
 
 ## Sicurezza e Affidabilità 🛡️
 
