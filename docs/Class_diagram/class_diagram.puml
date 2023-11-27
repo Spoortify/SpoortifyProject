@@ -1,142 +1,117 @@
-@startuml class_diagram
-class Sportify {
-  +run(): void
+@startuml
+
+class ObservableObject {
+}
+
+class RelayCommand {
+}
+
+class SportifyController {
+  + Run(): void
 }
 
 class HomePage {
-  - sport: String
+  - sport: Sport
 }
 
-class Football {
-  - leagues: List<LeagueModel>
-
-  + GoToLeague(league: LeagueModel): Task
+class Sport {
+  + Get: string
+  + Parameters: SportParameters
+  + Errors: List<object>
+  + Results: int
+  + Responses: List<SportResponse>
 }
 
-class FootballStandings {
-  - standingColor: Color
-  - scorerColor: Color
-  - fixtureColor: Color
-  - league: LeagueModel
-  - rankingsVisible: bool
-  - topScorerVisible: bool
-  - fixturesVisible: bool
-  - seasons: List<string>
-  - id: string
-  - football: Football
-  - groups: ObservableCollection<string>
-  - previousGroup: string
-  - topScorers: FootballTopScorers
-  - gameDay: GameDay
-  - _selectedSeason: string
-
-  + SelectedSeasonFootball: string
-  + ShowLeagues(): Task
-  + ShowTopScorers(): Task
-  + ShowFixtures(): Task
+class SportTeamHome {
+  + Id: int
+  + Name: string
+  + Logo: string
 }
 
-class Hockey {
-  - isBusy: bool
-  - hockeyGame: ObservableCollection<HockeyGameResponse>
-  - hockeyLeague: HockeyGameLeague
-  - _selectedDate: DateTime
-
-  + SelectedDate: DateTime
-  + ShowGames(): Task
-  + GoToHockeyDetailsGame(hockeyGame: HockeyGameResponse): Task
+class SportTeamAway {
+  + Id: int
+  + Name: string
+  + Logo: string
 }
 
-class HockeyDetails {
-  - hockeyGame: HockeyGameResponse
-
-  + HockeyDetailsGameController(hockeyGame: HockeyGameResponse)
+class SportGameLeague {
+  + Id: int
+  + Name: string
+  + Type: string
+  + Logo: string
+  + Season: int
 }
 
-class Rugby {
-  - isBusy: bool
-  - rugbyGame: List<RugbyGameResponse>
-  - rugbyLeague: RugbyLeague
-  - _selectedDate: DateTime
-
-  + SelectedDate: DateTime
-  + HomeRugbyController()
-  + ShowGames(): Task
-  + GoToRugbyGameDetails(rugbyGame: RugbyGameResponse): Task
-  + GoToLeagues(): Task
-  + GoToHome(): Task
+class SportGameParameters {
+  + Date: string
 }
 
-class RugbyLeagues {
-  - rugbyLeagueStandings: RugbyLeagueStandingsModel
-  - seasons: List<string>
-  - _selectedSeason: string
-  - isBusy: bool
-  - rugbyLeagues: List<RugbyLeagueResponse>
-
-  + SelectedSeasonLeagues: string
-  + RugbyLeaguesController(rugbyLeague: RugbyLeague)
-  + GetLeagues(): Task
-  + GoToRugbyLeagueStandings(rugbyLeague: RugbyLeagueResponse): Task
+class SportResponse {
+  + Id: int
+  + Date: DateTime
+  + Time: string
+  + Timestamp: int
+  + Timezone: string
+  + Status: SportStatus
+  + Country: SportCountry
+  + League: SportGameLeague
+  + Teams: SportTeams
+  + Score: SportScore
+  + Periods: SportPeriods
 }
 
-class RugbyLeagues {
-  +name: String
-  +nation: String
-  +season: int
+class SportScore {
+  + Home: int?
+  + Away: int?
 }
 
-' class RugbyStandings{
-'   + position: int
-'   + teamName: String
-'   + points: int
-'   + gamesPlayed: int
-'   + win: int
-'   + winPercentage: int
-'   + draw: int
-'   + drawPercentage: int
-'   + lose: int
-'   + losePercentage: int
-'   + pointsFor: int
-'   + pointsAgainst: int
-' }
-
-class FootballLeague {
-  +name: String
+class SportStatus {
+  + long: string
+  + short: string
+  + elapsed: int?
 }
 
-class TopScorer {
-  +name: String
-  +goals: int
-  +squad: String
-  +appearances: int
-  +total_shoots: int
-  +penalty_scored: int
+class SportTeams {
+  + Home: SportTeamHome
+  + Away: SportTeamAway
 }
 
-class Standing {
-  +position: int
-  +team: String
-  +points: int
-  +wins: int
-  +draws: int
-  +losses: int
-  +goals_for: int
-  +goals_against: int
-  +goal_difference: int
+class SportCountry {
+  + Id: int?
+  + Name: string
+  + Code: string?
+  + Flag: string?
 }
 
+class SportPeriods {
+  + First: SportFirst?
+  + Second: SportSecond?
+}
 
+class SportFirst {
+  + HomePoints: int?
+  + AwayPoints: int?
+}
+
+class SportSecond {
+  + HomePoints: int?
+  + AwayPoints: int?
+}
+
+SportTeamAway --o SportTeams : Aggregazione
+SportTeamHome --o SportTeams : Aggregazione
+SportGameLeague --o SportResponse : Aggregazione
+SportGameParameters --* Sport : Composizione
+SportResponse --* Sport : Composizione
+SportScore --* SportResponse : Composizione
+SportStatus --* SportResponse : Composizione
+SportTeams --* SportResponse : Composizione
+SportCountry --* SportResponse : Composizione
+SportPeriods --* SportResponse : Composizione
+SportFirst --* SportPeriods : Composizione
+SportSecond --* SportPeriods : Composizione
 Sportify *- HomePage : includes
-HomePage <|-- Football
-HomePage <|-- Rugby
-HomePage <|-- Hockey
-HomePage <|-- NBA
-HomePage <|-- Formula1
-HomePage <|-- Baseball
-Football *- FootballStandings : has
-Rugby *- RugbyLeagues : has
-RugbyLeagues *- RugbyStandings : has
-Hockey *- HockeyDetails : has
+HomePage <|-- Sport
+SportifyController --> Sport
 
 @enduml
