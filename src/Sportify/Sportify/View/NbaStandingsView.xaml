@@ -5,14 +5,18 @@
              xmlns:controller="clr-namespace:Sportify.Controller"
              xmlns:model="clr-namespace:Sportify.Model"
              x:DataType="controller:NbaStandingsController"
-             BackgroundImageSource="nbabgitre.jpg">
+             BackgroundImageSource="nbabgitre.jpg"
+             Title="NBA STANDINGS"
+             Shell.TitleColor="White"
+             Shell.TabBarTitleColor="Black"
+             Shell.NavBarIsVisible="True">
     <ContentPage.BindingContext>
         <controller:NbaStandingsController/>
     </ContentPage.BindingContext>
     <ScrollView Padding="3">
         <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*,*">
             <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
-                <Label Text="Select a season: " FontSize="28" VerticalOptions="Center" Margin="5"/>
+                <Label Text="Select a season: " FontSize="23" VerticalOptions="Center" Margin="5"/>
                 <Picker ItemsSource="{Binding Seasons}" SelectedItem="{Binding SelectedSeason}" HeightRequest="60" 
                         WidthRequest="200" FontSize="20" Margin="30,0,0,0"/>
             </HorizontalStackLayout>
