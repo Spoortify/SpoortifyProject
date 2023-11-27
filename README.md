@@ -16,8 +16,20 @@
 [![Code Languages](https://img.shields.io/badge/Code%20Languages-csharp%2050%25%2C%20javascript%2030%25%2C%20python%2020%25-blueviolet.svg?style=for-the-badge)](https://github.com/Spoortify/SpoortifyProject/blob/README/.github/workflows/items/analisi_codice.yml)
 ---
 
+## Legenda
+1. [Collaboratori](#collaboratori)
+2. [Motivo del Progetto](#motivo-del-progetto)
+3. [Introduzione all'App](#introduzione-allapp)
+4. [Sicurezza e Affidabilità](#sicurezza-e-affidabilità)
+5. [Funzionalità Principali dell'App](#funzionalità-principali-dellapp)
+6. [Approfondimento sull'Utilizzo delle API di Dashboard Football API](#approfondimento-sullutilizzo-delle-api-di-dashboard-football-api)
+7. [Come Contribuire](#come-contribuire)
+8. [Guida all'Installazione più Approfondita](#guida-allinstallazione-più-approfondita)
+9. [Ringraziamenti](#ringraziamenti)
+10. [Licenza](#licenza)
+11. [UML SEQUENCE DIAGRAM](#uml-sequence-diagram)
 
-## Collaboratori
+## Collaboratori <a name="collaboratori"></a>
 
 I principali collaboratori per questo progetto sono:
 
@@ -27,19 +39,19 @@ I principali collaboratori per questo progetto sono:
 - [Andrea Panzeri](https://github.com/AndreaPanzeri) (Email: Andrea.Panzeri.2005@issgreppi.it)
 - [Marco Passoni](https://github.com/MarcoPassoni) (Email: Marco.Passoni@issgreppi.it)
 
-## Motivo del Progetto
+## Motivo del Progetto <a name="motivo-del-progetto"></a>
 
 Il progetto Sportify è il risultato di un'innovativa iniziativa educativa, sviluppata nell'ambito del corso di informatica della classe 5iB presso la scuola Villa Greppi di Monticello Brianza (LC). L'obiettivo fondamentale è stato quello di consolidare e mettere in pratica le competenze informatiche acquisite durante il percorso di studi, traducendole in una solida applicazione che rispecchiasse l'interesse degli studenti per il mondo dello sport.
 
-## Introduzione all'App
+## Introduzione all'App <a name="introduzione-allapp"></a>
 
 Benvenuto in **Sportify**, un'esperienza unica che ti consente di immergerti in modo approfondito e coinvolgente nel mondo dello sport come mai prima d'ora. Sportify non è solo un'applicazione, ma un compagno affidabile che offre una panoramica completa delle partite di Calcio, Hockey, Baseball, NBA, Rugby e Formula 1. Ogni dettaglio è accuratamente curato per fornire informazioni esaustive sui risultati delle partite, i precedenti e gli aggiornamenti giornalieri, offrendo una visione completa e approfondita del mondo dello sport.
 
-## Sicurezza e Affidabilità 🛡️
+## Sicurezza e Affidabilità 🛡️ <a name="sicurezza-e-affidabilità"></a>
 
 La sicurezza e l'affidabilità sono il cuore pulsante di Sportify. Attraverso un rigoroso controllo delle operazioni di gioco e una gestione attenta delle connessioni, garantiamo un'esperienza priva di problemi e sicura per tutti gli utenti. Un innovativo algoritmo di monitoraggio costante verifica la disponibilità delle chiavi private delle API, assicurando un funzionamento ininterrotto e senza esaurimento delle risorse.
 
-## Funzionalità Principali dell'App 🌐
+## Funzionalità Principali dell'App 🌐 <a name="funzionalità-principali-dellapp"></a>
 
 ### Esplora Partite e Squadre
 
@@ -57,11 +69,11 @@ Sportify offre un'esperienza analitica avanzata. Approfondisci le statistiche de
 
 Sportify si adatta alle tue preferenze. Personalizza la tua esperienza scegliendo le squadre e le leghe preferite.
 
-## Approfondimento sull'Utilizzo delle API di Dashboard Football API 🌐
+## Approfondimento sull'Utilizzo delle API di Dashboard Football API 🌐 <a name="approfondimento-sullutilizzo-delle-api-di-dashboard-football-api"></a>
 
 Sportify sfrutta appieno le potenzialità delle API di Dashboard Football API per offrire agli utenti un'esperienza ricca di informazioni dettagliate sulle partite di calcio. L'integrazione permette di accedere a dati accurati e aggiornati sulle squadre, le leghe e i risultati delle partite, arricchendo così l'esperienza di navigazione degli utenti.
 
-## Come Contribuire
+## Come Contribuire <a name="come-contribuire"></a>
 
 Siamo entusiasti di accogliere contributi dalla community. Se desideri arricchire Sportify con le tue idee, puoi farlo in vari modi:
 
@@ -70,7 +82,7 @@ Siamo entusiasti di accogliere contributi dalla community. Se desideri arricchir
 - Migliorando la [documentazione](https://github.com/Spoortify/SpoortifyProject/tree/UML/docs).
 - Aiutando a testare l'app e segnalando eventuali problemi.
 
-## Guida all'Installazione più Approfondita 🚀
+## Guida all'Installazione più Approfondita 🚀 <a name="guida-allinstallazione-più-approfondita"></a>
 
 ### Clonare il Repository
 
@@ -90,11 +102,11 @@ All'interno della repository di **Sportify**, le chiavi API necessarie per il co
 
 Compila il progetto ed eseguilo per iniziare a esplorare Sportify.
 
-## Ringraziamenti
+## Ringraziamenti <a name="ringraziamenti"></a>
 
 Desideriamo ringraziare sinceramente tutti coloro che hanno contribuito o supportato questo progetto. Il vostro contributo è prezioso per noi!
 
-## Licenza
+## Licenza <a name="licenza"></a>
 Questo progetto è rilasciato sotto la licenza [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0), una licenza open source che conferisce agli utenti la libertà di utilizzare, modificare e distribuire il codice sorgente. La scelta di questa licenza è volta a garantire la massima trasparenza e condivisione del software.
 
 La [GNU GPL v3.0](https://github.com/Spoortify/SpoortifyProject/blob/main/LICENSE) conferisce diritti specifici agli utenti, permettendo loro di:
@@ -105,55 +117,8 @@ La [GNU GPL v3.0](https://github.com/Spoortify/SpoortifyProject/blob/main/LICENS
 
 Questa licenza è scelta con cura per favorire uno sviluppo aperto e collaborativo. La tua partecipazione è incoraggiata, contribuendo a mantenere vivo lo spirito di condivisione e collaborazione nella comunità degli sviluppatori. :octocat:
 
----
-
-```plantuml
-@startuml
-!theme blueprint
-title Diagramma di Sequenza - Interazione Utente, View, Controller, Model (Articolato e Dettagliato)
-
-actor Utente
-boundary SportView
-control SportController
-entity SportModel
-database "API: dashboard.api-football.com" as API
-entity SportResponse
-
-activate Utente
-Utente -> SportView: Scegli lo sport
-activate SportView
-SportView -> SportController: Notifica scelta sport
-deactivate SportView
-
-activate SportController
-SportController -> API: Richiesta API per lo sport selezionato
-activate API
-API --> SportController: Risposta JSON
-SportController -> SportModel: Deserializza JSON
-activate SportModel
-SportModel --> SportController: Oggetto JSON deserializzato
-SportController -> SportModel: Crea oggetto SportResponse
-activate SportResponse
-SportModel -> SportResponse: Costruzione SportResponse
-SportResponse --> SportModel: SportResponse creato
-deactivate SportResponse
-SportModel --> SportController: Restituisce SportResponse
-deactivate SportModel
-deactivate API
-
-SportController -> SportView: Invia SportResponse alla View
-activate SportView
-SportView --> SportController: Conferma visualizzazione dati
-deactivate SportView
-
-SportController -> SportModel: Salva dati visualizzati (se necessario)
-activate SportModel
-SportModel --> SportController: Conferma salvataggio dati
-deactivate SportModel
-deactivate SportController
-
-deactivate Utente
-@enduml
-'''
+----
+## UML Sequence Diagram <a name="uml-sequence-diagram"></a>
+<img src="https://www.planttext.com/api/plantuml/png/d5HBRjj03Dth54HMAM3d05u42TAD2pG9BBHxUaGh1CP3TuPoK5-jYnwfLoZriVMf0WDTIPmPFZxoaVppw_T3KenQxNsch9xWCsCPSRz7A1Xo-b5HE24iOHsK8fvO0i4t9RCMy9tfVG5F4ZIAznGNy5KAyd3x69MTU5G1GoHLB3sRzIdBqAd43Y7RIXKAZ3yXFqZK6YvpBLfxqaDdzfwrUzX4oGfKt68Yk7byNQ-WmFIs5Op57HvukHFHBNf_vsH_0vZ0temmDfGE4X8rZFY8UauhQp-mlEzPhI1tP2c05qZrOU_KCx_yNLnx-Yju5kKTEuJao2jsC0ND04t01qMOs7MW9lSDkpScKx8suM0tPwAGo5EjcbM_nwsBKRzSpZ7Ti7dMM5_ob-UvaBq6AnCtKMJqV3fr3cFohLJzxtp8bxAq9f4608e1f96-Gk0f4e9q_cDbnqmknqCoz-CxWxFCOzMs-OpRsUhJw6YCRvsHCkfJTMSfp4fWMh9MRBqoyPn2TgD08sa_h5dRo-jmP9mmjb71PfwlTFOSM_lVKRIDSUHKjRgr1RG9vGzQ_8ggEVeZDlu3K3DkZMeWHobXP5id_zDi5xgf3cAhgMIPf_fFSQVpEBphjiS3XSAswLy0003__mC0" alt="PlantUML Diagram">
 
 *Esplora, gioca e vivi lo sport con Sportify!* 🌟
