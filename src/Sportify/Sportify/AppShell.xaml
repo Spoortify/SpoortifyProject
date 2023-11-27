@@ -50,4 +50,7 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate View:HomeHockeyGame}" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate View:NbaStandingsView}" />
 </Shell>

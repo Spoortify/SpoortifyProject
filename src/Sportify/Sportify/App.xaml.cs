@@ -25,10 +25,13 @@ namespace Sportify
         private static readonly string x_rapidapi_host_football = "v3.football.api-sports.io";
         private static readonly string x_rapid_host_hockey = "v1.hockey.api-sports.io";
 
+        public static HttpClient nbaClient = new();
         public App()
         {
             InitializeComponent();
-            Barrel.ApplicationId = AppInfo.PackageName;
+            Barrel.ApplicationId = AppInfo.PackageName;            nbaClient.BaseAddress = new Uri("https://v2.nba.api-sports.io");
+            nbaClient.DefaultRequestHeaders.Add("x-rapidapi-key", "50033e93a2d49d985f3daa64adae1a80");
+            nbaClient.DefaultRequestHeaders.Add("x-rapidapi-host", "api-nba-v1.p.rapidapi.com");
             MainPage = new AppShell();
 
             ClientF1.BaseAddress = new Uri("https://v1.formula-1.api-sports.io");

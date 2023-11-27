@@ -52,6 +52,10 @@ namespace Sportify.Controller
                     await Shell.Current.GoToAsync(nameof(HomeHockeyGame), true);
                     isBusy = false;
                     break;
+                case "NBA":
+                    await Shell.Current.GoToAsync(nameof(NbaStandingsView), true);
+                    isBusy = false;
+                    break;
                 default:
                     isBusy = false;
                     break;

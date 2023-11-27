@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.NbaSeasonRoasterView"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             xmlns:model="clr-namespace:Sportify.Model"
+             x:DataType="controller:NbaSeasonRoasterController"
+             BackgroundImageSource="{Binding BgiImage}">
+    <ScrollView>
+        <Grid RowDefinitions="auto,auto,auto">
+            <Frame HeightRequest="500" WidthRequest="1100" Grid.Row="0" Padding="8" BackgroundColor="#44ffffff" Margin="10">
+                <Grid RowDefinitions="auto, *">
+                    <Label Grid.Row="0" Text="GUARDS" FontSize="45" FontAttributes="Bold" HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                    <ScrollView Grid.Row="1" Orientation="Horizontal">
+                        <CollectionView ItemsSource="{Binding GuardsList}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:NBARoasterResponse">
+                                    <Frame HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="350" WidthRequest="300"
+                                           Margin="10" BackgroundColor="#efffffff">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaSeasonRoasterController}}, Path=GoToPlayerStatisticCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid RowDefinitions="auto,*,*,*" ColumnDefinitions="*,*">
+                                            <HorizontalStackLayout Grid.ColumnSpan="2" HorizontalOptions="Center">
+                                                <Label Text="{Binding Firstname}" FontSize="24" Margin="3" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Lastname}" FontSize="24" Margin="3" FontAttributes="Bold"/>
+                                            </HorizontalStackLayout>
+                                            <VerticalStackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="Center"
+                                                                 HorizontalOptions="Center">
+                                                <Label Text="{Binding Leagues.Standard.Jersey, StringFormat='Number: {0}'}"/>
+                                                <Label Text="{Binding Leagues.Standard.Pos, StringFormat='Position: {0}'}"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="{Binding Birth.Date, StringFormat='Birth: {0}'}"/>
+                                                <Label Text="{Binding Birth.Country, StringFormat='Country: {0}'}"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="Height:" HorizontalOptions="Center" FontAttributes="Italic"/>
+                                                <Label Text="{Binding Height.AmericanHeight, StringFormat='Feet: {0}'}"
+                                                       HorizontalOptions="Center" Margin="0,0,30,0" FontSize="13"/>
+                                                <Label Text="{Binding Height.Meters, StringFormat='Meters: {0}'}"
+                                                       HorizontalOptions="Center" Margin="0,0,45,0" FontSize="13"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="Weight:" HorizontalOptions="Center" FontAttributes="Italic"/>
+                                                <Label Text="{Binding Weight.Pounds, StringFormat='Pounds: {0}'}"
+                                                        HorizontalOptions="Center" Margin="0,0,45,0" FontSize="13"/>
+                                                <Label Text="{Binding Weight.Kilograms, StringFormat='Kg: {0}'}"
+                                                        HorizontalOptions="Center" Margin="0,0,10,0" FontSize="13"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="3" Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Nba.Start, StringFormat='Nba Start: {0}'}"
+                                                        HorizontalOptions="Start"/>
+                                                <Label Text="{Binding Nba.Pro, StringFormat='Years in Pro: {0}'}"
+                                                        HorizontalOptions="Start"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="3" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="{Binding College, StringFormat='College: {0}'}"
+                                                       HorizontalOptions="Start" FontSize="12"/>
+                                                <Label Text="{Binding Affiliation, StringFormat='Affiliation: {0}'}"
+                                                       HorizontalOptions="Start" FontSize="12"/>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </Grid>
+            </Frame>
+            <Frame HeightRequest="500" WidthRequest="1100" Grid.Row="1" Padding="8" BackgroundColor="#44ffffff" Margin="10">
+                <Grid RowDefinitions="auto, *">
+                    <Label Grid.Row="0" Text="FORWARDS" FontSize="45" FontAttributes="Bold" HorizontalOptions="Center"
+               Margin="0,10,0,0"/>
+                    <ScrollView Grid.Row="1" Orientation="Horizontal">
+                        <CollectionView ItemsSource="{Binding ForwardsList}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:NBARoasterResponse">
+                                    <Frame HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="350" WidthRequest="300"
+                               Margin="10" BackgroundColor="#efffffff">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaSeasonRoasterController}}, Path=GoToPlayerStatisticCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid RowDefinitions="auto,*,*,*" ColumnDefinitions="*,*">
+                                            <HorizontalStackLayout Grid.ColumnSpan="2" HorizontalOptions="Center">
+                                                <Label Text="{Binding Firstname}" FontSize="24" Margin="3" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Lastname}" FontSize="24" Margin="3" FontAttributes="Bold"/>
+                                            </HorizontalStackLayout>
+                                            <VerticalStackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="Center"
+                                                     HorizontalOptions="Center">
+                                                <Label Text="{Binding Leagues.Standard.Jersey, StringFormat='Number: {0}'}"/>
+                                                <Label Text="{Binding Leagues.Standard.Pos, StringFormat='Position: {0}'}"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="{Binding Birth.Date, StringFormat='Birth: {0}'}"/>
+                                                <Label Text="{Binding Birth.Country, StringFormat='Country: {0}'}"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="Height:" HorizontalOptions="Center" FontAttributes="Italic"/>
+                                                <Label Text="{Binding Height.AmericanHeight, StringFormat='Feet: {0}'}"
+                                           HorizontalOptions="Center" Margin="0,0,30,0" FontSize="13"/>
+                                                <Label Text="{Binding Height.Meters, StringFormat='Meters: {0}'}"
+                                           HorizontalOptions="Center" Margin="0,0,45,0" FontSize="13"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="Weight:" HorizontalOptions="Center" FontAttributes="Italic"/>
+                                                <Label Text="{Binding Weight.Pounds, StringFormat='Pounds: {0}'}"
+                                            HorizontalOptions="Center" Margin="0,0,45,0" FontSize="13"/>
+                                                <Label Text="{Binding Weight.Kilograms, StringFormat='Kg: {0}'}"
+                                            HorizontalOptions="Center" Margin="0,0,10,0" FontSize="13"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="3" Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Nba.Start, StringFormat='Nba Start: {0}'}"
+                                            HorizontalOptions="Start"/>
+                                                <Label Text="{Binding Nba.Pro, StringFormat='Years in Pro: {0}'}"
+                                            HorizontalOptions="Start"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="3" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="{Binding College, StringFormat='College: {0}'}"
+                                           HorizontalOptions="Start" FontSize="12"/>
+                                                <Label Text="{Binding Affiliation, StringFormat='Affiliation: {0}'}"
+                                           HorizontalOptions="Start" FontSize="12"/>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </Grid>
+            </Frame>
+            <Frame HeightRequest="500" WidthRequest="1100" Grid.Row="2" Padding="8" BackgroundColor="#44ffffff" Margin="10">
+                <Grid RowDefinitions="auto, *">
+                    <Label Grid.Row="0" Text="CENTERS" FontSize="45" FontAttributes="Bold" HorizontalOptions="Center"
+               Margin="0,10,0,0"/>
+                    <ScrollView Grid.Row="1" Orientation="Horizontal">
+                        <CollectionView ItemsSource="{Binding CentersLists}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:NBARoasterResponse">
+                                    <Frame HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="350" WidthRequest="300"
+                               Margin="10" BackgroundColor="#efffffff">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type controller:NbaSeasonRoasterController}}, Path=GoToPlayerStatisticCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid RowDefinitions="auto,*,*,*" ColumnDefinitions="*,*">
+                                            <HorizontalStackLayout Grid.ColumnSpan="2" HorizontalOptions="Center">
+                                                <Label Text="{Binding Firstname}" FontSize="24" Margin="3" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Lastname}" FontSize="24" Margin="3" FontAttributes="Bold"/>
+                                            </HorizontalStackLayout>
+                                            <VerticalStackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="Center"
+                                                     HorizontalOptions="Center">
+                                                <Label Text="{Binding Leagues.Standard.Jersey, StringFormat='Number: {0}'}"/>
+                                                <Label Text="{Binding Leagues.Standard.Pos, StringFormat='Position: {0}'}"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="{Binding Birth.Date, StringFormat='Birth: {0}'}"/>
+                                                <Label Text="{Binding Birth.Country, StringFormat='Country: {0}'}"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="Height:" HorizontalOptions="Center" FontAttributes="Italic"/>
+                                                <Label Text="{Binding Height.AmericanHeight, StringFormat='Feet: {0}'}"
+                                           HorizontalOptions="Center" Margin="0,0,30,0" FontSize="13"/>
+                                                <Label Text="{Binding Height.Meters, StringFormat='Meters: {0}'}"
+                                           HorizontalOptions="Center" Margin="0,0,45,0" FontSize="13"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="Weight:" HorizontalOptions="Center" FontAttributes="Italic"/>
+                                                <Label Text="{Binding Weight.Pounds, StringFormat='Pounds: {0}'}"
+                                            HorizontalOptions="Center" Margin="0,0,45,0" FontSize="13"/>
+                                                <Label Text="{Binding Weight.Kilograms, StringFormat='Kg: {0}'}"
+                                            HorizontalOptions="Center" Margin="0,0,10,0" FontSize="13"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="3" Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Nba.Start, StringFormat='Nba Start: {0}'}"
+                                            HorizontalOptions="Start"/>
+                                                <Label Text="{Binding Nba.Pro, StringFormat='Years in Pro: {0}'}"
+                                            HorizontalOptions="Start"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Row="3" Grid.Column="1" VerticalOptions="Center">
+                                                <Label Text="{Binding College, StringFormat='College: {0}'}"
+                                           HorizontalOptions="Start" FontSize="12"/>
+                                                <Label Text="{Binding Affiliation, StringFormat='Affiliation: {0}'}"
+                                           HorizontalOptions="Start" FontSize="12"/>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

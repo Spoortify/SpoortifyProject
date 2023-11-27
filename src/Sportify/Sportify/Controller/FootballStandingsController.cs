@@ -41,7 +41,6 @@ namespace Sportify.Controller
         [ObservableProperty]
         string id;
 
-
         [ObservableProperty]
         Football football = new();
 
@@ -100,6 +99,7 @@ namespace Sportify.Controller
 
         [ObservableProperty]
         FootballTopScorers topScorers;
+
         [RelayCommand]
         async Task ShowTopScorers()
         {
@@ -120,8 +120,10 @@ namespace Sportify.Controller
             }
             
         }
+
         [ObservableProperty]
         GameDay gameDay;
+
         [RelayCommand]
         async Task ShowFixtures()
         {

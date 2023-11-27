@@ -30,65 +30,67 @@
                     <CollectionView ItemsSource="{Binding Groups}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Frame CornerRadius="0" BorderColor="Black" HorizontalOptions="Center"
-                                       >
-                                    <Label Text="{Binding .}" HorizontalTextAlignment="Center"/>
+                                <Frame BackgroundColor="#3C3D50" CornerRadius="10"
+                                       Margin="0,0,0,15" BorderColor="Black">
+                                    <Label Text="{Binding .}" HorizontalTextAlignment="Center" Style="{StaticResource BaseLabel}"
+                                           TextColor="#B5E6DB"/>
                                 </Frame>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
 
-                    <CollectionView Grid.Column="1" ItemsSource="{Binding Football.Response[0].League.Standings}">
+                    <CollectionView Grid.Column="1" ItemsSource="{Binding Football.Response[0].League.Standings}"
+                                    BackgroundColor="#1F1C1F">
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="model:FootballStandingsModel">
-                                <Frame Margin="20,0,20,0" BorderColor="Black">
+                                <Frame Margin="20" BorderColor="Black" BackgroundColor="#1F1C1F">
                                     <Grid RowDefinitions="Auto,*">
                                         <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*">
                                             <Label Text="POSITION" Style="{StaticResource BaseLabel}"
-                                                               TextColor="Black"/>
-                                            <Label Text="TEAM" TextColor="Black" Grid.Column="1"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"
-                                                   Grid.ColumnSpan="2"/>
+                                                               TextColor="White"/>
+                                            <Label Text="TEAM" TextColor="White" Grid.Column="1"
+                                                   Style="{StaticResource BaseLabel}" Grid.ColumnSpan="2"/>
                                             <Label Text="POINTS" Style="{StaticResource BaseLabel}" Grid.Column="3"
-                                                               TextColor="Black"/>
-                                            <Label Text="WINS" TextColor="Black" Grid.Column="4"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                            <Label Text="DRAWS" TextColor="Black" Grid.Column="5"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                            <Label Text="LOSS" TextColor="Black" Grid.Column="6"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                            <Label Text="FOR" TextColor="Black" Grid.Column="7"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                            <Label Text="AGAINST" TextColor="Black" Grid.Column="8"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                            <Label Text="GD" TextColor="Black" Grid.Column="9"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                   TextColor="White"/>
+                                            <Label Text="WINS" TextColor="White" Grid.Column="4"
+                                                   Style="{StaticResource BaseLabel}"/>
+                                            <Label Text="DRAWS" TextColor="White" Grid.Column="5"
+                                                   Style="{StaticResource BaseLabel}"/>
+                                            <Label Text="LOSS" TextColor="White" Grid.Column="6"
+                                                   Style="{StaticResource BaseLabel}"/>
+                                            <Label Text="FOR" TextColor="White" Grid.Column="7"
+                                                   Style="{StaticResource BaseLabel}"/>
+                                            <Label Text="AGAINST" TextColor="White" Grid.Column="8"
+                                                   Style="{StaticResource BaseLabel}"/>
+                                            <Label Text="GD" TextColor="White" Grid.Column="9"
+                                                   Style="{StaticResource BaseLabel}"/>
                                         </Grid>
                                         <CollectionView ItemsSource="{Binding .}" Grid.Row="1">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate x:DataType="model:FootballStandingsModel">
-                                                    <Frame BorderColor="White" >
+                                                    <Frame BackgroundColor="#3C3D50" CornerRadius="10"
+                                                           Margin="0,0,0,15" BorderColor="Black">
                                                         <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*">
                                                             <Label Text="{Binding Rank}" Style="{StaticResource BaseLabel}"
-                                                               TextColor="Black"/>
+                                                               TextColor="#B5E6DB"/>
                                                             <Image Source="{Binding Team.Logo}" Style="{StaticResource BaseImage}" Grid.Column="1"
                                                                HeightRequest="40" WidthRequest="40"/>
                                                             <Label Text="{Binding Team.Name}" Style="{StaticResource BaseLabel}" Grid.Column="2"
-                                                               TextColor="Black"/>
+                                                               TextColor="#B5E6DB"/>
                                                             <Label Text="{Binding Points}" Style="{StaticResource BaseLabel}" Grid.Column="3"
-                                                               TextColor="Black"/>
-                                                            <Label Text="{Binding All.Win}" TextColor="Black" Grid.Column="4"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                                            <Label Text="{Binding All.Draw}" TextColor="Black" Grid.Column="5"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                                            <Label Text="{Binding All.Lose}" TextColor="Black" Grid.Column="6"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                                            <Label Text="{Binding All.Goals.For}" TextColor="Black" Grid.Column="7"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                                            <Label Text="{Binding All.Goals.Against}" TextColor="Black" Grid.Column="8"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                                                            <Label Text="{Binding GoalsDiff}" TextColor="Black" Grid.Column="9"
-                                                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                               TextColor="#B5E6DB"/>
+                                                            <Label Text="{Binding All.Win}" TextColor="#B5E6DB" Grid.Column="4"
+                                                               Style="{StaticResource BaseLabel}"/>
+                                                            <Label Text="{Binding All.Draw}" TextColor="#B5E6DB" Grid.Column="5"
+                                                               Style="{StaticResource BaseLabel}"/>
+                                                            <Label Text="{Binding All.Lose}" TextColor="#B5E6DB" Grid.Column="6"
+                                                               Style="{StaticResource BaseLabel}"/>
+                                                            <Label Text="{Binding All.Goals.For}" TextColor="#B5E6DB" Grid.Column="7"
+                                                               Style="{StaticResource BaseLabel}"/>
+                                                            <Label Text="{Binding All.Goals.Against}" Grid.Column="8" TextColor="#B5E6DB"
+                                                               Style="{StaticResource BaseLabel}"/>
+                                                            <Label Text="{Binding GoalsDiff}" Grid.Column="9" TextColor="#B5E6DB"
+                                                               Style="{StaticResource BaseLabel}"/>
                                                         </Grid>
                                                     </Frame>
                                                 </DataTemplate>
@@ -105,7 +107,7 @@
             <ScrollView IsVisible="{Binding TopScorerVisible}">
                 <VerticalStackLayout>
                     <ScrollView>
-                        <CollectionView ItemsSource="{Binding TopScorers.Response}">
+                        <CollectionView ItemsSource="{Binding TopScorers.Response}"  BackgroundColor="#1F1C1F">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate x:DataType="model:FootballTopScorersResponse">
                                     <Frame BackgroundColor="#ccffffff" CornerRadius="0" Margin="30">
@@ -141,7 +143,7 @@
             </ScrollView>
 
             <ScrollView IsVisible="{Binding FixturesVisible}">
-                <CollectionView ItemsSource="{Binding GameDay.Response}" >
+                <CollectionView ItemsSource="{Binding GameDay.Response}" BackgroundColor="#1F1C1F">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:GameDayResponse">
                             <Frame CornerRadius="0" Margin="20" BackgroundColor="#ddffffff">
