@@ -36,11 +36,5 @@ namespace Sportify.Controller
             TopScores = footballTopScorers.Response;
         }
 
-        [RelayCommand]
-        private async Task GoToTopScorerDetails(FootballTopScorersResponse topScorer)
-        {
-            if (topScorer is null) return;
-            await App.Current.MainPage.Navigation.PushAsync(new FootballTopScorerDetails(topScorer));
-        }
     }
 }

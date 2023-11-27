@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Graphics;
 using Sportify.Model;
 using Sportify.View;
 using System;
@@ -17,6 +18,13 @@ namespace Sportify.Controller
     [QueryProperty(nameof(League), "League")]
     public partial class FootballStandingsController : ObservableObject
     {
+        [ObservableProperty]
+        Color standingColor = Colors.Blue;
+        [ObservableProperty]
+        Color scorerColor = Colors.Blue;
+        [ObservableProperty]
+        Color fixtureColor = Colors.Blue;
+
         [ObservableProperty]
         LeagueModel league;
         [ObservableProperty]
@@ -58,26 +66,35 @@ namespace Sportify.Controller
         [RelayCommand]
         public async Task ShowLeagues()
         {
-            RankingsVisible = true;
-            TopScorerVisible = false;
-            FixturesVisible = false;
-            Groups.Clear();
-            Football = new();
-            previousGroup = null;
-
-            var response = await App.FootballClient.GetAsync($"/standings?league={Id}&season={_selectedSeason}");
-            Football = await response.Content.ReadFromJsonAsync<Football>();
-
-            foreach (var standings in Football.Response[0].League.Standings)
+            try
             {
-                foreach (var standing in standings)
+                StandingColor = Colors.Black;
+                ScorerColor = Colors.Blue;
+                FixtureColor = Colors.Blue;
+                RankingsVisible = true;
+                TopScorerVisible = false;
+                FixturesVisible = false;
+                Groups.Clear();
+                Football = new();
+                previousGroup = null;
+
+                var response = await App.FootballClient.GetAsync($"/standings?league={Id}&season={_selectedSeason}");
+                Football = await response.Content.ReadFromJsonAsync<Football>();
+
+                foreach (var standings in Football.Response[0].League.Standings)
                 {
-                    if (standing.Group != previousGroup)
+                    foreach (var standing in standings)
                     {
-                        Groups.Add(standing.Group);
+                        if (standing.Group != previousGroup)
+                        {
+                            Groups.Add(standing.Group);
+                        }
+                        previousGroup = standing.Group;
                     }
-                    previousGroup = standing.Group;
                 }
+            }catch(Exception ex)
+            {
+                await Shell.Current.DisplayAlert("ERROR", ex.Message, "CLOSE");
             }
         }
 
@@ -86,22 +103,42 @@ namespace Sportify.Controller
         [RelayCommand]
         async Task ShowTopScorers()
         {
-            RankingsVisible = false;
-            TopScorerVisible = true;
-            FixturesVisible = false;
-            var response = await App.FootballClient.GetAsync($"/players/topscorers?league={Id}&season={_selectedSeason}");
-            TopScorers = await response.Content.ReadFromJsonAsync<FootballTopScorers>();
+            try
+            {
+                StandingColor = Colors.Blue;
+                ScorerColor = Colors.Black;
+                FixtureColor = Colors.Blue;
+                RankingsVisible = false;
+                TopScorerVisible = true;
+                FixturesVisible = false;
+                var response = await App.FootballClient.GetAsync($"/players/topscorers?league={Id}&season={_selectedSeason}");
+                TopScorers = await response.Content.ReadFromJsonAsync<FootballTopScorers>();
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("ERROR", ex.Message, "CLOSE");
+            }
+            
         }
         [ObservableProperty]
         GameDay gameDay;
         [RelayCommand]
         async Task ShowFixtures()
         {
-            RankingsVisible = false;
-            TopScorerVisible = false;
-            FixturesVisible = true;
-            var response = await App.FootballClient.GetAsync($"/fixtures?league={Id}&season={_selectedSeason}");
-            GameDay = await response.Content.ReadFromJsonAsync<GameDay>();
+            try
+            {
+                StandingColor = Colors.Blue;
+                ScorerColor = Colors.Blue;
+                FixtureColor = Colors.Black;
+                RankingsVisible = false;
+                TopScorerVisible = false;
+                FixturesVisible = true;
+                var response = await App.FootballClient.GetAsync($"/fixtures?league={Id}&season={_selectedSeason}");
+                GameDay = await response.Content.ReadFromJsonAsync<GameDay>();
+            }catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("ERROR", ex.Message, "CLOSE");
+            }
         }
     }
 }

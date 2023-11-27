@@ -22,22 +22,22 @@ namespace Sportify.Model
     public class FootballTopScorersCards
     {
         [JsonPropertyName("yellow")]
-        public int Yellow { get; set; }
+        public int? Yellow { get; set; }
 
         [JsonPropertyName("yellowred")]
-        public int Yellowred { get; set; }
+        public int? Yellowred { get; set; }
 
         [JsonPropertyName("red")]
-        public int Red { get; set; }
+        public int? Red { get; set; }
     }
 
     public class FootballTopScorersDribbles
     {
         [JsonPropertyName("attempts")]
-        public int Attempts { get; set; }
+        public int? Attempts { get; set; }
 
         [JsonPropertyName("success")]
-        public int Success { get; set; }
+        public int? Success { get; set; }
 
         [JsonPropertyName("past")]
         public object Past { get; set; }
@@ -46,31 +46,31 @@ namespace Sportify.Model
     public class FootballTopScorersDuels
     {
         [JsonPropertyName("total")]
-        public int Total { get; set; }
+        public int? Total { get; set; }
 
         [JsonPropertyName("won")]
-        public int Won { get; set; }
+        public int? Won { get; set; }
     }
 
     public class FootballTopScorersFouls
     {
         [JsonPropertyName("drawn")]
-        public int Drawn { get; set; }
+        public int? Drawn { get; set; }
 
         [JsonPropertyName("committed")]
-        public int Committed { get; set; }
+        public int? Committed { get; set; }
     }
 
     public class FootballTopScorersGames
     {
         [JsonPropertyName("appearences")]
-        public int Appearences { get; set; }
+        public int? Appearences { get; set; }
 
         [JsonPropertyName("lineups")]
-        public int Lineups { get; set; }
+        public int? Lineups { get; set; }
 
         [JsonPropertyName("minutes")]
-        public int Minutes { get; set; }
+        public int? Minutes { get; set; }
 
         [JsonPropertyName("number")]
         public object Number { get; set; }
@@ -88,10 +88,10 @@ namespace Sportify.Model
     public class FootballTopScorersGoals
     {
         [JsonPropertyName("total")]
-        public int Total { get; set; }
+        public int? Total { get; set; }
 
         [JsonPropertyName("conceded")]
-        public int Conceded { get; set; }
+        public int? Conceded { get; set; }
 
         [JsonPropertyName("assists")]
         public int? Assists { get; set; }
@@ -103,7 +103,7 @@ namespace Sportify.Model
     public class FootballTopScorersLeague
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -118,16 +118,16 @@ namespace Sportify.Model
         public string Flag { get; set; }
 
         [JsonPropertyName("season")]
-        public int Season { get; set; }
+        public int? Season { get; set; }
     }
 
     public class FootballTopScorersPaging
     {
         [JsonPropertyName("current")]
-        public int Current { get; set; }
+        public int? Current { get; set; }
 
         [JsonPropertyName("total")]
-        public int Total { get; set; }
+        public int? Total { get; set; }
     }
 
     public class FootballTopScorersParameters
@@ -142,13 +142,13 @@ namespace Sportify.Model
     public class FootballTopScorersPasses
     {
         [JsonPropertyName("total")]
-        public int Total { get; set; }
+        public int? Total { get; set; }
 
         [JsonPropertyName("key")]
-        public int Key { get; set; }
+        public int? Key { get; set; }
 
         [JsonPropertyName("accuracy")]
-        public int Accuracy { get; set; }
+        public int? Accuracy { get; set; }
     }
 
     public class FootballTopScorersPenalty
@@ -160,10 +160,10 @@ namespace Sportify.Model
         public object Commited { get; set; }
 
         [JsonPropertyName("scored")]
-        public int Scored { get; set; }
+        public int? Scored { get; set; }
 
         [JsonPropertyName("missed")]
-        public int Missed { get; set; }
+        public int? Missed { get; set; }
 
         [JsonPropertyName("saved")]
         public object Saved { get; set; }
@@ -172,7 +172,7 @@ namespace Sportify.Model
     public class FootballTopScorersPlayer
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -184,7 +184,7 @@ namespace Sportify.Model
         public string Lastname { get; set; }
 
         [JsonPropertyName("age")]
-        public int Age { get; set; }
+        public int? Age { get; set; }
 
         [JsonPropertyName("birth")]
         public FootballTopScorersBirth Birth { get; set; }
@@ -212,6 +212,9 @@ namespace Sportify.Model
 
         [JsonPropertyName("statistics")]
         public List<FootballTopScorersStatistic> Statistics { get; set; }
+
+        public string NameNation => $"{Player.Name}, {Player.Nationality}";
+
     }
 
     public class FootballTopScorers
@@ -226,7 +229,7 @@ namespace Sportify.Model
         public List<object> Errors { get; set; }
 
         [JsonPropertyName("results")]
-        public int Results { get; set; }
+        public int? Results { get; set; }
 
         [JsonPropertyName("paging")]
         public FootballTopScorersPaging Paging { get; set; }
@@ -238,10 +241,10 @@ namespace Sportify.Model
     public class FootballTopScorersShots
     {
         [JsonPropertyName("total")]
-        public int Total { get; set; }
+        public int? Total { get; set; }
 
         [JsonPropertyName("on")]
-        public int On { get; set; }
+        public int? On { get; set; }
     }
 
     public class FootballTopScorersStatistic
@@ -289,13 +292,13 @@ namespace Sportify.Model
     public class FootballTopScorersSubstitutes
     {
         [JsonPropertyName("in")]
-        public int In { get; set; }
+        public int? In { get; set; }
 
         [JsonPropertyName("out")]
-        public int Out { get; set; }
+        public int? Out { get; set; }
 
         [JsonPropertyName("bench")]
-        public int Bench { get; set; }
+        public int? Bench { get; set; }
     }
 
     public class FootballTopScorersTackles
@@ -313,7 +316,7 @@ namespace Sportify.Model
     public class FootballTopScorersTeam
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
