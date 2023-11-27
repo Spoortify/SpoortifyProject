@@ -1,0 +1,36 @@
++-----------------------------------------+
+|               HighestRaceFinish          |
+|-----------------------------------------|
+| Position: int?                          |
+| Number: int?                            |
++-----------------------------------------+
+
++-----------------------------------------+
+|               TeamResponse              |
+|-----------------------------------------|
+| Id: int                                 |
+| Name: string                            |
+| Logo: string                            |
+| Base: string                            |
+| FirstTeamEntry: int?                    |
+| WorldChampionships: int?                |
+| HighestRaceFinish: HighestRaceFinish    |
+| PolePositions: int?                     |
+| FastestLaps: int?                       |
+| President: string                       |
+| Director: string                        |
+| TechnicalManager: string                |
+| Chassis: string                         |
+| Engine: string                          |
+| Tyres: string                           |
++-----------------------------------------+
+
++-----------------------------------------+
+|             Formula1Teams               |
+|-----------------------------------------|
+| Get: string                             |
+| Parameters: List<object>                |
+| Errors: List<object>                    |
+| Results: int                            |
+| Response: List<TeamResponse>            |
++-----------------------------------------+

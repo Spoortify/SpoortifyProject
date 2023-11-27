@@ -1,0 +1,52 @@
++-------------------------------------+
+|             <<class>>               |
+|      CurrentSeasonController        |
+|-------------------------------------|
+| # DriverVisible: bool                |
+| # ConstructorVisible: bool           |
+| # ResultsVisible: bool               |
+| # Formula1: Formula1                 |
+| # Constructor: Constructors          |
+| # RaceResult: Result                 |
+| # Results: List<ResultsResponse>     |
+|-------------------------------------|
+| + DriverStandings(): Task           |
+| + ConstructorStandings(): Task      |
+| + RaceResults(): Task               |
+| + RaceDetails(detail: ResultsResponse): Task|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|          ResultsResponse            |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|             Formula1                |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|          Constructors               |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|             Result                  |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|            Details                  |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+

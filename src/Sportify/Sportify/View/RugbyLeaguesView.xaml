@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.RugbyLeaguesView"
+             xmlns:model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             x:DataType="controller:RugbyLeaguesController"
+             Title="RugbyLeagues">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Picker ItemsSource="{Binding Seasons}" WidthRequest="100" 
+                    SelectedItem="{Binding SelectedSeasonLeagues}" HorizontalOptions="Center"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                   IsVisible="{Binding IsBusy}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   WidthRequest="50"
+                   HeightRequest="50"
+                   Color="White"/>
+            <CollectionView ItemsSource="{Binding RugbyLeagues}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:RugbyLeagueResponse">
+                        <Frame BackgroundColor="#5B5A5A" HeightRequest="150">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type controller:RugbyLeaguesController}}, Path=GoToRugbyLeagueStandingsCommand}"
+                                    CommandParameter="{Binding .}"/>    
+                            </Frame.GestureRecognizers>
+                            <Grid ColumnDefinitions="*, *">
+                                <VerticalStackLayout>
+                                    <Image Source="{Binding Logo}" Style="{StaticResource BaseImage}"/>
+                                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Image Source="{Binding Country.Flag}" Style="{StaticResource BaseImage}"/>
+                                    <Label Text="{Binding Country.Name}" Style="{StaticResource BaseLabel}"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

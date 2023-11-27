@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.ViewTypes"
+             Title="ViewTypes"
+             xmlns:Model="clr-namespace:Sportify.Model"
+             xmlns:Controller="clr-namespace:Sportify.Controller">
+    <ContentPage.BindingContext>
+        <Controller:ControllerType/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label Text="{Binding Game.Teams.Home.Name}"/>
+        <Label Text="{Binding Game.Teams.Away.Name}"/>
+        <!--<Label Text="{Binding Game.Scores.Away.Logo}"/>
+        <Label Text="{Binding Game.Scores.Home.Logo}"/>-->
+        <Label Text="{Binding Game.Scores.Away.Total}"/>
+        <Label Text="{Binding Game.Scores.Home.Total}"/>
+    </VerticalStackLayout>
+</ContentPage>

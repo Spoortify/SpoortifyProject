@@ -1,0 +1,45 @@
++------------------+
+|   Formula1Driver   |
++------------------+
+| - Id: int                     |
+| - Name: string        |
+| - Abbr: string        |
+| - Number: int?        |
+| - Image: string       |
++------------------+
+
++----------------------+
+| Formula1Parameters |
++----------------------+
+| - Season: string     |
++----------------------+
+
++---------------------+
+|  Formula1Response   |
++---------------------+
+| - Position: int            |
+| - Driver: Formula1Driver  |
+| - Team: Formula1Team  |
+| - Points: int?           |
+| - Wins: int                |
+| - Behind: int?         |
+| - Season: int            |
++---------------------+
+
++-----------------+
+|     Formula1      |
++-----------------+
+| - Get: string          |
+| - Parameters: Formula1Parameters |
+| - Errors: List<object>          |
+| - Results: int              |
+| - Response: List<Formula1Response> |
++-----------------+
+
++------------------+
+|   Formula1Team  |
++------------------+
+| - Id: int                    |
+| - Name: string       |
+| - Logo: string       |
++------------------+

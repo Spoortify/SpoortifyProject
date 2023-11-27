@@ -1,0 +1,249 @@
+@startuml Sportify_class_diagram
+
+class ObservableObject {
+}
+
+class RelayCommand {
+}
+
+class SportController {
+  - isBusy: bool
+  - sportGame: List<SportResponse>
+  - _selectedDate: DateTime
+
+  + SelectedDate: DateTime
+  + SportController()
+  + ShowGames(): Task
+  + GoToSportGameDetails(sport: SportResponse): Task
+  + GoToLeagues(): Task
+  + GoToHome(): Task
+}
+
+class HomePage {
+  + run(): void
+  - sport: Sport
+}
+
+class SportModel {
+  + Get: string
+  + Parameters: SportParameters
+  + Errors: List<object>
+  + Results: int
+  + Responses: List<SportResponse>
+}
+
+class SportTeamHome {
+  + Id: int
+  + Name: string
+  + Logo: string
+}
+
+class SportTeamAway {
+  + Id: int
+  + Name: string
+  + Logo: string
+}
+
+class SportGameLeague {
+  + Id: int
+  + Name: string
+  + Type: string
+  + Logo: string
+  + Season: int
+}
+
+class SportGameParameters {
+  + Date: string
+}
+
+class SportResponse {
+  + Id: int
+  + Date: DateTime
+  + Time: string
+  + Timestamp: int
+  + Timezone: string
+  + Status: SportStatus
+  + Country: SportCountry
+  + League: SportGameLeague
+  + Teams: SportTeams
+  + Score: SportScore
+  + Periods: SportPeriods
+}
+
+class SportScore {
+  + Home: int?
+  + Away: int?
+}
+
+class SportStatus {
+  + long: string
+  + short: string
+  + elapsed: int?
+}
+
+class SportTeams {
+  + Home: SportTeamHome
+  + Away: SportTeamAway
+}
+
+class SportCountry {
+  + Id: int?
+  + Name: string
+  + Code: string?
+  + Flag: string?
+}
+
+class SportPeriods {
+  + First: SportFirst?
+  + Second: SportSecond?
+}
+
+class SportFirst {
+  + HomePoints: int?
+  + AwayPoints: int?
+}
+
+class SportSecond {
+  + HomePoints: int?
+  + AwayPoints: int?
+}
+
+class ScrollView {
+  + Margin: Thickness
+}
+
+class StackLayout {
+  + Orientation: StackOrientation
+}
+
+class Label {
+  + Text: string
+  + Style: Style
+  + FontSize: double
+  + TextColor: Color
+  + Margin: Thickness
+}
+
+class Grid {
+  + ColumnDefinitions: ColumnDefinitionCollection
+}
+
+class DatePicker {
+  + MinimumDate: DateTime
+  + Date: DateTime
+  + DateSelected: EventHandler<DateChangedEventArgs>
+  + Margin: Thickness
+  + HorizontalOptions: LayoutOptions
+  + VerticalOptions: LayoutOptions
+  + WidthRequest: double
+  + HeightRequest: double
+  + BackgroundColor: Color
+  + TextColor: Color
+}
+
+class Button {
+  + Text: string
+  + Command: ICommand
+  + BackgroundColor: Color
+  + TextColor: Color
+  + CornerRadius: double
+  + Margin: Thickness
+  + WidthRequest: double
+  + HeightRequest: double
+  + BorderColor: Color
+  + BorderWidth: double
+}
+
+class ActivityIndicator {
+  + IsRunning: bool
+  + IsVisible: bool
+  + VerticalOptions: LayoutOptions
+  + HorizontalOptions: LayoutOptions
+  + WidthRequest: double
+  + HeightRequest: double
+  + Margin: Thickness
+  + Color: Color
+}
+
+class CollectionView {
+  + ItemsSource: IEnumerable
+}
+
+class DataTemplate {
+}
+
+class Frame {
+  + BackgroundColor: Color
+  + CornerRadius: double
+  + Margin: Thickness
+  + WidthRequest: double
+  + HeightRequest: double
+  + BorderColor: Color
+  + GestureRecognizers: IList<IGestureRecognizer>
+}
+
+class TapGestureRecognizer {
+  + Command: ICommand
+  + CommandParameter: object
+}
+
+class Image {
+  + Source: ImageSource
+  + Style: Style
+}
+
+class VerticalStackLayout {
+  + HorizontalOptions: LayoutOptions
+  + VerticalOptions: LayoutOptions
+}
+
+class SportView {
+  + ScrollView: ScrollView
+  + StackLayout: StackLayout
+  + Label: Label
+  + Grid: Grid
+  + DatePicker: DatePicker
+  + Button: Button
+  + ActivityIndicator: ActivityIndicator
+  + CollectionView: CollectionView
+  + DataTemplate: DataTemplate
+  + Frame: Frame
+  + TapGestureRecognizer: TapGestureRecognizer
+  + Image: Image
+  + VerticalStackLayout: VerticalStackLayout
+}
+
+SportTeamAway --o SportTeams : Aggregazione
+SportTeamHome --o SportTeams : Aggregazione
+SportGameLeague --o SportResponse : Aggregazione
+SportGameParameters --* SportModel : Composizione
+SportResponse --* SportModel : Composizione
+SportScore --* SportResponse : Composizione
+SportStatus --* SportResponse : Composizione
+SportTeams --* SportResponse : Composizione
+SportCountry --* SportResponse : Composizione
+SportPeriods --* SportResponse : Composizione
+SportFirst --* SportPeriods : Composizione
+SportSecond --* SportPeriods : Composizione
+Sportify *- HomePage : includes
+HomePage <|-- SportModel
+HomePage <|-- SportController
+HomePage <|-- SportView
+SportController --|> ObservableObject
+SportController --|> RelayCommand
+SportView -- SportController
+SportView -- ScrollView
+SportView -- StackLayout
+SportView -- Label
+SportView -- Grid
+SportView -- DatePicker
+SportView -- Button
+SportView -- ActivityIndicator
+SportView -- CollectionView
+SportView -- DataTemplate
+SportView -- Frame
+SportView -- TapGestureRecognizer
+SportView -- Image
+SportView -- VerticalStackLayout
+
+@enduml

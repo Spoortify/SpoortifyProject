@@ -1,0 +1,35 @@
++-------------------------------------+
+|             <<class>>               |
+|      HomeRugbyController            |
+|-------------------------------------|
+| # IsBusy: bool                       |
+| # RugbyGame: List<RugbyGameResponse>|
+| # SelectedDate: DateTime             |
+|-------------------------------------|
+| + HomeRugbyController()              |
+| + ShowGames(): Task                  |
+| + GoToRugbyGameDetails(rugbyGame: RugbyGameResponse): Task |
+| + GoToLeagues(): Task                 |
+| + GoToHome(): Task                   |
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|          RugbyGameResponse           |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|           RugbyGame                  |
+|-------------------------------------|
+| - Responses: List<RugbyGameResponse>|
++-------------------------------------+
+
++-------------------------------------+
+|             <<class>>               |
+|           RugbyLeague                |
+|-------------------------------------|
+| - /*proprieta' e metodi della classe*/|
++-------------------------------------+
