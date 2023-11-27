@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.ViewTypes"
+             Title="ViewTypes"
+             xmlns:Model="clr-namespace:Sportify.Model"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             BackgroundImageSource="baseball_4.png"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <Controller:ControllerType/>
+    </ContentPage.BindingContext>
+
+    
+    <Grid ColumnDefinitions="*, *">
+        <VerticalStackLayout Grid.Column="0" HorizontalOptions="Start">
+            <Label Text="{Binding Game.Teams.Home.Name}" TextColor="Blue" FontSize="45" FontFamily="fontBoom"/>
+            <Label Text="{Binding Game.Scores.Home.Total}" TextColor="Blue" FontSize="45" FontFamily="fontBoom"/>
+            <Image Source="{Binding Game.Teams.Home.Logo}" HeightRequest="250" WidthRequest="250"/>
+        </VerticalStackLayout>
+        
+        <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+            <Label Text="{Binding Game.Teams.Away.Name}" TextColor="Red" FontSize="45" FontFamily="fontBoom"/>
+            <Label Text="{Binding Game.Scores.Away.Total}" TextColor="Red" FontSize="45" FontFamily="fontBoom"/>
+            <Image Source="{Binding Game.Teams.Away.Logo}" HeightRequest="250" WidthRequest="250"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

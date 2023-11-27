@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.RugbyLeagueStandings"
+             xmlns:model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             x:DataType="controller:RugbyLeagueStandingsController"
+             Title="RugbyLeagueStandings"
+             BackgroundColor="#141822"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView Margin="100, 50, 100, 0">
+        <VerticalStackLayout>
+            <Label
+                Text="{Binding RugbyLeagueStandings[0].Stage, StringFormat='{0} standings 🏅'}"
+                Style="{StaticResource BaseLabel}"
+                FontSize="50"
+                TextColor="#f7f9fa"
+                Margin="0, 0, 0, 50"/>
+            
+            <CollectionView ItemsSource="{Binding RugbyLeagueStandings}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:RugbyLeagueStandingsResponse">
+                        <Frame BackgroundColor="#2f3652" HeightRequest="175"
+                               CornerRadius="25" Margin="0,0,0,10" BorderColor="Black">
+                            <Grid ColumnDefinitions="*, *, *, *, *, *, *">
+                                <Label Text="{Binding Position, StringFormat=' • {0}'}" Style="{StaticResource BaseLabel}"
+                                       FontSize="20"/>
+                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="{Binding Team.Logo}" Style="{StaticResource BaseImage}"/>
+                                    <Label Text="{Binding Team.Name}" Style="{StaticResource BaseLabel}"
+                                           Margin="0, 20, 0, 0"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding Points, StringFormat='Total points: {0}'}" Style="{StaticResource BaseLabel}"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding Games.Played, StringFormat='Total games played: {0}'}" Style="{StaticResource BaseLabel}"
+                                           Margin="0, 0, 0, 10" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Games.Win.Total, StringFormat='Win: {0}'}" Style="{StaticResource BaseLabel}"
+                                           Margin="0, 0, 0, 10" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Games.Win.Percentage, StringFormat='Win percentage: {0}%'}" Style="{StaticResource BaseLabel}"
+                                           HorizontalOptions="Start"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding Games.Draw.Total, StringFormat='Draw: {0}'}" Style="{StaticResource BaseLabel}"
+                                           Margin="0, 30, 0, 10" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Games.Draw.Percentage, StringFormat='Draw percentage: {0}%'}" Style="{StaticResource BaseLabel}"
+                                           HorizontalOptions="Start"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding Games.Lose.Total, StringFormat='Loose: {0} '}" Style="{StaticResource BaseLabel}"
+                                           Margin="0, 30, 0, 10" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Games.Lose.Percentage, StringFormat='Loose percentage: {0}%'}" Style="{StaticResource BaseLabel}"
+                                           HorizontalOptions="Start"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding Goals.For, StringFormat='Points for: {0} '}" Style="{StaticResource BaseLabel}"
+                                           Margin="0, 30, 0, 10" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Goals.Against, StringFormat='Points against: {0} '}" Style="{StaticResource BaseLabel}"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

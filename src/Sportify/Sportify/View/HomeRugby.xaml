@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.HomeRugby"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             x:DataType="controller:HomeRugbyController"
+             Title="HomeRugby"
+             BackgroundColor="#141822"
+             Shell.NavBarIsVisible="False">
+      
+    <ScrollView Margin="300, 50, 300, 0">
+        <StackLayout Orientation="Vertical">
+            <Label
+                Text="Rugby 🏈"
+                Style="{StaticResource BaseLabel}"
+                FontSize="50"/>
+            
+            <Grid ColumnDefinitions="*, *">
+                <DatePicker MinimumDate="01/01/2008"
+                            Date="{Binding SelectedDate, StringFormat=dd/M/yyyy}"
+                            DateSelected="OnDateSelected" Margin="0,20,0,20"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="125"
+                            HeightRequest="50"
+                            BackgroundColor="#8EBBFF"
+                            TextColor="#181b29"/>    
+                
+                <Button Text="Leagues"
+                        Grid.Column="1"
+                        Command="{Binding GoToLeaguesCommand}"
+                        BackgroundColor="#8EBBFF"
+                        TextColor="#24293E"
+                        CornerRadius="20"
+                        Margin="0,20,0,20"
+                        WidthRequest="200"
+                        HeightRequest="50"
+                        BorderColor="#24293E"
+                        BorderWidth="3"/>
+            </Grid>
+            
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               Margin="0,20,0,20"
+                               Color="#8EBBFF"/>
+            
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding RugbyGame}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:RugbyGameResponse">
+                            <Frame BackgroundColor="#2f3652" CornerRadius="25" Margin="0,0,0,10" 
+                                   WidthRequest="750" HeightRequest="175" BorderColor="Black">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type controller:HomeRugbyController}}, Path=GoToRugbyGameDetailsCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid
+                                    ColumnDefinitions="*, *, auto, *, *">
+                                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Image Source="{Binding Teams.Home.Logo}" Style="{StaticResource BaseImage}"/>
+                                        <Label Text="{Binding Teams.Home.Name}" Style="{StaticResource BaseLabel}" 
+                                               Margin="0, 20, 0, 0"/>
+                                    </VerticalStackLayout>
+                                    <Label Text="{Binding Score.Home}" Grid.Column="1" Style="{StaticResource BaseLabel}" 
+                                           FontSize="20"/>
+                                    <Label Text="-" Grid.Column="2" Style="{StaticResource BaseLabel}" 
+                                           FontSize="20"/>
+                                    <Label Text="{Binding Score.Away}" Grid.Column="3" Style="{StaticResource BaseLabel}" 
+                                           FontSize="20"/>
+                                    <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Image Source="{Binding Teams.Away.Logo}" Style="{StaticResource BaseImage}"/>
+                                        <Label Text="{Binding Teams.Away.Name}" Style="{StaticResource BaseLabel}"
+                                               Margin="0, 20, 0, 0"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <Label Text="No games today" Style="{StaticResource BaseLabel}" 
+                               TextColor="#8EBBFF" Margin="300"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
+    </ScrollView> 
+</ContentPage>

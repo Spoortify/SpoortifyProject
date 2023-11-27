@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.RugbyLeaguesView"
+             xmlns:model="clr-namespace:Sportify.Model"
+             xmlns:controller="clr-namespace:Sportify.Controller"
+             x:DataType="controller:RugbyLeaguesController"
+             Title="RugbyLeagues"
+             BackgroundColor="#141822"
+             Shell.NavBarIsVisible="False">
+    
+    <ScrollView Margin="300, 50, 300, 0">
+        <VerticalStackLayout>
+            <Label
+                Text="Rugby Leagues 🏆"
+                Style="{StaticResource BaseLabel}"
+                FontSize="50"/>     
+            
+            <Picker ItemsSource="{Binding Seasons}" WidthRequest="125" HeightRequest="50"
+                    SelectedItem="{Binding SelectedSeasonLeagues}" HorizontalOptions="Center"
+                    BackgroundColor="#8EBBFF" TextColor="#181b29" Margin="0,20,0,20"/>
+            
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                   IsVisible="{Binding IsBusy}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   WidthRequest="50"
+                   HeightRequest="50"
+                   Margin="0,20,0,20"
+                   Color="#8EBBFF"/>
+            
+            <CollectionView ItemsSource="{Binding RugbyLeagues}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:RugbyLeagueResponse">
+                        <Frame BackgroundColor="#2f3652" HeightRequest="175" WidthRequest="750"
+                               CornerRadius="25" Margin="0,0,0,10" BorderColor="Black">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type controller:RugbyLeaguesController}}, Path=GoToRugbyLeagueStandingsCommand}"
+                                    CommandParameter="{Binding .}"/>    
+                            </Frame.GestureRecognizers>
+                            <Grid ColumnDefinitions="*, *">
+                                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="{Binding Logo}" Style="{StaticResource BaseImage}"/>
+                                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}" 
+                                           Margin="0, 20, 0, 0"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <!--<Image Source="{Binding Country.Flag}" Style="{StaticResource BaseImage}"/>-->
+                                    <Label Text="{Binding Country.Name}" Style="{StaticResource BaseLabel}" 
+                                           Margin="0, 20, 0, 0"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

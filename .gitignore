@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 src/keys.json
+src/Sportify/.idea/.idea.Sportify/.idea/

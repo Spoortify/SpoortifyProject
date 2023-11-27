@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.ViewTeams"
+             Title="ViewTeams"
+             xmlns:Model="clr-namespace:Sportify.Model"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             x:DataType="Controller:ControllerTeams"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#05161A">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                Text="Baseball Teams ⚾"
+                Style="{StaticResource BaseLabel}"
+                FontSize="50"
+                Margin="30"
+                TextColor="#294D61"/>
+            
+            <ActivityIndicator IsRunning="{Binding IsLoading}"
+                   IsVisible="{Binding IsLoading}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   WidthRequest="50"
+                   HeightRequest="50"
+                   Margin="0,20,0,20"
+                   Color="#0F969C"/>
+            
+            <ScrollView>
+            <CollectionView ItemsSource="{Binding Game}">
+                <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="Model:TeamsResponse">
+                            <Frame HeightRequest="150" WidthRequest="900" BackgroundColor="#072E33" CornerRadius="30"
+                                   Margin="0,0,0,15" BorderColor="Black">
+                                <Grid
+                                    ColumnDefinitions="*, *, *">
+                                    <Label Text="{Binding Name}" Grid.Column="0" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
+                                    <Label Text="{Binding Country.Name}" Grid.Column="1" Style="{StaticResource BaseLabel}"
+                                           TextColor="#6DA5C0"/>
+                                    <Image Source="{Binding Logo}" Grid.Column="2" Style="{StaticResource BaseImage}"
+                                           WidthRequest="100" HeightRequest="100"/>
+                                </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ScrollView>
+</ContentPage>

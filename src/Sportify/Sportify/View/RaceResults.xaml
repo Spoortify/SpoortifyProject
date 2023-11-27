@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sportify.View.RaceResults"
+             Title="RaceResults"
+             xmlns:Controller="clr-namespace:Sportify.Controller"
+             xmlns:Model="clr-namespace:Sportify.Model"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <Controller:RaceResultsController/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <Image Source="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png" MaximumHeightRequest="50"
+                       />
+                <Label Text="Season:" Margin="0,15,0,0" HorizontalOptions="Center"/>
+                <Picker ItemsSource="{Binding Seasons}" Margin="20,0,0,0" WidthRequest="100" SelectedItem="{Binding Season}"
+                        HorizontalOptions="Center"/>
+                <Button Text="CONFIRM" Command="{Binding GetRacesCommand}" HorizontalOptions="Center"
+                        Margin="30,0,0,0" BackgroundColor="Red" TextColor="White" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <Frame BackgroundColor="Black" CornerRadius="0" IsVisible="{Binding ResultsVisible}">
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Label Text="TRACK MAP" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="RACE" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1"/>
+                    <Label Text="RACE DAY" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="2"/>
+                    <Label Text="NUMBER OF LAPS" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="3"/>
+                </Grid>
+            </Frame>
+            <CollectionView ItemsSource="{Binding Races}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:RaceResponse">
+                        <Frame BackgroundColor="White" CornerRadius="0">
+                            <Grid ColumnDefinitions="*,*,*,*">
+                                <Image Source="{Binding Circuit.Image}" MaximumHeightRequest="100" MaximumWidthRequest="100"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Competition.Name}" Grid.Column="1" VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="{Binding Date.Date, StringFormat='{0:dd-MM-yyyy}'}" Grid.Column="2"
+                                       VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Laps.Total, StringFormat='{0} Laps'}" Grid.Column="3" VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type Controller:RaceResultsController}}, 
+                                    Path=RaceDetailsCommand}" CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
