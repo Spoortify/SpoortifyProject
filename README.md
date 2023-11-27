@@ -87,7 +87,7 @@ Siamo entusiasti di accogliere contributi dalla community. Se desideri arricchir
 ### Clonare il Repository
 
 ```bash
-git clone https://github.com/tuonome/sportify.git
+git clone https://github.com/Spoortify/SpoortifyProject.git
 ```
 
 ### Aprire con Visual Studio
@@ -96,11 +96,24 @@ Apri il progetto con Visual Studio o il tuo ambiente di sviluppo preferito.
 
 ### Configurare le API Keys
 
-All'interno della repository di **Sportify**, le chiavi API necessarie per il corretto funzionamento del programma sono gestite in modo sicuro e non accessibile direttamente agli utenti. Questo file è strettamente riservato per motivi di sicurezza e per evitare un utilizzo improprio delle chiavi. **Sportify** utilizza un algoritmo interno per selezionare in modo casuale una chiave API da questo file, assicurando una distribuzione ottimale delle richieste alle API. Affinché il programma possa operare senza interruzioni 24 ore su 24, si consiglia di seguire attentamente le istruzioni fornite nella documentazione per garantire un monitoraggio efficace e automatico dello stato delle chiavi, senza la necessità di accesso diretto al file da parte dell'utente. :lock: :gear:
+Per garantire il corretto funzionamento del programma, è necessario configurare le chiavi API all'interno della repository di SpoortifyProject. Segui attentamente i passaggi seguenti:
+
+1. **Richiedi le Credenziali API:**
+Invia una e-mail a uno dei [Contributor](#collaboratori) dell'applicazione SpoortifyProject per richiedere le credenziali API necessarie per l'autenticazione. Assicurati di includere le informazioni pertinenti, come il motivo per cui hai bisogno delle credenziali e come intendi utilizzare l'API.
+
+2. **Ricevi il file `key.json`:**
+   Una volta che hai ricevuto l'approvazione e le credenziali sono state generate, il contributor ti fornirà il file `key.json`. Questo file è una chiave segreta che garantisce l'accesso sicuro alle risorse. **È severamente vietato condividere questo file con terze persone o renderlo pubblico.** Trattalo con estrema riservatezza, poiché contiene informazioni sensibili.
+
+3. **Inserisci il file nella cartella "SpoortifyProject/src":**
+   Dopo aver ricevuto il file `key.json`, posizionalo all'interno della cartella "SpoortifyProject/src" del progetto. Questo file è essenziale per l'autenticazione con l'API e garantirà il corretto funzionamento dell'applicazione.
+
+Ricorda di non condividere mai il file `key.json` pubblicamente o con persone non autorizzate, per evitare un uso improprio delle tue credenziali API. La violazione di questa regola potrebbe comportare la sospensione dell'accesso all'API e sanzioni legali.
 
 ### Compilare ed Eseguire
 
-Compila il progetto ed eseguilo per iniziare a esplorare Sportify.
+Compila il progetto ed eseguilo per iniziare a esplorare SportifyProject. 🚀
+
+**Divertiti ad esplorare il mondo dello sport con SpoortifyProject!**
 
 ## Ringraziamenti <a name="ringraziamenti"></a>
 
@@ -119,7 +132,7 @@ Questa licenza è scelta con cura per favorire uno sviluppo aperto e collaborati
 
 ----
 ## UML Sequence Diagram <a name="uml-sequence-diagram"></a>
-<img src="https://www.planttext.com/api/plantuml/png/d5HBRjj03Dth54HMAM3d05u42TAD2pG9BBHxUaGh1CP3TuPoK5-jYnwfLoZriVMf0WDTIPmPFZxoaVppw_T3KenQxNsch9xWCsCPSRz7A1Xo-b5HE24iOHsK8fvO0i4t9RCMy9tfVG5F4ZIAznGNy5KAyd3x69MTU5G1GoHLB3sRzIdBqAd43Y7RIXKAZ3yXFqZK6YvpBLfxqaDdzfwrUzX4oGfKt68Yk7byNQ-WmFIs5Op57HvukHFHBNf_vsH_0vZ0temmDfGE4X8rZFY8UauhQp-mlEzPhI1tP2c05qZrOU_KCx_yNLnx-Yju5kKTEuJao2jsC0ND04t01qMOs7MW9lSDkpScKx8suM0tPwAGo5EjcbM_nwsBKRzSpZ7Ti7dMM5_ob-UvaBq6AnCtKMJqV3fr3cFohLJzxtp8bxAq9f4608e1f96-Gk0f4e9q_cDbnqmknqCoz-CxWxFCOzMs-OpRsUhJw6YCRvsHCkfJTMSfp4fWMh9MRBqoyPn2TgD08sa_h5dRo-jmP9mmjb71PfwlTFOSM_lVKRIDSUHKjRgr1RG9vGzQ_8ggEVeZDlu3K3DkZMeWHobXP5id_zDi5xgf3cAhgMIPf_fFSQVpEBphjiS3XSAswLy0003__mC0" alt="PlantUML Diagram">
+<img src="https://shorturl.at/fjrMU" alt="PlantUML Diagram">
 
 ----
 ## UML Class Diagram <a name="uml-class-diagram"></a>
