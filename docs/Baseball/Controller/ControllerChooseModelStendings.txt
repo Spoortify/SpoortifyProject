@@ -1,0 +1,11 @@
++---------------------------------------------+
+|             ControllerChooseModeStandings    |
+|---------------------------------------------|
+| - season: int                               |
+| - league: int                                |
+|---------------------------------------------|
+| + ControllerChooseModeStandings(s: int, l: int)|
+| + Start(): Task                              |
+| + ButtonTeams(): void                        |
+| + ButtonClassifica(): void                   |
++---------------------------------------------+

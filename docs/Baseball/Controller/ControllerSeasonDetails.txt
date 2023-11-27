@@ -1,0 +1,15 @@
++---------------------------------+
+|          ControllerSeasonDetails        |
++---------------------------------+
+| - myDeserializedClass: BaseballLeagues |
+| - Game: ObservableCollection<BaseballLeaguesResponse> |
+| - season: int                               |
++---------------------------------+
+| + ControllerSeasonDetails(s: int)               |
+| + CreateList()                                        |
+| + Start(): Task                                       |
+| + TeamsDetails(r: BaseballLeaguesResponse): void |
+| + LinkQuery(): string                                 |
+| + GetBaseballApi(): Task                            |
++---------------------------------+
+

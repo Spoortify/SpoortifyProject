@@ -1,0 +1,44 @@
++-----------------------------------------+
+|              BaseballLeaguesCountry     |
++-----------------------------------------+
+| - Id: int                               |
+| - Name: string                          |
+| - Code: string                          |
+| - Flag: string                          |
++-----------------------------------------+
+
++-----------------------------------------+
+|           BaseballLeaguesParameters      |
++-----------------------------------------+
+| - Season: string                        |
++-----------------------------------------+
+
++-----------------------------------------+
+|          BaseballLeaguesResponse        |
++-----------------------------------------+
+| - Id: int                               |
+| - Name: string                          |
+| - Type: string                          |
+| - Logo: string                          |
+| - Country: BaseballLeaguesCountry       |
+| - Seasons: List<BaseballSeason>         |
++-----------------------------------------+
+
++-----------------------------------------+
+|             BaseballLeagues             |
++-----------------------------------------+
+| - Get: string                           |
+| - Parameters: BaseballLeaguesParameters |
+| - Errors: List<object>                   |
+| - Results: int                          |
+| - Response: List<BaseballLeaguesResponse>|
++-----------------------------------------+
+
++-----------------------------------------+
+|             BaseballSeason              |
++-----------------------------------------+
+| - season: int                           |
+| - Current: bool                         |
+| - Start: string                         |
+| - End: string                           |
++-----------------------------------------+

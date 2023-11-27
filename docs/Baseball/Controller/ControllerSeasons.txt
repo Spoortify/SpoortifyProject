@@ -1,0 +1,12 @@
++---------------------------------+
+|           ControllerSeasons     |
++---------------------------------+
+| - myDeserializedClass: BaseballSeasons    |
+| - Game: ObservableCollection<int>         |
++---------------------------------+
+| + CreateList()                     |
+| + Start(): Task                    |
+| + SeasonDetails(response: int)    |
+| + GetBaseballApi(): Task           |
++---------------------------------+
+

@@ -1,0 +1,33 @@
++---------------------------------------+
+|              BaseballController       |
++---------------------------------------+
+| - myDeserializedClass: BaseballGame   |
+| - Game: ObservableCollection<BaseballGameResponse>|
++---------------------------------------+
+| + BaseballController()                |
+| + CreateList(): void                   |
+| + Start(): Task                        |
+| + OpenDetails(response: BaseballGameResponse): void|
+| + GetBaseballApi(): Task               |
++---------------------------------------+
+
++---------------------------------------+
+|          BaseballGame                 |
++---------------------------------------+
+| - Response: List<BaseballGameResponse>|
++---------------------------------------+
+| + BaseballGame()                      |
++---------------------------------------+
+
++---------------------------------------+
+|    BaseballGameResponse               |
++---------------------------------------+
+| Properties from BaseballGameResponse  |
++---------------------------------------+
+
++---------------------------------------+
+|             ViewTypes                  |
++---------------------------------------+
+| Properties and methods from ViewTypes |
++---------------------------------------+
+

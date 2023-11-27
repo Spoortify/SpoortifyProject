@@ -1,0 +1,110 @@
++----------------------------------------+
+|             BaseballGame              |
++----------------------------------------+
+| - Get: string                         |
+| - Parameters: BaseballGameParameters  |
+| - Errors: List<object>                 |
+| - Results: int                         |
+| - Response: List<BaseballGameResponse> |
++----------------------------------------+
+
++----------------------------------------+
+|       BaseballGameParameters           |
++----------------------------------------+
+| - Date: string                         |
++----------------------------------------+
+
++----------------------------------------+
+|        BaseballGameResponse            |
++----------------------------------------+
+| - Id: int                              |
+| - Date: DateTime                       |
+| - Time: string                         |
+| - Timestamp: int                        |
+| - Timezone: string                      |
+| - Week: object                         |
+| - Status: BaseballGameStatus           |
+| - Country: BaseballGameCountry         |
+| - League: BaseballGameLeague            |
+| - Teams: BaseballGameTeams              |
+| - Scores: BaseballGameScores            |
++----------------------------------------+
+
++----------------------------------------+
+|        BaseballGameStatus              |
++----------------------------------------+
+| - Long: string                         |
+| - Short: string                        |
++----------------------------------------+
+
++----------------------------------------+
+|      BaseballGameCountry               |
++----------------------------------------+
+| - Id: int                              |
+| - Name: string                         |
+| - Code: string                         |
+| - Flag: string                         |
++----------------------------------------+
+
++----------------------------------------+
+|       BaseballGameLeague               |
++----------------------------------------+
+| - Id: int                              |
+| - Name: string                         |
+| - Type: string                         |
+| - Logo: string                         |
+| - Season: int                          |
++----------------------------------------+
+
++----------------------------------------+
+|       BaseballGameTeams                |
++----------------------------------------+
+| - Home: BaseballGameHome               |
+| - Away: BaseballGameAway               |
++----------------------------------------+
+
++----------------------------------------+
+|       BaseballGameScores               |
++----------------------------------------+
+| - Home: BaseballGameHome               |
+| - Away: BaseballGameAway               |
++----------------------------------------+
+
++----------------------------------------+
+|        BaseballGameHome                |
++----------------------------------------+
+| - Id: int                              |
+| - Name: string                         |
+| - Logo: string                         |
+| - Hits: object                         |
+| - Errors: object                       |
+| - Innings: BaseballGameInnings         |
+| - Total: object                        |
++----------------------------------------+
+
++----------------------------------------+
+|        BaseballGameAway                |
++----------------------------------------+
+| - Id: int                              |
+| - Name: string                         |
+| - Logo: string                         |
+| - Hits: object                         |
+| - Errors: object                       |
+| - Innings: BaseballGameInnings         |
+| - Total: object                        |
++----------------------------------------+
+
++----------------------------------------+
+|      BaseballGameInnings               |
++----------------------------------------+
+| - 1: object                            |
+| - 2: object                            |
+| - 3: object                            |
+| - 4: object                            |
+| - 5: object                            |
+| - 6: object                            |
+| - 7: object                            |
+| - 8: object                            |
+| - 9: object                            |
+| - Extra: object                        |
++----------------------------------------+
