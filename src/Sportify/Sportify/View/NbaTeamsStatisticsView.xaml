@@ -8,7 +8,8 @@
              BackgroundImageSource="{Binding BgiImage}"
              Title="TEAM INFO"
              Shell.TitleColor="White"
-             Shell.TabBarBackgroundColor="Black">
+             Shell.TabBarTitleColor="Black"
+             Shell.NavBarIsVisible="True">
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="auto,auto,80,auto,30,auto">
             <CollectionView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding TeamSeasonStandings}">

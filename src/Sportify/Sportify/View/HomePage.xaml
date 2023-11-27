@@ -9,10 +9,12 @@
     <ContentPage.BindingContext>
         <Controller:HomePageController/>
     </ContentPage.BindingContext>
-    <Grid RowDefinitions="Auto,*">
-        <Frame BackgroundColor="DarkBlue" CornerRadius="0" BorderColor="DarkBlue"/>
-        <HorizontalStackLayout BackgroundColor="DarkBlue" HorizontalOptions="Center">
-            <Label Text="CHOOSE SPORT" TextColor="White"
+    <Grid RowDefinitions="130,Auto,*">
+        <Label Text="SPORTIFY APP" FontSize="75" TextColor="White" HorizontalOptions="Center" Margin="5"
+               FontAttributes="Bold"/>
+        <Frame BackgroundColor="DarkBlue" CornerRadius="30" HeightRequest="80" BorderColor="DarkBlue" Grid.Row="1" WidthRequest="400"/>
+        <HorizontalStackLayout BackgroundColor="DarkBlue" HorizontalOptions="Center" Grid.Row="1">
+            <Label Text="Choose sport" TextColor="White"
                 FontAttributes="Bold" FontSize="40" MaximumHeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center"
                BackgroundColor="DarkBlue" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             <Button HorizontalOptions="Center" VerticalOptions="Center" Margin="10,0,0,0" 
@@ -33,8 +35,8 @@
             </Button>
         </HorizontalStackLayout>
         <Image Source="logo.png" Aspect="Fill" MaximumWidthRequest="600" MaximumHeightRequest="800"
-               Grid.Row="1" Margin="0,0,0,30"/>
-        <Frame Grid.Row="1" MaximumWidthRequest="600" MaximumHeightRequest="300" VerticalOptions="Start"
+               Grid.Row="2" Margin="0,0,0,30"/>
+        <Frame Grid.Row="2" MaximumWidthRequest="600" MaximumHeightRequest="300" VerticalOptions="Start"
                Margin="0" HorizontalOptions="Center" CornerRadius="0" BackgroundColor="DarkBlue" BorderColor="DarkBlue"
                Padding="0" IsVisible="{Binding IsVisible}">
             <Grid Padding="0" RowDefinitions="50,50,50,50,50,50" ColumnDefinitions="300">
