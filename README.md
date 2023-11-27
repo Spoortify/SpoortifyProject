@@ -107,7 +107,9 @@ Questa licenza è scelta con cura per favorire uno sviluppo aperto e collaborati
 
 ---
 
+```plantuml
 @startuml
+!theme blueprint
 title Diagramma di Sequenza - Interazione Utente, View, Controller, Model (Articolato e Dettagliato)
 
 actor Utente
@@ -152,5 +154,6 @@ deactivate SportController
 
 deactivate Utente
 @enduml
+'''
 
 *Esplora, gioca e vivi lo sport con Sportify!* 🌟
