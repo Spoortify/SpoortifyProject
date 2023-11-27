@@ -107,4 +107,50 @@ Questa licenza è scelta con cura per favorire uno sviluppo aperto e collaborati
 
 ---
 
+@startuml
+title Diagramma di Sequenza - Interazione Utente, View, Controller, Model (Articolato e Dettagliato)
+
+actor Utente
+boundary SportView
+control SportController
+entity SportModel
+database "API: dashboard.api-football.com" as API
+entity SportResponse
+
+activate Utente
+Utente -> SportView: Scegli lo sport
+activate SportView
+SportView -> SportController: Notifica scelta sport
+deactivate SportView
+
+activate SportController
+SportController -> API: Richiesta API per lo sport selezionato
+activate API
+API --> SportController: Risposta JSON
+SportController -> SportModel: Deserializza JSON
+activate SportModel
+SportModel --> SportController: Oggetto JSON deserializzato
+SportController -> SportModel: Crea oggetto SportResponse
+activate SportResponse
+SportModel -> SportResponse: Costruzione SportResponse
+SportResponse --> SportModel: SportResponse creato
+deactivate SportResponse
+SportModel --> SportController: Restituisce SportResponse
+deactivate SportModel
+deactivate API
+
+SportController -> SportView: Invia SportResponse alla View
+activate SportView
+SportView --> SportController: Conferma visualizzazione dati
+deactivate SportView
+
+SportController -> SportModel: Salva dati visualizzati (se necessario)
+activate SportModel
+SportModel --> SportController: Conferma salvataggio dati
+deactivate SportModel
+deactivate SportController
+
+deactivate Utente
+@enduml
+
 *Esplora, gioca e vivi lo sport con Sportify!* 🌟
