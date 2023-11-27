@@ -65,9 +65,9 @@ Sportify sfrutta appieno le potenzialità delle API di Dashboard Football API pe
 
 Siamo entusiasti di accogliere contributi dalla community. Se desideri arricchire Sportify con le tue idee, puoi farlo in vari modi:
 
-- Segnalando bug o problemi tramite le [issues](link_alle_issues).
-- Aggiungendo nuove funzionalità o migliorando quelle esistenti con [pull request](link_alle_pull_requests).
-- Migliorando la [documentazione](link_alla_documentazione).
+- Segnalando bug o problemi tramite le [issues](https://github.com/Spoortify/SpoortifyProject/issues).
+- Aggiungendo nuove funzionalità o migliorando quelle esistenti con [pull request](https://github.com/Spoortify/SpoortifyProject/pulls).
+- Migliorando la [documentazione](https://github.com/Spoortify/SpoortifyProject/tree/UML/docs).
 - Aiutando a testare l'app e segnalando eventuali problemi.
 
 ## Guida all'Installazione più Approfondita 🚀
@@ -97,7 +97,7 @@ Desideriamo ringraziare sinceramente tutti coloro che hanno contribuito o suppor
 ## Licenza
 Questo progetto è rilasciato sotto la licenza [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0), una licenza open source che conferisce agli utenti la libertà di utilizzare, modificare e distribuire il codice sorgente. La scelta di questa licenza è volta a garantire la massima trasparenza e condivisione del software.
 
-La [GNU GPL v3.0](https://opensource.org/licenses/GPL-3.0) conferisce diritti specifici agli utenti, permettendo loro di:
+La [GNU GPL v3.0](https://github.com/Spoortify/SpoortifyProject/blob/main/LICENSE) conferisce diritti specifici agli utenti, permettendo loro di:
 
 - **Esplorare**: Hai la libertà di utilizzare questo software per qualsiasi scopo.
 - **Adattare**: Puoi modificare il codice sorgente secondo le tue esigenze.
