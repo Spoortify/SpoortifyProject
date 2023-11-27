@@ -121,4 +121,9 @@ Questa licenza è scelta con cura per favorire uno sviluppo aperto e collaborati
 ## UML Sequence Diagram <a name="uml-sequence-diagram"></a>
 <img src="https://www.planttext.com/api/plantuml/png/d5HBRjj03Dth54HMAM3d05u42TAD2pG9BBHxUaGh1CP3TuPoK5-jYnwfLoZriVMf0WDTIPmPFZxoaVppw_T3KenQxNsch9xWCsCPSRz7A1Xo-b5HE24iOHsK8fvO0i4t9RCMy9tfVG5F4ZIAznGNy5KAyd3x69MTU5G1GoHLB3sRzIdBqAd43Y7RIXKAZ3yXFqZK6YvpBLfxqaDdzfwrUzX4oGfKt68Yk7byNQ-WmFIs5Op57HvukHFHBNf_vsH_0vZ0temmDfGE4X8rZFY8UauhQp-mlEzPhI1tP2c05qZrOU_KCx_yNLnx-Yju5kKTEuJao2jsC0ND04t01qMOs7MW9lSDkpScKx8suM0tPwAGo5EjcbM_nwsBKRzSpZ7Ti7dMM5_ob-UvaBq6AnCtKMJqV3fr3cFohLJzxtp8bxAq9f4608e1f96-Gk0f4e9q_cDbnqmknqCoz-CxWxFCOzMs-OpRsUhJw6YCRvsHCkfJTMSfp4fWMh9MRBqoyPn2TgD08sa_h5dRo-jmP9mmjb71PfwlTFOSM_lVKRIDSUHKjRgr1RG9vGzQ_8ggEVeZDlu3K3DkZMeWHobXP5id_zDi5xgf3cAhgMIPf_fFSQVpEBphjiS3XSAswLy0003__mC0" alt="PlantUML Diagram">
 
+----
+## UML Class Diagram <a name="uml-class-diagram"></a>
+<img src="https://shorturl.at/nxNQU" alt="PlantUML Diagram">
+
+
 *Esplora, gioca e vivi lo sport con Sportify!* 🌟
