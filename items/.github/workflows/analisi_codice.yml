@@ -1,0 +1,35 @@
+name: Code Analysis
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  analyze_code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.100-preview.7
+
+    - name: Build and Analyze Code
+      run: |
+        dotnet build
+        # Esegui qui il tuo strumento di analisi del codice (es. SonarQube, Codecov, ecc.)
+
+    - name: Generate Code Language Percentage Badge
+      run: |
+        # Calcola la percentuale di utilizzo dei linguaggi e genera un file con i dati
+        echo "csharp=50&javascript=30&python=20" > code_languages.txt
+
+    - name: Upload Code Language Percentage Badge
+      uses: actions/upload-artifact@v2
+      with:
+        name: code_languages
+        path: code_languages.txt

@@ -1,0 +1,54 @@
++---------------------+     +------------------------+     +-----------------------+     +------------------------+
+|      Circuit        |     | ResultsCompetition    |     | ResultsDriver         |     | FastestLap             |
++---------------------+     +------------------------+     +-----------------------+     +------------------------+
+| Id: int             |     | Id: int                |     | Id: int?              |     | Driver: ResultsDriver |
+| Name: string        |     | Name: string           |     +-----------------------+     | Time: string           |
+| Image: string       |     | Location: ResultsLocation|                                  +------------------------+
++---------------------+     +------------------------+     +-----------------------+
+                                                           
+                  +---------------------+                  
+                  |         Laps        |                  
+                  +---------------------+                  
+                  | Current: object     |                  
+                  | Total: int?          |                  
+                  +---------------------+                  
+
+                  +------------------------+                  
+                  |   ResultsLocation      |                  
+                  +------------------------+                  
+                  | Country: string        |                  
+                  | City: string           |                  
+                  +------------------------+                  
+
+                  +------------------------+                  
+                  | ResultsParameters      |                  
+                  +------------------------+                  
+                  | Season: string         |                  
+                  +------------------------+                  
+
+                  +------------------------+                  
+                  |   ResultsResponse      |                  
+                  +------------------------+                  
+                  | Id: int                |                  
+                  | Competition: ResultsCompetition |                  
+                  | Circuit: Circuit        |                  
+                  | Season: int             |                  
+                  | Type: string            |                  
+                  | Laps: Laps              |                  
+                  | FastestLap: FastestLap  |                  
+                  | Distance: string        |                  
+                  | Timezone: string        |                  
+                  | Date: DateTime          |                  
+                  | Weather: object         |                  
+                  | Status: string          |                  
+                  +------------------------+
+
+                  +------------------------+                  
+                  |        Result          |                  
+                  +------------------------+                  
+                  | Get: string             |                  
+                  | Parameters: ResultsParameters |                  
+                  | Errors: List<object>    |                  
+                  | Results: int            |                  
+                  | Response: List<ResultsResponse> |                  
+                  +------------------------+

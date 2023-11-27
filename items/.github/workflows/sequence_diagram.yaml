@@ -1,0 +1,20 @@
+name: PlantUML Rendering
+
+on:
+  push:
+    branches:
+      - README
+
+jobs:
+  render-plantuml:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup PlantUML
+      uses: mbuhot/setup-plantuml@v0.6.0
+
+    - name: Render PlantUML Diagrams
+      run: plantuml **/*.plantuml
