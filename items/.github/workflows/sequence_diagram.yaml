@@ -3,7 +3,7 @@ name: PlantUML Rendering
 on:
   push:
     branches:
-      - main
+      - README
 
 jobs:
   render-plantuml:
