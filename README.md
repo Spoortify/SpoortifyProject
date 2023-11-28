@@ -140,7 +140,7 @@ Questa licenza è scelta con cura per favorire uno sviluppo aperto e collaborati
 
 ----
 ## UML Class Diagram <a name="uml-class-diagram"></a>
-<img src="https://shorturl.at/nxNQU" alt="PlantUML Diagram">
+<img src="https://shorturl.at/kqyHM" alt="PlantUML Diagram">
 
 
 *Esplora, gioca e vivi lo sport con Sportify!* 🌟
